@@ -1,0 +1,37 @@
+﻿@model PokerStrategy.Web.ViewModels.Forum.CategoryModel
+
+<h1>Discussion Board</h1>
+<h1>@Model.Category.Title</h1>
+
+@if (Model.Threads.Any())
+{
+	<table class="table table-bordered table-hover">
+		<tbody>
+			@foreach (var t in Model.Threads)
+			{
+				<tr>
+					<td>
+						<a asp-controller="Thread"
+						   asp-action="Index"
+						   asp-route-id="@t.Id">
+							@t.Title
+						</a>
+					</td>
+					<td>
+						<!--t.AuthorName-->
+					</td>
+					<td>
+						@t.DateCreated
+					</td>
+					<td>
+						@t.RepliesCount
+					</td>
+				</tr>
+			}
+		</tbody>
+	</table>
+}
+else
+{
+	<h2>No threads in this Board yet.</h2>
+}

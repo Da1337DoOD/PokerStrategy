@@ -1,0 +1,22 @@
+﻿@model PokerStrategy.Web.ViewModels.Forum.ForumIndexModel
+
+<h1>Forum Categories</h1>
+<table class= "table table-hover" id="forumIndexTable">
+	<tbody>
+		@foreach (var cat in Model.ForumList)
+		{
+			<tr>
+				<td>
+					<a asp-controller="Forum" 
+					   asp-action="Category" 
+					   asp-route-id="@cat.Id">
+						<b>@cat.Title</b>
+					</a>
+				</td>
+				<td>
+					@cat.Description
+				</td>
+			</tr>
+		}
+	</tbody>
+</table>
