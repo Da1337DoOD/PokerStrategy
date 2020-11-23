@@ -1,8 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace PokerStrategy.Web.ViewModels.Forum
+﻿namespace PokerStrategy.Web.ViewModels.Forum
 {
+    using System;
+    using System.Collections.Generic;
+
     public class ThreadModel
     {
         public int Id { get; set; }

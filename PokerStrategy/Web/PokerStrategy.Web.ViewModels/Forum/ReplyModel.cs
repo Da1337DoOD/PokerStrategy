@@ -1,7 +1,7 @@
-﻿using System;
-
-namespace PokerStrategy.Web.ViewModels.Forum
+﻿namespace PokerStrategy.Web.ViewModels.Forum
 {
+    using System;
+
     public class ReplyModel
     {
         public int Id { get; set; }
