@@ -4,8 +4,8 @@
 
     public class CategoryModel
     {
-        public CategoryListingModel Category { get; set; }
+        public CategoriesListingModel Category { get; set; }
 
-        public IEnumerable<ThreadListingModel> Threads { get; set; }
+        public IEnumerable<ThreadsListingModel> Threads { get; set; }
     }
 }

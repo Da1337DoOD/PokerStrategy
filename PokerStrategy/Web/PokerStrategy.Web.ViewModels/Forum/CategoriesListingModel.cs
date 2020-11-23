@@ -1,6 +1,6 @@
 ﻿namespace PokerStrategy.Web.ViewModels.Forum
 {
-    public class CategoryListingModel
+    public class CategoriesListingModel
     {
         public int Id { get; set; }
 

@@ -4,6 +4,6 @@
 
     public class ForumIndexModel
     {
-        public IEnumerable<CategoryListingModel> ForumList { get; set; }
+        public IEnumerable<CategoriesListingModel> ForumList { get; set; }
     }
 }

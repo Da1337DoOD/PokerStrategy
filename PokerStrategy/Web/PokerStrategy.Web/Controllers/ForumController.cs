@@ -24,7 +24,7 @@
         {
             var allForumCategories = this.forumService
                 .GetAll()
-                .Select(x => new CategoryListingModel
+                .Select(x => new CategoriesListingModel
                 {
                     Id = x.Id,
                     Title = x.Title,
@@ -45,7 +45,7 @@
 
             var threads = this.threadService.GetThreadsByCategory(id);
 
-            var threadListing = threads.Select(t => new ThreadListingModel
+            var threadListing = threads.Select(t => new ThreadsListingModel
             {
                 Id = t.Id,
                 AuthorId = t.PostedById,
@@ -64,9 +64,9 @@
             return this.View(model);
         }
 
-        private CategoryListingModel BuildCategoryListing(ForumCategory category)
+        private CategoriesListingModel BuildCategoryListing(ForumCategory category)
         {
-            return new CategoryListingModel
+            return new CategoriesListingModel
             {
                 Id = category.Id,
                 Title = category.Title,
@@ -75,7 +75,7 @@
             };
         }
 
-        private CategoryListingModel BuildCategoryListing(ForumThread thread)
+        private CategoriesListingModel BuildCategoryListing(ForumThread thread)
         {
             var category = thread.Category;
             return this.BuildCategoryListing(category);
