@@ -48,7 +48,9 @@
             var threadListing = threads.Select(t => new ThreadsListingModel
             {
                 Id = t.Id,
+                Title = t.Title,
                 AuthorId = t.PostedById,
+                AuthorName = t.PostedBy.UserName,
                 AuthorPoints = t.PostedBy.Points,
                 DateCreated = t.CreatedOn.ToString(),
                 RepliesCount = t.Replies.Count(),

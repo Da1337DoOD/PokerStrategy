@@ -3,6 +3,7 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
+    using Microsoft.EntityFrameworkCore;
     using PokerStrategy.Data.Common.Repositories;
     using PokerStrategy.Data.Models;
 
@@ -47,8 +48,13 @@
 
         public ForumThread GetById(int id)
         {
-            // TODO
-            throw new System.NotImplementedException();
+            return this.threadRepository.All()
+                .Where(p => p.Id == id)
+                .Include(p => p.PostedBy)
+                .Include(p => p.Replies)
+                    .ThenInclude(r => r.PostedBy)
+                .Include(p => p.Category)
+                .FirstOrDefault();
         }
 
         public IEnumerable<ForumThread> GetFilteredThreads(string searchQuery)
