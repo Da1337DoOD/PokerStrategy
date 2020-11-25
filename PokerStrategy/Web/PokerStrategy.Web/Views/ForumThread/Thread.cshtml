@@ -1,0 +1,29 @@
+﻿@model PokerStrategy.Web.ViewModels.Forum.ThreadModel
+
+<h1>@Model.Title</h1>
+
+<div>
+	Author: @Model.PostedByName
+	Posted: @Model.CreatedOn
+</div>
+
+<div>
+	@Model.Content
+</div>
+
+@if (Model.Replies.Any())
+{
+	foreach (var reply in Model.Replies)
+	{
+		<div>
+			<div>
+				Author: @reply.PostedByName
+				Posted: @reply.RepliedOn
+			</div>
+
+			<div>
+				@reply.Content
+			</div>
+		</div>
+	}
+}

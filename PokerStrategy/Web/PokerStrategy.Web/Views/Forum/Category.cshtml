@@ -7,27 +7,27 @@
 {
 	<table class="table table-bordered table-hover">
 		<tbody>
-			@foreach (var t in Model.Threads)
+			@foreach (var thread in Model.Threads)
 			{
 			<tr>
 				<td>
-					<a asp-controller="Thread"
-					   asp-action="Index"
-					   asp-route-id="@t.Id">
-						@t.Title
+					<a asp-controller="ForumThread"
+					   asp-action="Thread"
+					   asp-route-id="@thread.Id">
+						@thread.Title
 					</a>
 				</td>
 				<td>
-					@t.AuthorName
+					@thread.AuthorName
 				</td>
 				<td>
-					@t.AuthorId
+					@thread.AuthorId
 				</td>
 				<td>
-					@t.DateCreated
+					@thread.DateCreated
 				</td>
 				<td>
-					@t.RepliesCount
+					@thread.RepliesCount
 				</td>
 			</tr>
 			}

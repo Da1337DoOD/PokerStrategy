@@ -17,7 +17,7 @@
             this.threadService = threadService;
         }
 
-        public IActionResult Index(int id)
+        public IActionResult Thread(int id)
         {
             var thread = this.threadService.GetById(id);
 
@@ -36,7 +36,7 @@
                 Replies = replies,
             };
 
-            return this.View(model);
+            return this.View(model); //model
         }
 
         private IEnumerable<ReplyModel> BuildThreadReplies(ICollection<ForumReply> replies)
