@@ -1,6 +1,7 @@
 ﻿namespace PokerStrategy.Data.Models
 {
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
 
     using PokerStrategy.Data.Common.Models;
 
@@ -13,6 +14,7 @@
 
         public string Title { get; set; }
 
+        [Required]
         public string AuthorId { get; set; }
 
         public virtual ApplicationUser Author { get; set; }

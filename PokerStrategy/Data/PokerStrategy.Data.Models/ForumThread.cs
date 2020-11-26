@@ -18,6 +18,7 @@
 
         public string Title { get; set; }
 
+        [Required]
         public string PostedById { get; set; }
 
         public virtual ApplicationUser PostedBy { get; set; }

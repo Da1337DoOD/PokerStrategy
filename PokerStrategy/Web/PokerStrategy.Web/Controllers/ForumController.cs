@@ -9,20 +9,20 @@
 
     public class ForumController : Controller
     {
-        private readonly IForumCategoryService forumService;
+        private readonly IForumCategoryService categoryService;
         private readonly IForumThreadService threadService;
 
         public ForumController(
             IForumCategoryService forumService,
             IForumThreadService threadService)
         {
-            this.forumService = forumService;
+            this.categoryService = forumService;
             this.threadService = threadService;
         }
 
         public IActionResult Index()
         {
-            var allForumCategories = this.forumService
+            var allForumCategories = this.categoryService
                 .GetAll()
                 .Select(x => new CategoriesListingModel
                 {
@@ -41,7 +41,7 @@
 
         public IActionResult Category(int id)
         {
-            var category = this.forumService.GetById(id);
+            var category = this.categoryService.GetById(id);
 
             var threads = this.threadService.GetThreadsByCategory(id);
 

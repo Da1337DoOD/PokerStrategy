@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PokerStrategy.Data;
 
 namespace PokerStrategy.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20201126093910_IshouldAddThisMigrationForSomeReason")]
+    partial class IshouldAddThisMigrationForSomeReason
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -315,7 +317,6 @@ namespace PokerStrategy.Data.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("PostedById")
-                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("ThreadId")
@@ -358,7 +359,6 @@ namespace PokerStrategy.Data.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("PostedById")
-                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("TimesSeen")
@@ -386,7 +386,6 @@ namespace PokerStrategy.Data.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("AuthorId")
-                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("CategoryId")
@@ -482,7 +481,6 @@ namespace PokerStrategy.Data.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("UserId")
-                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
@@ -513,7 +511,6 @@ namespace PokerStrategy.Data.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("FromUserId")
-                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<bool>("IsDeleted")
@@ -625,9 +622,7 @@ namespace PokerStrategy.Data.Migrations
                 {
                     b.HasOne("PokerStrategy.Data.Models.ApplicationUser", "PostedBy")
                         .WithMany("ForumReplies")
-                        .HasForeignKey("PostedById")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
+                        .HasForeignKey("PostedById");
 
                     b.HasOne("PokerStrategy.Data.Models.ForumThread", "Thread")
                         .WithMany("Replies")
@@ -646,18 +641,14 @@ namespace PokerStrategy.Data.Migrations
 
                     b.HasOne("PokerStrategy.Data.Models.ApplicationUser", "PostedBy")
                         .WithMany("ForumThreads")
-                        .HasForeignKey("PostedById")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
+                        .HasForeignKey("PostedById");
                 });
 
             modelBuilder.Entity("PokerStrategy.Data.Models.News", b =>
                 {
                     b.HasOne("PokerStrategy.Data.Models.ApplicationUser", "Author")
                         .WithMany("NewsPosted")
-                        .HasForeignKey("AuthorId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
+                        .HasForeignKey("AuthorId");
 
                     b.HasOne("PokerStrategy.Data.Models.NewsCategory", "Category")
                         .WithMany("News")
@@ -676,18 +667,14 @@ namespace PokerStrategy.Data.Migrations
 
                     b.HasOne("PokerStrategy.Data.Models.ApplicationUser", "User")
                         .WithMany("NewsComments")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
+                        .HasForeignKey("UserId");
                 });
 
             modelBuilder.Entity("PokerStrategy.Data.Models.ProfileMessage", b =>
                 {
                     b.HasOne("PokerStrategy.Data.Models.ApplicationUser", "FromUser")
                         .WithMany("ProfileMessages")
-                        .HasForeignKey("FromUserId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
+                        .HasForeignKey("FromUserId");
                 });
 #pragma warning restore 612, 618
         }

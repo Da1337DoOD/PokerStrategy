@@ -1,5 +1,7 @@
 ﻿namespace PokerStrategy.Data.Models
 {
+    using System.ComponentModel.DataAnnotations;
+
     using PokerStrategy.Data.Common.Models;
 
     public class NewsComment : BaseDeletableModel<int>
@@ -8,6 +10,7 @@
 
         public virtual News News { get; set; }
 
+        [Required]
         public string UserId { get; set; }
 
         public virtual ApplicationUser User { get; set; }

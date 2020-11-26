@@ -1,6 +1,5 @@
 ﻿namespace PokerStrategy.Data.Models
 {
-    using System;
     using System.Collections.Generic;
 
     using PokerStrategy.Data.Common.Models;

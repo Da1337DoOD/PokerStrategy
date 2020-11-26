@@ -9,6 +9,8 @@
 
         public string Title { get; set; }
 
+        public int CategoryId { get; set; }
+
         public string PostedById { get; set; }
 
         public string PostedByName { get; set; }

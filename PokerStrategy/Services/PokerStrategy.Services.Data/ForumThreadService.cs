@@ -3,6 +3,7 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
+
     using Microsoft.EntityFrameworkCore;
     using PokerStrategy.Data.Common.Repositories;
     using PokerStrategy.Data.Models;
@@ -16,10 +17,10 @@
             this.threadRepository = threadRepository;
         }
 
-        public Task Add(ForumThread thread)
+        public async Task Add(ForumThread thread)
         {
-            // TODO
-            throw new System.NotImplementedException();
+           await this.threadRepository.AddAsync(thread);
+           await this.threadRepository.SaveChangesAsync();
         }
 
         public Task AddReply(ForumReply reply)
