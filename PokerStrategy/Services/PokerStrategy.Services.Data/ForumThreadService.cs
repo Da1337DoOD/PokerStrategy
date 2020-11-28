@@ -43,8 +43,11 @@
 
         public IEnumerable<ForumThread> GetAll()
         {
-            // TODO
-            throw new System.NotImplementedException();
+            return this.threadRepository.All()
+                .Include(t => t.PostedBy)
+                .Include(t => t.Replies)
+                    .ThenInclude(r => r.PostedBy)
+                .Include(p => p.Category);
         }
 
         public ForumThread GetById(int id)
@@ -62,6 +65,13 @@
         {
             // TODO
             throw new System.NotImplementedException();
+        }
+
+        public IEnumerable<ForumThread> GetLatestThreads(int postsCount)
+        {
+            return this.GetAll()
+                .OrderByDescending(p => p.CreatedOn)
+                .Take(postsCount);
         }
 
         public IEnumerable<ForumThread> GetThreadsByCategory(int id)

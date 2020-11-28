@@ -1,9 +1,60 @@
-﻿@using PokerStrategy.Common
-@{
-    this.ViewData["Title"] = "Home Page";
-}
+﻿@model PokerStrategy.Web.ViewModels.Home.HomeIndexModel
 
-<div class="text-center">
-    <h1 class="display-4">Welcome to @GlobalConstants.SystemName!</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="container body-content">
+	<div class="row frontPageSplash">
+		<div class="frontPageHeading">
+			<h1>Everything about Poker</h1>
+		</div>
+
+		<div class="frontPageSubHeading">
+			<p><h3>News, Hand Discussions, Room Discussions, Funny Stories</h3></p>
+		</div>
+		<div>
+			<form asp-controller="Search" asp-action="Search" method="post">
+				<input asp-for="SearchQuery" type="text" class="homeSearch" placeholder="Search" />
+			</form>
+		</div>
+		<div class="col-md-6"></div>
+	</div>
+	<div class="row frontPageContent">
+		<h3 id="latestPosts">LatestPosts</h3>
+		<table class="table table-hover" id="latestPostsTable">
+			<tbody>
+				@foreach (var t in Model.LatestsPosts)
+				{
+					<tr>
+						<td>
+							<div class="forumLogo"
+								 style="background-image: url(@t.Category.ImageUrl); background-size=100%">
+							</div>
+							<div class="postTitle">
+								<a asp-controller="ForumThread" asp-action="Thread" asp-route-id ="@t.Id">
+									@t.Title
+								</a>
+							</div>
+							<div class="postSubtitle">
+								@if (t.RepliesCount == 1)
+								{
+									<span>@t.RepliesCount Reply</span>
+								}
+								else if (t.RepliesCount == 0)
+								{
+									<span>No Replies</span>
+								}
+								else
+								{
+									<span>@t.RepliesCount Replies</span>
+								}
+								<span class="postUser">
+									<a asp-controller="Profile" asp-action="Details" asp-route-id="@t.AuthorId">
+										@t.AuthorName
+									</a>
+								</span>
+							</div>
+						</td>
+					</tr>
+				}
+			</tbody>
+		</table>
+	</div>
 </div>
