@@ -61,7 +61,7 @@
             };
         }
 
-        public IActionResult Privacy()
+        public IActionResult GetPrivacy()
         {
             return this.View();
         }

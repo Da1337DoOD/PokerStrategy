@@ -4,7 +4,7 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
-
+    using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
     using PokerStrategy.Data.Models;
@@ -28,6 +28,7 @@
             this.userManager = userManager;
         }
 
+        [Authorize]
         public IActionResult Create(int id)
         {
             var category = this.categoryService.GetById(id);

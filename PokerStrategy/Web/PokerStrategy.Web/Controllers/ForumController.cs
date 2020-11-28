@@ -73,6 +73,7 @@
         [HttpPost]
         public IActionResult Search(int id, string searchQuery)
         {
+            // TODO
             return RedirectToAction("Thread", new { id, searchQuery });
         }
 
