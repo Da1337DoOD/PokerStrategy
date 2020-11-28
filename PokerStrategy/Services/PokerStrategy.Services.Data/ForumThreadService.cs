@@ -12,7 +12,9 @@
     {
         private readonly IDeletableEntityRepository<ForumThread> threadRepository;
 
-        public ForumThreadService(IDeletableEntityRepository<ForumThread> threadRepository)
+        public ForumThreadService(
+            IDeletableEntityRepository<ForumThread> threadRepository,
+            IDeletableEntityRepository<ForumCategory> categoryRepository)
         {
             this.threadRepository = threadRepository;
         }
@@ -61,10 +63,17 @@
                 .FirstOrDefault();
         }
 
-        public IEnumerable<ForumThread> GetFilteredThreads(string searchQuery)
+        public IEnumerable<ForumThread> GetFilteredThreads(ForumCategory category, string searchQuery)
         {
-            // TODO
-            throw new System.NotImplementedException();
+            return string.IsNullOrEmpty(searchQuery)
+                ?
+                category.Threads
+                    .OrderByDescending(t => t.CreatedOn)
+                :
+                category.Threads
+                    .Where(t => t.Title.Contains(searchQuery)
+                             || t.Content.Contains(searchQuery))
+                    .OrderByDescending(t => t.CreatedOn);
         }
 
         public IEnumerable<ForumThread> GetLatestThreads(int postsCount)

@@ -11,7 +11,7 @@
 
         IEnumerable<ForumThread> GetAll();
 
-        IEnumerable<ForumThread> GetFilteredThreads(string searchQuery);
+        IEnumerable<ForumThread> GetFilteredThreads(ForumCategory category, string searchQuery);
 
         IEnumerable<ForumThread> GetThreadsByCategory(int id);
 

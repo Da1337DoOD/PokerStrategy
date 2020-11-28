@@ -1,5 +1,6 @@
 ﻿namespace PokerStrategy.Web.Controllers
 {
+    using System.Collections.Generic;
     using System.Linq;
 
     using Microsoft.AspNetCore.Mvc;
@@ -39,11 +40,14 @@
             return this.View(model);
         }
 
-        public IActionResult Category(int id)
+        public IActionResult Category(int id, string searchQuery)
         {
             var category = this.categoryService.GetById(id);
 
-            var threads = this.threadService.GetThreadsByCategory(id);
+            var threads = this.threadService
+                .GetFilteredThreads(category, searchQuery)
+                .OrderByDescending(t => t.CreatedOn)
+                .ToList();
 
             var threadListing = threads.Select(t => new ThreadsListingModel
             {
@@ -64,6 +68,12 @@
             };
 
             return this.View(model);
+        }
+
+        [HttpPost]
+        public IActionResult Search(int id, string searchQuery)
+        {
+            return RedirectToAction("Thread", new { id, searchQuery });
         }
 
         private CategoriesListingModel BuildCategoryListing(ForumCategory category)
