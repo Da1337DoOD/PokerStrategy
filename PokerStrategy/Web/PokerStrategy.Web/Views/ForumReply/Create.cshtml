@@ -1,0 +1,40 @@
+﻿@model PokerStrategy.Web.ViewModels.Forum.ReplyModel
+
+<div class="container body-content">
+	<div class="row sectionHeader">
+		<div class="sectionHeading">
+			Reply | @Model.RepliedOn
+			<div class="forumLogo" style="background-color: lightgreen; background-size:100%"></div>
+			<span id="headingBtn"><a asp-controller="Category" asp-action="Index" asp-route-id="@Model.CategoryId" class="btn btn-back"><b>Back to @Model.CategoryTitle</b></a></span>
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="replyOriginalPost">
+			<h3>
+				@Model.ThreadTitle
+			</h3>
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="createPostSection">
+			<div class="authorBlock">
+				You are replying as: <span class="authorBlockName">@Model.PostedByName</span>
+			</div>
+			<form asp-action="AddReply" method="post" id="addPostForm">
+				<div asp-validation-summary="All" class="text-danger"></div>
+				<div class="form-group">
+					<label asp-for="Content">Post Content</label>
+					<textarea asp-for="Content" rows="20" class="form-control" placeholder="Write your reply here."></textarea>
+					<span asp-validation-for="Content" class="text-danger"></span>
+				</div>
+				<button type="submit" id="registerBtn" class="btn btn-submitPost">Submit Reply</button>
+				<input asp-for="PostedById" type="hidden" />
+				<input asp-for="ThreadId" type="hidden" />
+				<input asp-for="CategoryTitle" type="hidden" />
+				<input asp-for="CategoryId" type="hidden" />
+			</form>
+		</div>
+	</div>
+</div>

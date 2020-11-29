@@ -2,7 +2,7 @@
 {
     using System;
     using System.Threading.Tasks;
-
+    using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
     using PokerStrategy.Data.Models;
@@ -25,10 +25,13 @@
             this.userManager = userManager;
         }
 
-        public async Task<IActionResult> Create(int threadId)
+        [Authorize]
+        public async Task<IActionResult> Create(int id)
         {
             var user = await this.userManager
                 .FindByNameAsync(this.User.Identity.Name);
+
+            var thread = this.threadService.GetById(id);
 
             var model = new ReplyModel
             {
@@ -37,7 +40,10 @@
                 PostedByPoints = user.Points,
                 PostedByAvatarUrl = user.ImageUrl,
                 RepliedOn = DateTime.UtcNow,
-                ThreadId = threadId,
+                ThreadId = id,
+                ThreadTitle = thread.Title,
+                CategoryId = thread.Category.Id,
+                CategoryTitle = thread.Category.Title,
             };
 
             return this.View(model);
@@ -54,16 +60,18 @@
 
             await this.threadService.AddReply(reply);
 
-            return this.RedirectToAction("Index", "ForumThread", new { id = model.ThreadId });
+            return this.RedirectToAction("Thread", "ForumThread", new { id = model.ThreadId });
         }
 
         private ForumReply BuildReply(ReplyModel replyModel, ApplicationUser user)
         {
             var thread = this.threadService.GetById(replyModel.ThreadId);
+            var category = this.categoryService.GetById(replyModel.CategoryId);
 
             return new ForumReply
             {
                 Thread = thread,
+                Category = category,
                 Content = replyModel.Content,
                 CreatedOn = DateTime.UtcNow,
                 PostedBy = user,

@@ -11,6 +11,8 @@
 
         public int CategoryId { get; set; }
 
+        public string CategoryTitle { get; set; }
+
         public string PostedById { get; set; }
 
         public string PostedByName { get; set; }

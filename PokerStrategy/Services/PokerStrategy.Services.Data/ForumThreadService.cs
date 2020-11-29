@@ -11,12 +11,17 @@
     public class ForumThreadService : IForumThreadService
     {
         private readonly IDeletableEntityRepository<ForumThread> threadRepository;
+        private readonly IDeletableEntityRepository<ForumCategory> categoryRepository;
+        private readonly IDeletableEntityRepository<ForumReply> replyRepository;
 
         public ForumThreadService(
             IDeletableEntityRepository<ForumThread> threadRepository,
-            IDeletableEntityRepository<ForumCategory> categoryRepository)
+            IDeletableEntityRepository<ForumCategory> categoryRepository,
+            IDeletableEntityRepository<ForumReply> replyRepository)
         {
             this.threadRepository = threadRepository;
+            this.categoryRepository = categoryRepository;
+            this.replyRepository = replyRepository;
         }
 
         public async Task Add(ForumThread thread)
@@ -25,10 +30,10 @@
            await this.threadRepository.SaveChangesAsync();
         }
 
-        public Task AddReply(ForumReply reply)
+        public async Task AddReply(ForumReply reply)
         {
-            // TODO
-            throw new System.NotImplementedException();
+            await this.replyRepository.AddAsync(reply);
+            await this.replyRepository.SaveChangesAsync();
         }
 
         public Task Delete(int id)

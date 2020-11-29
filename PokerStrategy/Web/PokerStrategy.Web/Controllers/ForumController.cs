@@ -59,7 +59,7 @@
                 DateCreated = t.CreatedOn.ToString(),
                 RepliesCount = t.Replies.Count(),
                 Category = this.BuildCategoryListing(t),
-            });
+            }).OrderByDescending(t => t.DateCreated);
 
             var model = new CategoryModel
             {

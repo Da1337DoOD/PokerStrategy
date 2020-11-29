@@ -6,6 +6,10 @@
 
     public class ForumReply : BaseDeletableModel<int>
     {
+        public int CategoryId { get; set; }
+
+        public virtual ForumCategory Category { get; set; }
+
         public int ThreadId { get; set; }
 
         public virtual ForumThread Thread { get; set; }

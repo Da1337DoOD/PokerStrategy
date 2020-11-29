@@ -16,7 +16,13 @@
 
         public DateTime RepliedOn { get; set; }
 
+        public int CategoryId { get; set; }
+
+        public string CategoryTitle { get; set; }
+
         public int ThreadId { get; set; }
+
+        public string ThreadTitle { get; set; }
 
         public string Content { get; set; }
     }

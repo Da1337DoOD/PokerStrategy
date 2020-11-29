@@ -4,6 +4,7 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
+
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
@@ -50,7 +51,9 @@
         public async Task<IActionResult> AddThread(NewThreadModel model)
         {
             var userId = this.userManager.GetUserId(this.User);
+
             var user = await this.userManager.FindByIdAsync(userId);
+
             var thread = this.BuildThread(model, user);
 
             await this.threadService.Add(thread);
@@ -62,6 +65,8 @@
         {
             var thread = this.threadService.GetById(id);
 
+            var category = this.categoryService.GetById(thread.CategoryId);
+
             var replies = this.BuildThreadReplies(thread.Replies);
 
             var model = new ThreadModel
@@ -69,6 +74,7 @@
                 Id = thread.Id,
                 Title = thread.Title,
                 CategoryId = thread.CategoryId,
+                CategoryTitle = category.Title,
                 PostedById = thread.PostedById,
                 PostedByName = thread.PostedBy.UserName,
                 PostedByAvatarUrl = thread.PostedBy.ImageUrl,
