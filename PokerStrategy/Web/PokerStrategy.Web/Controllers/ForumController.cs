@@ -14,10 +14,10 @@
         private readonly IForumThreadService threadService;
 
         public ForumController(
-            IForumCategoryService forumService,
+            IForumCategoryService categoryService,
             IForumThreadService threadService)
         {
-            this.categoryService = forumService;
+            this.categoryService = categoryService;
             this.threadService = threadService;
         }
 

@@ -58,7 +58,7 @@
 
             await this.threadService.Add(thread);
 
-            return this.RedirectToAction("Index", "Forum");
+            return this.RedirectToAction("Thread", "ForumThread", new { id = thread.Id });
         }
 
         public IActionResult Thread(int id)
