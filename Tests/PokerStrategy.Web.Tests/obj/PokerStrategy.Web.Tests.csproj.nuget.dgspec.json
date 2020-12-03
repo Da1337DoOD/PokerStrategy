@@ -1,0 +1,921 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\Users\\Kolio\\Desktop\\New folder\\Tests\\PokerStrategy.Web.Tests\\PokerStrategy.Web.Tests.csproj": {}
+  },
+  "projects": {
+    "D:\\Users\\Kolio\\Desktop\\New folder\\Data\\PokerStrategy.Data.Common\\PokerStrategy.Data.Common.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Users\\Kolio\\Desktop\\New folder\\Data\\PokerStrategy.Data.Common\\PokerStrategy.Data.Common.csproj",
+        "projectName": "PokerStrategy.Data.Common",
+        "projectPath": "D:\\Users\\Kolio\\Desktop\\New folder\\Data\\PokerStrategy.Data.Common\\PokerStrategy.Data.Common.csproj",
+        "packagesPath": "C:\\Users\\Kolio\\.nuget\\packages\\",
+        "outputPath": "D:\\Users\\Kolio\\Desktop\\New folder\\Data\\PokerStrategy.Data.Common\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Kolio\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.1": {
+            "targetAlias": "netstandard2.1",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.1": {
+          "targetAlias": "netstandard2.1",
+          "dependencies": {
+            "StyleCop.Analyzers": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.2.0-beta.205, )"
+            },
+            "System.ComponentModel.Annotations": {
+              "target": "Package",
+              "version": "[4.7.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "NETStandard.Library": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\Users\\Kolio\\Desktop\\New folder\\Data\\PokerStrategy.Data.Models\\PokerStrategy.Data.Models.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Users\\Kolio\\Desktop\\New folder\\Data\\PokerStrategy.Data.Models\\PokerStrategy.Data.Models.csproj",
+        "projectName": "PokerStrategy.Data.Models",
+        "projectPath": "D:\\Users\\Kolio\\Desktop\\New folder\\Data\\PokerStrategy.Data.Models\\PokerStrategy.Data.Models.csproj",
+        "packagesPath": "C:\\Users\\Kolio\\.nuget\\packages\\",
+        "outputPath": "D:\\Users\\Kolio\\Desktop\\New folder\\Data\\PokerStrategy.Data.Models\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Kolio\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.1": {
+            "targetAlias": "netstandard2.1",
+            "projectReferences": {
+              "D:\\Users\\Kolio\\Desktop\\New folder\\Data\\PokerStrategy.Data.Common\\PokerStrategy.Data.Common.csproj": {
+                "projectPath": "D:\\Users\\Kolio\\Desktop\\New folder\\Data\\PokerStrategy.Data.Common\\PokerStrategy.Data.Common.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.1": {
+          "targetAlias": "netstandard2.1",
+          "dependencies": {
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.9, )"
+            },
+            "StyleCop.Analyzers": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.2.0-beta.205, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "NETStandard.Library": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\Users\\Kolio\\Desktop\\New folder\\Data\\PokerStrategy.Data\\PokerStrategy.Data.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Users\\Kolio\\Desktop\\New folder\\Data\\PokerStrategy.Data\\PokerStrategy.Data.csproj",
+        "projectName": "PokerStrategy.Data",
+        "projectPath": "D:\\Users\\Kolio\\Desktop\\New folder\\Data\\PokerStrategy.Data\\PokerStrategy.Data.csproj",
+        "packagesPath": "C:\\Users\\Kolio\\.nuget\\packages\\",
+        "outputPath": "D:\\Users\\Kolio\\Desktop\\New folder\\Data\\PokerStrategy.Data\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Kolio\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {
+              "D:\\Users\\Kolio\\Desktop\\New folder\\Data\\PokerStrategy.Data.Common\\PokerStrategy.Data.Common.csproj": {
+                "projectPath": "D:\\Users\\Kolio\\Desktop\\New folder\\Data\\PokerStrategy.Data.Common\\PokerStrategy.Data.Common.csproj"
+              },
+              "D:\\Users\\Kolio\\Desktop\\New folder\\Data\\PokerStrategy.Data.Models\\PokerStrategy.Data.Models.csproj": {
+                "projectPath": "D:\\Users\\Kolio\\Desktop\\New folder\\Data\\PokerStrategy.Data.Models\\PokerStrategy.Data.Models.csproj"
+              },
+              "D:\\Users\\Kolio\\Desktop\\New folder\\PokerStrategy.Common\\PokerStrategy.Common.csproj": {
+                "projectPath": "D:\\Users\\Kolio\\Desktop\\New folder\\PokerStrategy.Common\\PokerStrategy.Common.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.9, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.9, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[3.1.9, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.9, )"
+            },
+            "Microsoft.Extensions.Configuration.UserSecrets": {
+              "target": "Package",
+              "version": "[3.1.9, )"
+            },
+            "StyleCop.Analyzers": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.2.0-beta.205, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\Users\\Kolio\\Desktop\\New folder\\PokerStrategy.Common\\PokerStrategy.Common.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Users\\Kolio\\Desktop\\New folder\\PokerStrategy.Common\\PokerStrategy.Common.csproj",
+        "projectName": "PokerStrategy.Common",
+        "projectPath": "D:\\Users\\Kolio\\Desktop\\New folder\\PokerStrategy.Common\\PokerStrategy.Common.csproj",
+        "packagesPath": "C:\\Users\\Kolio\\.nuget\\packages\\",
+        "outputPath": "D:\\Users\\Kolio\\Desktop\\New folder\\PokerStrategy.Common\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Kolio\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.1": {
+            "targetAlias": "netstandard2.1",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.1": {
+          "targetAlias": "netstandard2.1",
+          "dependencies": {
+            "StyleCop.Analyzers": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.2.0-beta.205, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "NETStandard.Library": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\Users\\Kolio\\Desktop\\New folder\\Services\\PokerStrategy.Services.Data\\PokerStrategy.Services.Data.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Users\\Kolio\\Desktop\\New folder\\Services\\PokerStrategy.Services.Data\\PokerStrategy.Services.Data.csproj",
+        "projectName": "PokerStrategy.Services.Data",
+        "projectPath": "D:\\Users\\Kolio\\Desktop\\New folder\\Services\\PokerStrategy.Services.Data\\PokerStrategy.Services.Data.csproj",
+        "packagesPath": "C:\\Users\\Kolio\\.nuget\\packages\\",
+        "outputPath": "D:\\Users\\Kolio\\Desktop\\New folder\\Services\\PokerStrategy.Services.Data\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Kolio\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.1": {
+            "targetAlias": "netstandard2.1",
+            "projectReferences": {
+              "D:\\Users\\Kolio\\Desktop\\New folder\\Data\\PokerStrategy.Data.Common\\PokerStrategy.Data.Common.csproj": {
+                "projectPath": "D:\\Users\\Kolio\\Desktop\\New folder\\Data\\PokerStrategy.Data.Common\\PokerStrategy.Data.Common.csproj"
+              },
+              "D:\\Users\\Kolio\\Desktop\\New folder\\Data\\PokerStrategy.Data.Models\\PokerStrategy.Data.Models.csproj": {
+                "projectPath": "D:\\Users\\Kolio\\Desktop\\New folder\\Data\\PokerStrategy.Data.Models\\PokerStrategy.Data.Models.csproj"
+              },
+              "D:\\Users\\Kolio\\Desktop\\New folder\\Services\\PokerStrategy.Services.Mapping\\PokerStrategy.Services.Mapping.csproj": {
+                "projectPath": "D:\\Users\\Kolio\\Desktop\\New folder\\Services\\PokerStrategy.Services.Mapping\\PokerStrategy.Services.Mapping.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.1": {
+          "targetAlias": "netstandard2.1",
+          "dependencies": {
+            "StyleCop.Analyzers": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.2.0-beta.205, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "NETStandard.Library": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\Users\\Kolio\\Desktop\\New folder\\Services\\PokerStrategy.Services.Mapping\\PokerStrategy.Services.Mapping.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Users\\Kolio\\Desktop\\New folder\\Services\\PokerStrategy.Services.Mapping\\PokerStrategy.Services.Mapping.csproj",
+        "projectName": "PokerStrategy.Services.Mapping",
+        "projectPath": "D:\\Users\\Kolio\\Desktop\\New folder\\Services\\PokerStrategy.Services.Mapping\\PokerStrategy.Services.Mapping.csproj",
+        "packagesPath": "C:\\Users\\Kolio\\.nuget\\packages\\",
+        "outputPath": "D:\\Users\\Kolio\\Desktop\\New folder\\Services\\PokerStrategy.Services.Mapping\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Kolio\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.1": {
+            "targetAlias": "netstandard2.1",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.1": {
+          "targetAlias": "netstandard2.1",
+          "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[10.1.1, )"
+            },
+            "StyleCop.Analyzers": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.2.0-beta.205, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "NETStandard.Library": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\Users\\Kolio\\Desktop\\New folder\\Services\\PokerStrategy.Services.Messaging\\PokerStrategy.Services.Messaging.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Users\\Kolio\\Desktop\\New folder\\Services\\PokerStrategy.Services.Messaging\\PokerStrategy.Services.Messaging.csproj",
+        "projectName": "PokerStrategy.Services.Messaging",
+        "projectPath": "D:\\Users\\Kolio\\Desktop\\New folder\\Services\\PokerStrategy.Services.Messaging\\PokerStrategy.Services.Messaging.csproj",
+        "packagesPath": "C:\\Users\\Kolio\\.nuget\\packages\\",
+        "outputPath": "D:\\Users\\Kolio\\Desktop\\New folder\\Services\\PokerStrategy.Services.Messaging\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Kolio\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.1": {
+            "targetAlias": "netstandard2.1",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.1": {
+          "targetAlias": "netstandard2.1",
+          "dependencies": {
+            "Sendgrid": {
+              "target": "Package",
+              "version": "[9.21.0, )"
+            },
+            "StyleCop.Analyzers": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.2.0-beta.205, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "NETStandard.Library": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\Users\\Kolio\\Desktop\\New folder\\Services\\PokerStrategy.Services\\PokerStrategy.Services.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Users\\Kolio\\Desktop\\New folder\\Services\\PokerStrategy.Services\\PokerStrategy.Services.csproj",
+        "projectName": "PokerStrategy.Services",
+        "projectPath": "D:\\Users\\Kolio\\Desktop\\New folder\\Services\\PokerStrategy.Services\\PokerStrategy.Services.csproj",
+        "packagesPath": "C:\\Users\\Kolio\\.nuget\\packages\\",
+        "outputPath": "D:\\Users\\Kolio\\Desktop\\New folder\\Services\\PokerStrategy.Services\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Kolio\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.1": {
+            "targetAlias": "netstandard2.1",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.1": {
+          "targetAlias": "netstandard2.1",
+          "dependencies": {
+            "StyleCop.Analyzers": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.2.0-beta.205, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "NETStandard.Library": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\Users\\Kolio\\Desktop\\New folder\\Tests\\PokerStrategy.Web.Tests\\PokerStrategy.Web.Tests.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Users\\Kolio\\Desktop\\New folder\\Tests\\PokerStrategy.Web.Tests\\PokerStrategy.Web.Tests.csproj",
+        "projectName": "PokerStrategy.Web.Tests",
+        "projectPath": "D:\\Users\\Kolio\\Desktop\\New folder\\Tests\\PokerStrategy.Web.Tests\\PokerStrategy.Web.Tests.csproj",
+        "packagesPath": "C:\\Users\\Kolio\\.nuget\\packages\\",
+        "outputPath": "D:\\Users\\Kolio\\Desktop\\New folder\\Tests\\PokerStrategy.Web.Tests\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Kolio\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {
+              "D:\\Users\\Kolio\\Desktop\\New folder\\Web\\PokerStrategy.Web\\PokerStrategy.Web.csproj": {
+                "projectPath": "D:\\Users\\Kolio\\Desktop\\New folder\\Web\\PokerStrategy.Web\\PokerStrategy.Web.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "Microsoft.AspNetCore.Mvc.Testing": {
+              "target": "Package",
+              "version": "[3.1.9, )"
+            },
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[16.7.1, )"
+            },
+            "Selenium.Support": {
+              "target": "Package",
+              "version": "[3.141.0, )"
+            },
+            "Selenium.WebDriver": {
+              "target": "Package",
+              "version": "[3.141.0, )"
+            },
+            "StyleCop.Analyzers": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.2.0-beta.205, )"
+            },
+            "xunit": {
+              "target": "Package",
+              "version": "[2.4.1, )"
+            },
+            "xunit.runner.visualstudio": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.4.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\Users\\Kolio\\Desktop\\New folder\\Web\\PokerStrategy.Web.Infrastructure\\PokerStrategy.Web.Infrastructure.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Users\\Kolio\\Desktop\\New folder\\Web\\PokerStrategy.Web.Infrastructure\\PokerStrategy.Web.Infrastructure.csproj",
+        "projectName": "PokerStrategy.Web.Infrastructure",
+        "projectPath": "D:\\Users\\Kolio\\Desktop\\New folder\\Web\\PokerStrategy.Web.Infrastructure\\PokerStrategy.Web.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\Kolio\\.nuget\\packages\\",
+        "outputPath": "D:\\Users\\Kolio\\Desktop\\New folder\\Web\\PokerStrategy.Web.Infrastructure\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Kolio\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.1": {
+            "targetAlias": "netstandard2.1",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.1": {
+          "targetAlias": "netstandard2.1",
+          "dependencies": {
+            "StyleCop.Analyzers": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.2.0-beta.205, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "NETStandard.Library": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\Users\\Kolio\\Desktop\\New folder\\Web\\PokerStrategy.Web.ViewModels\\PokerStrategy.Web.ViewModels.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Users\\Kolio\\Desktop\\New folder\\Web\\PokerStrategy.Web.ViewModels\\PokerStrategy.Web.ViewModels.csproj",
+        "projectName": "PokerStrategy.Web.ViewModels",
+        "projectPath": "D:\\Users\\Kolio\\Desktop\\New folder\\Web\\PokerStrategy.Web.ViewModels\\PokerStrategy.Web.ViewModels.csproj",
+        "packagesPath": "C:\\Users\\Kolio\\.nuget\\packages\\",
+        "outputPath": "D:\\Users\\Kolio\\Desktop\\New folder\\Web\\PokerStrategy.Web.ViewModels\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Kolio\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.1": {
+            "targetAlias": "netstandard2.1",
+            "projectReferences": {
+              "D:\\Users\\Kolio\\Desktop\\New folder\\Data\\PokerStrategy.Data.Models\\PokerStrategy.Data.Models.csproj": {
+                "projectPath": "D:\\Users\\Kolio\\Desktop\\New folder\\Data\\PokerStrategy.Data.Models\\PokerStrategy.Data.Models.csproj"
+              },
+              "D:\\Users\\Kolio\\Desktop\\New folder\\Services\\PokerStrategy.Services.Mapping\\PokerStrategy.Services.Mapping.csproj": {
+                "projectPath": "D:\\Users\\Kolio\\Desktop\\New folder\\Services\\PokerStrategy.Services.Mapping\\PokerStrategy.Services.Mapping.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.1": {
+          "targetAlias": "netstandard2.1",
+          "dependencies": {
+            "StyleCop.Analyzers": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.2.0-beta.205, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "NETStandard.Library": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\Users\\Kolio\\Desktop\\New folder\\Web\\PokerStrategy.Web\\PokerStrategy.Web.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Users\\Kolio\\Desktop\\New folder\\Web\\PokerStrategy.Web\\PokerStrategy.Web.csproj",
+        "projectName": "PokerStrategy.Web",
+        "projectPath": "D:\\Users\\Kolio\\Desktop\\New folder\\Web\\PokerStrategy.Web\\PokerStrategy.Web.csproj",
+        "packagesPath": "C:\\Users\\Kolio\\.nuget\\packages\\",
+        "outputPath": "D:\\Users\\Kolio\\Desktop\\New folder\\Web\\PokerStrategy.Web\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Kolio\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {
+              "D:\\Users\\Kolio\\Desktop\\New folder\\Data\\PokerStrategy.Data.Models\\PokerStrategy.Data.Models.csproj": {
+                "projectPath": "D:\\Users\\Kolio\\Desktop\\New folder\\Data\\PokerStrategy.Data.Models\\PokerStrategy.Data.Models.csproj"
+              },
+              "D:\\Users\\Kolio\\Desktop\\New folder\\Data\\PokerStrategy.Data\\PokerStrategy.Data.csproj": {
+                "projectPath": "D:\\Users\\Kolio\\Desktop\\New folder\\Data\\PokerStrategy.Data\\PokerStrategy.Data.csproj"
+              },
+              "D:\\Users\\Kolio\\Desktop\\New folder\\PokerStrategy.Common\\PokerStrategy.Common.csproj": {
+                "projectPath": "D:\\Users\\Kolio\\Desktop\\New folder\\PokerStrategy.Common\\PokerStrategy.Common.csproj"
+              },
+              "D:\\Users\\Kolio\\Desktop\\New folder\\Services\\PokerStrategy.Services.Data\\PokerStrategy.Services.Data.csproj": {
+                "projectPath": "D:\\Users\\Kolio\\Desktop\\New folder\\Services\\PokerStrategy.Services.Data\\PokerStrategy.Services.Data.csproj"
+              },
+              "D:\\Users\\Kolio\\Desktop\\New folder\\Services\\PokerStrategy.Services.Mapping\\PokerStrategy.Services.Mapping.csproj": {
+                "projectPath": "D:\\Users\\Kolio\\Desktop\\New folder\\Services\\PokerStrategy.Services.Mapping\\PokerStrategy.Services.Mapping.csproj"
+              },
+              "D:\\Users\\Kolio\\Desktop\\New folder\\Services\\PokerStrategy.Services.Messaging\\PokerStrategy.Services.Messaging.csproj": {
+                "projectPath": "D:\\Users\\Kolio\\Desktop\\New folder\\Services\\PokerStrategy.Services.Messaging\\PokerStrategy.Services.Messaging.csproj"
+              },
+              "D:\\Users\\Kolio\\Desktop\\New folder\\Services\\PokerStrategy.Services\\PokerStrategy.Services.csproj": {
+                "projectPath": "D:\\Users\\Kolio\\Desktop\\New folder\\Services\\PokerStrategy.Services\\PokerStrategy.Services.csproj"
+              },
+              "D:\\Users\\Kolio\\Desktop\\New folder\\Web\\PokerStrategy.Web.Infrastructure\\PokerStrategy.Web.Infrastructure.csproj": {
+                "projectPath": "D:\\Users\\Kolio\\Desktop\\New folder\\Web\\PokerStrategy.Web.Infrastructure\\PokerStrategy.Web.Infrastructure.csproj"
+              },
+              "D:\\Users\\Kolio\\Desktop\\New folder\\Web\\PokerStrategy.Web.ViewModels\\PokerStrategy.Web.ViewModels.csproj": {
+                "projectPath": "D:\\Users\\Kolio\\Desktop\\New folder\\Web\\PokerStrategy.Web.ViewModels\\PokerStrategy.Web.ViewModels.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "BuildBundlerMinifier": {
+              "target": "Package",
+              "version": "[3.2.449, )"
+            },
+            "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.9, )"
+            },
+            "Microsoft.AspNetCore.Identity.UI": {
+              "target": "Package",
+              "version": "[3.1.9, )"
+            },
+            "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation": {
+              "target": "Package",
+              "version": "[3.1.9, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.9, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[3.1.10, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[3.1.4, )"
+            },
+            "Microsoft.Web.LibraryManager.Build": {
+              "target": "Package",
+              "version": "[2.1.113, )"
+            },
+            "StyleCop.Analyzers": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.2.0-beta.205, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

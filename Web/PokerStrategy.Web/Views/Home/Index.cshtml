@@ -1,0 +1,107 @@
+﻿@model PokerStrategy.Web.ViewModels.Home.HomeIndexModel
+
+<div class="container body-content">
+	<div class="row frontPageSplash">
+		<div class="col-lg-12">
+			<div class="frontPageHeading">
+				<h1>Everything about Poker</h1>
+			</div>
+
+			<div class="frontPageSubHeading">
+				<p><h3>News, Hand Discussions, Room Discussions, Funny Stories</h3></p>
+			</div>
+			<div>
+				<form asp-controller="Search" asp-action="Search" method="post">
+					<input asp-for="SearchQuery" type="text" class="homeSearch" placeholder="Search" />
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<div class="row frontPageContent">
+
+		<div class="col-lg-6">
+			<h3 id="latestPosts">Latest Posts</h3>
+			<table class="table table-hover" id="latestPostsTable">
+				<tbody>
+					@foreach (var t in Model.LatestsPosts)
+					{
+						<tr>
+							<td>
+								<div class="forumLogo"
+									 style="background-image: url(@t.Category.ImageUrl); background-size=100%">
+								</div>
+								<div class="postTitle">
+									<a asp-controller="ForumThread" asp-action="Thread" asp-route-id="@t.Id">
+										@t.Title
+									</a>
+								</div>
+								<div class="postSubtitle">
+									@if (t.RepliesCount == 1)
+									{
+										<span>@t.RepliesCount Reply</span>
+									}
+									else if (t.RepliesCount == 0)
+									{
+										<span>No Replies</span>
+									}
+									else
+									{
+										<span>@t.RepliesCount Replies</span>
+									}
+									<span class="postUser">
+										<a asp-controller="Profile" asp-action="Details" asp-route-id="@t.AuthorId">
+											@t.AuthorName
+										</a>
+									</span>
+								</div>
+							</td>
+						</tr>
+					}
+				</tbody>
+			</table>
+		</div>
+
+		<div class="col-lg-6">
+			<h3 id="latestPosts">Latest News</h3>
+			<table class="table table-hover" id="latestPostsTable">
+				<tbody>
+					@foreach (var t in Model.LatestsPosts)
+					{
+						<tr>
+							<td>
+								<div class="forumLogo"
+									 style="background-image: url(@t.Category.ImageUrl); background-size=100%">
+								</div>
+								<div class="postTitle">
+									<a asp-controller="ForumThread" asp-action="Thread" asp-route-id="@t.Id">
+										@t.Title
+									</a>
+								</div>
+								<div class="postSubtitle">
+									@if (t.RepliesCount == 1)
+									{
+										<span>@t.RepliesCount Reply</span>
+									}
+									else if (t.RepliesCount == 0)
+									{
+										<span>No Replies</span>
+									}
+									else
+									{
+										<span>@t.RepliesCount Replies</span>
+									}
+									<span class="postUser">
+										<a asp-controller="Profile" asp-action="Details" asp-route-id="@t.AuthorId">
+											@t.AuthorName
+										</a>
+									</span>
+								</div>
+							</td>
+						</tr>
+					}
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

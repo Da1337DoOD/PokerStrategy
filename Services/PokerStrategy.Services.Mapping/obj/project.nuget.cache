@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "dgSpecHash": "D4501EXDv1fuW++kPtywd83dTuCmLMBtF2irld+4uWpZrdBcXnj/sV2kRz9w7g6PrZ9OHo59U+lXi66cOxgRdQ==",
+  "success": true,
+  "projectFilePath": "D:\\Users\\Kolio\\Desktop\\New folder\\Services\\PokerStrategy.Services.Mapping\\PokerStrategy.Services.Mapping.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Kolio\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
+    "C:\\Users\\Kolio\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
+    "C:\\Users\\Kolio\\.nuget\\packages\\stylecop.analyzers\\1.2.0-beta.205\\stylecop.analyzers.1.2.0-beta.205.nupkg.sha512",
+    "C:\\Users\\Kolio\\.nuget\\packages\\stylecop.analyzers.unstable\\1.2.0.205\\stylecop.analyzers.unstable.1.2.0.205.nupkg.sha512",
+    "C:\\Users\\Kolio\\.nuget\\packages\\system.reflection.emit\\4.7.0\\system.reflection.emit.4.7.0.nupkg.sha512"
+  ],
+  "logs": []
+}

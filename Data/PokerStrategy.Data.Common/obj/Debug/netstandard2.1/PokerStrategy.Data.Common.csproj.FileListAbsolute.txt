@@ -1,0 +1,9 @@
+D:\Users\Kolio\Desktop\PokerStrategy\PokerStrategy\Data\PokerStrategy.Data.Common\bin\Debug\netstandard2.1\PokerStrategy.Data.Common.deps.json
+D:\Users\Kolio\Desktop\PokerStrategy\PokerStrategy\Data\PokerStrategy.Data.Common\bin\Debug\netstandard2.1\PokerStrategy.Data.Common.dll
+D:\Users\Kolio\Desktop\PokerStrategy\PokerStrategy\Data\PokerStrategy.Data.Common\bin\Debug\netstandard2.1\PokerStrategy.Data.Common.pdb
+D:\Users\Kolio\Desktop\PokerStrategy\PokerStrategy\Data\PokerStrategy.Data.Common\obj\Debug\netstandard2.1\PokerStrategy.Data.Common.csprojAssemblyReference.cache
+D:\Users\Kolio\Desktop\PokerStrategy\PokerStrategy\Data\PokerStrategy.Data.Common\obj\Debug\netstandard2.1\PokerStrategy.Data.Common.AssemblyInfoInputs.cache
+D:\Users\Kolio\Desktop\PokerStrategy\PokerStrategy\Data\PokerStrategy.Data.Common\obj\Debug\netstandard2.1\PokerStrategy.Data.Common.AssemblyInfo.cs
+D:\Users\Kolio\Desktop\PokerStrategy\PokerStrategy\Data\PokerStrategy.Data.Common\obj\Debug\netstandard2.1\PokerStrategy.Data.Common.csproj.CoreCompileInputs.cache
+D:\Users\Kolio\Desktop\PokerStrategy\PokerStrategy\Data\PokerStrategy.Data.Common\obj\Debug\netstandard2.1\PokerStrategy.Data.Common.dll
+D:\Users\Kolio\Desktop\PokerStrategy\PokerStrategy\Data\PokerStrategy.Data.Common\obj\Debug\netstandard2.1\PokerStrategy.Data.Common.pdb
