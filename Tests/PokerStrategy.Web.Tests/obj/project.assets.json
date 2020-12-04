@@ -10875,11 +10875,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Users\\Kolio\\Desktop\\New folder\\Tests\\PokerStrategy.Web.Tests\\PokerStrategy.Web.Tests.csproj",
+      "projectUniqueName": "D:\\Users\\Kolio\\Desktop\\PokerStrategy\\Tests\\PokerStrategy.Web.Tests\\PokerStrategy.Web.Tests.csproj",
       "projectName": "PokerStrategy.Web.Tests",
-      "projectPath": "D:\\Users\\Kolio\\Desktop\\New folder\\Tests\\PokerStrategy.Web.Tests\\PokerStrategy.Web.Tests.csproj",
+      "projectPath": "D:\\Users\\Kolio\\Desktop\\PokerStrategy\\Tests\\PokerStrategy.Web.Tests\\PokerStrategy.Web.Tests.csproj",
       "packagesPath": "C:\\Users\\Kolio\\.nuget\\packages\\",
-      "outputPath": "D:\\Users\\Kolio\\Desktop\\New folder\\Tests\\PokerStrategy.Web.Tests\\obj\\",
+      "outputPath": "D:\\Users\\Kolio\\Desktop\\PokerStrategy\\Tests\\PokerStrategy.Web.Tests\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Kolio\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -10896,8 +10896,8 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "D:\\Users\\Kolio\\Desktop\\New folder\\Web\\PokerStrategy.Web\\PokerStrategy.Web.csproj": {
-              "projectPath": "D:\\Users\\Kolio\\Desktop\\New folder\\Web\\PokerStrategy.Web\\PokerStrategy.Web.csproj"
+            "D:\\Users\\Kolio\\Desktop\\PokerStrategy\\Web\\PokerStrategy.Web\\PokerStrategy.Web.csproj": {
+              "projectPath": "D:\\Users\\Kolio\\Desktop\\PokerStrategy\\Web\\PokerStrategy.Web\\PokerStrategy.Web.csproj"
             }
           }
         }

@@ -1324,11 +1324,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Users\\Kolio\\Desktop\\New folder\\Services\\PokerStrategy.Services.Data\\PokerStrategy.Services.Data.csproj",
+      "projectUniqueName": "D:\\Users\\Kolio\\Desktop\\PokerStrategy\\Services\\PokerStrategy.Services.Data\\PokerStrategy.Services.Data.csproj",
       "projectName": "PokerStrategy.Services.Data",
-      "projectPath": "D:\\Users\\Kolio\\Desktop\\New folder\\Services\\PokerStrategy.Services.Data\\PokerStrategy.Services.Data.csproj",
+      "projectPath": "D:\\Users\\Kolio\\Desktop\\PokerStrategy\\Services\\PokerStrategy.Services.Data\\PokerStrategy.Services.Data.csproj",
       "packagesPath": "C:\\Users\\Kolio\\.nuget\\packages\\",
-      "outputPath": "D:\\Users\\Kolio\\Desktop\\New folder\\Services\\PokerStrategy.Services.Data\\obj\\",
+      "outputPath": "D:\\Users\\Kolio\\Desktop\\PokerStrategy\\Services\\PokerStrategy.Services.Data\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Kolio\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -1345,14 +1345,14 @@
         "netstandard2.1": {
           "targetAlias": "netstandard2.1",
           "projectReferences": {
-            "D:\\Users\\Kolio\\Desktop\\New folder\\Data\\PokerStrategy.Data.Common\\PokerStrategy.Data.Common.csproj": {
-              "projectPath": "D:\\Users\\Kolio\\Desktop\\New folder\\Data\\PokerStrategy.Data.Common\\PokerStrategy.Data.Common.csproj"
+            "D:\\Users\\Kolio\\Desktop\\PokerStrategy\\Data\\PokerStrategy.Data.Common\\PokerStrategy.Data.Common.csproj": {
+              "projectPath": "D:\\Users\\Kolio\\Desktop\\PokerStrategy\\Data\\PokerStrategy.Data.Common\\PokerStrategy.Data.Common.csproj"
             },
-            "D:\\Users\\Kolio\\Desktop\\New folder\\Data\\PokerStrategy.Data.Models\\PokerStrategy.Data.Models.csproj": {
-              "projectPath": "D:\\Users\\Kolio\\Desktop\\New folder\\Data\\PokerStrategy.Data.Models\\PokerStrategy.Data.Models.csproj"
+            "D:\\Users\\Kolio\\Desktop\\PokerStrategy\\Data\\PokerStrategy.Data.Models\\PokerStrategy.Data.Models.csproj": {
+              "projectPath": "D:\\Users\\Kolio\\Desktop\\PokerStrategy\\Data\\PokerStrategy.Data.Models\\PokerStrategy.Data.Models.csproj"
             },
-            "D:\\Users\\Kolio\\Desktop\\New folder\\Services\\PokerStrategy.Services.Mapping\\PokerStrategy.Services.Mapping.csproj": {
-              "projectPath": "D:\\Users\\Kolio\\Desktop\\New folder\\Services\\PokerStrategy.Services.Mapping\\PokerStrategy.Services.Mapping.csproj"
+            "D:\\Users\\Kolio\\Desktop\\PokerStrategy\\Services\\PokerStrategy.Services.Mapping\\PokerStrategy.Services.Mapping.csproj": {
+              "projectPath": "D:\\Users\\Kolio\\Desktop\\PokerStrategy\\Services\\PokerStrategy.Services.Mapping\\PokerStrategy.Services.Mapping.csproj"
             }
           }
         }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "D4501EXDv1fuW++kPtywd83dTuCmLMBtF2irld+4uWpZrdBcXnj/sV2kRz9w7g6PrZ9OHo59U+lXi66cOxgRdQ==",
+  "dgSpecHash": "hOcvVY0wCoSCLOPYI0QcB1qdUxSmQACnmKrQGt6OX/j5JTlRH1FESTuwXSHLk/q9+V+hzucgjMh1lhpQEQGzNw==",
   "success": true,
-  "projectFilePath": "D:\\Users\\Kolio\\Desktop\\New folder\\Services\\PokerStrategy.Services.Mapping\\PokerStrategy.Services.Mapping.csproj",
+  "projectFilePath": "D:\\Users\\Kolio\\Desktop\\PokerStrategy\\Services\\PokerStrategy.Services.Mapping\\PokerStrategy.Services.Mapping.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Kolio\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
     "C:\\Users\\Kolio\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",

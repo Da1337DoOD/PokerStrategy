@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Users\\Kolio\\Desktop\\New folder\\Services\\PokerStrategy.Services.Messaging\\PokerStrategy.Services.Messaging.csproj": {}
+    "D:\\Users\\Kolio\\Desktop\\PokerStrategy\\Services\\PokerStrategy.Services.Messaging\\PokerStrategy.Services.Messaging.csproj": {}
   },
   "projects": {
-    "D:\\Users\\Kolio\\Desktop\\New folder\\Services\\PokerStrategy.Services.Messaging\\PokerStrategy.Services.Messaging.csproj": {
+    "D:\\Users\\Kolio\\Desktop\\PokerStrategy\\Services\\PokerStrategy.Services.Messaging\\PokerStrategy.Services.Messaging.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Users\\Kolio\\Desktop\\New folder\\Services\\PokerStrategy.Services.Messaging\\PokerStrategy.Services.Messaging.csproj",
+        "projectUniqueName": "D:\\Users\\Kolio\\Desktop\\PokerStrategy\\Services\\PokerStrategy.Services.Messaging\\PokerStrategy.Services.Messaging.csproj",
         "projectName": "PokerStrategy.Services.Messaging",
-        "projectPath": "D:\\Users\\Kolio\\Desktop\\New folder\\Services\\PokerStrategy.Services.Messaging\\PokerStrategy.Services.Messaging.csproj",
+        "projectPath": "D:\\Users\\Kolio\\Desktop\\PokerStrategy\\Services\\PokerStrategy.Services.Messaging\\PokerStrategy.Services.Messaging.csproj",
         "packagesPath": "C:\\Users\\Kolio\\.nuget\\packages\\",
-        "outputPath": "D:\\Users\\Kolio\\Desktop\\New folder\\Services\\PokerStrategy.Services.Messaging\\obj\\",
+        "outputPath": "D:\\Users\\Kolio\\Desktop\\PokerStrategy\\Services\\PokerStrategy.Services.Messaging\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Kolio\\AppData\\Roaming\\NuGet\\NuGet.Config",

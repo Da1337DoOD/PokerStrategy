@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ANC544s6PlChfpnZwIuaUo08lJaPq9GRzHqhOzep7Tknz2FIg/V06J6vYhvuIXczRghfUYtydMLJl6VHL5C/Uw==",
+  "dgSpecHash": "wmKnuPIowMdyKQVP7WIk48HSrHzNMT5v1C8kASKV89vRw1CWjPk/RDJDpIHY7bZJi9uH0oyH2ULCJ+LqXmXEwA==",
   "success": true,
-  "projectFilePath": "D:\\Users\\Kolio\\Desktop\\New folder\\Tests\\PokerStrategy.Web.Tests\\PokerStrategy.Web.Tests.csproj",
+  "projectFilePath": "D:\\Users\\Kolio\\Desktop\\PokerStrategy\\Tests\\PokerStrategy.Web.Tests\\PokerStrategy.Web.Tests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Kolio\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
     "C:\\Users\\Kolio\\.nuget\\packages\\buildbundlerminifier\\3.2.449\\buildbundlerminifier.3.2.449.nupkg.sha512",

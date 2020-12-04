@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "GD3tpiAiGicz2+3PS1qyjd2wxEoh3jFz7WVwsTzV9/UbmBtFVeSaT/NfUz6Y8FSWR7WL93fR23bS+R6wGNtAaA==",
+  "dgSpecHash": "CgQX5L7tf1ORsZMocjXNJCbzJR0N5owWYE0ytAQi1Dbvw4AwuCzmNonFYb/x7HgibJDLtH3Qei8CcEpHjZ72AQ==",
   "success": true,
-  "projectFilePath": "D:\\Users\\Kolio\\Desktop\\New folder\\Web\\PokerStrategy.Web.ViewModels\\PokerStrategy.Web.ViewModels.csproj",
+  "projectFilePath": "D:\\Users\\Kolio\\Desktop\\PokerStrategy\\Web\\PokerStrategy.Web.ViewModels\\PokerStrategy.Web.ViewModels.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Kolio\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
     "C:\\Users\\Kolio\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\3.1.9\\microsoft.aspnetcore.cryptography.internal.3.1.9.nupkg.sha512",

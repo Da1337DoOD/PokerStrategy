@@ -68,6 +68,7 @@
             services.AddScoped<IForumCategoryService, ForumCategoryService>();
             services.AddScoped<IForumThreadService, ForumThreadService>();
             services.AddScoped<IForumReplyService, ForumReplyService>();
+            services.AddScoped<INewsService, NewsService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

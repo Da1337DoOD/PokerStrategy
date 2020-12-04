@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Tio2jjlBtBOhzROrbb/uXJWmaVsTzr5Pf/4dghVcY1EvJa7+u/73j8/lwIIdvGBOIcmwCBZdOrFgdKUCuKpbfg==",
+  "dgSpecHash": "4Wk+bl8OzTM8Hyh/rkL9auTEirZ/MvyzFSFN8U0zAKPccpxBcxftnhO9BVdoztp5ad1GqH7H5SwT1B7nJbhkmw==",
   "success": true,
-  "projectFilePath": "D:\\Users\\Kolio\\Desktop\\New folder\\Web\\PokerStrategy.Web\\PokerStrategy.Web.csproj",
+  "projectFilePath": "D:\\Users\\Kolio\\Desktop\\PokerStrategy\\Web\\PokerStrategy.Web\\PokerStrategy.Web.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Kolio\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
     "C:\\Users\\Kolio\\.nuget\\packages\\buildbundlerminifier\\3.2.449\\buildbundlerminifier.3.2.449.nupkg.sha512",
