@@ -60,6 +60,11 @@
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
+            // Unique Nickname / DisplayName
+            builder.Entity<ApplicationUser>()
+                .HasIndex(u => u.DisplayName)
+                .IsUnique();
+
             // Needed for Identity models configuration
             base.OnModelCreating(builder);
 
