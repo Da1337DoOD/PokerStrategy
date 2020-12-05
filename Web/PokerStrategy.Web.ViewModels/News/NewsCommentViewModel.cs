@@ -1,6 +1,7 @@
 ﻿namespace PokerStrategy.Web.ViewModels.News
 {
     using System;
+    using System.ComponentModel.DataAnnotations;
     using System.Globalization;
 
     public class NewsCommentViewModel
@@ -11,6 +12,7 @@
 
         public DateTime CreatedOn { get; set; }
 
+        [Required]
         public string Content { get; set; }
 
         public string ProfilePicture { get; set; }

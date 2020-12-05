@@ -4,11 +4,10 @@
     using System.Linq;
     using System.Threading.Tasks;
 
-    using PokerStrategy.Common;
-    using PokerStrategy.Data.Models;
-
     using Microsoft.AspNetCore.Identity;
     using Microsoft.Extensions.DependencyInjection;
+    using PokerStrategy.Common;
+    using PokerStrategy.Data.Models;
 
     internal class RolesSeeder : ISeeder
     {
@@ -16,10 +15,44 @@
         {
             var roleManager = serviceProvider.GetRequiredService<RoleManager<ApplicationRole>>();
 
-            await SeedRoleAsync(roleManager, GlobalConstants.AdministratorRoleName);
+            var userManager = serviceProvider.GetRequiredService<UserManager<ApplicationUser>>();
+
+            await this.SeedRoleAsync(roleManager, GlobalConstants.AdministratorRoleName);
+
+            if (!dbContext.Users.Any(x => x.Email == "nsavov21@abv.bg"))
+            {
+                await this.CreateInitialAdmin(userManager, roleManager);
+            }
         }
 
-        private static async Task SeedRoleAsync(RoleManager<ApplicationRole> roleManager, string roleName)
+        private async Task CreateInitialAdmin(
+            UserManager<ApplicationUser> userManager,
+            RoleManager<ApplicationRole> roleManager)
+        {
+            var user = new ApplicationUser
+            {
+                Email = "nsavov21@abv.bg",
+                UserName = "nsavov21@abv.bg",
+                EmailConfirmed = true,
+                PhoneNumber = "987654321",
+                DisplayName = "Da1337DoOD",
+            };
+
+            await userManager.CreateAsync(user, "123456");
+
+            if (!await roleManager.RoleExistsAsync("Admin"))
+            {
+                await roleManager.CreateAsync(new ApplicationRole
+                {
+                    Name = "Admin",
+                });
+            }
+
+            await userManager.AddToRoleAsync(user, "Admin");
+            return;
+        }
+
+        private async Task SeedRoleAsync(RoleManager<ApplicationRole> roleManager, string roleName)
         {
             var role = await roleManager.FindByNameAsync(roleName);
             if (role == null)
