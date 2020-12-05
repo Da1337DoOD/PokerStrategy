@@ -11,7 +11,7 @@
     using PokerStrategy.Services.Data;
     using PokerStrategy.Web.ViewModels.News;
 
-    [Authorize(Roles = GlobalConstants.AdministratorRoleName)]
+    [Authorize(Roles = GlobalConstants.AdminRoleName)]
     [Area("Administration")]
     public class AdminNewsController : Controller
     {

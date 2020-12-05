@@ -17,7 +17,7 @@
 
             var userManager = serviceProvider.GetRequiredService<UserManager<ApplicationUser>>();
 
-            await this.SeedRoleAsync(roleManager, GlobalConstants.AdministratorRoleName);
+            await this.SeedRoleAsync(roleManager, GlobalConstants.AdminRoleName);
 
             if (!dbContext.Users.Any(x => x.Email == "nsavov21@abv.bg"))
             {

@@ -12,7 +12,7 @@
 				@(UserManager.GetUserAsync(User).Result.DisplayName)
 			</a>
 		</li>
-		if (this.User.IsInRole(GlobalConstants.AdministratorRoleName))
+		if (this.User.IsInRole(GlobalConstants.AdminRoleName))
 		{
 			<li class="nav-item">
 				<a class="nav-link text-dark" asp-area="Administration" asp-controller="Dashboard" asp-action="Index" title="Admin">Admin</a>

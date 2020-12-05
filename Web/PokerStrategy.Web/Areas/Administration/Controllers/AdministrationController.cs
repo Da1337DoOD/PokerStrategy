@@ -6,7 +6,7 @@
     using PokerStrategy.Common;
     using PokerStrategy.Web.Controllers;
 
-    [Authorize(Roles = GlobalConstants.AdministratorRoleName)]
+    [Authorize(Roles = GlobalConstants.AdminRoleName)]
     [Area("Administration")]
     public class AdministrationController : BaseController
     {

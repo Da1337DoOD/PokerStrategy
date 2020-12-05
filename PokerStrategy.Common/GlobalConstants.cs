@@ -4,6 +4,8 @@
     {
         public const string SystemName = "PokerStrategy";
 
-        public const string AdministratorRoleName = "Administrator";
+        public const string AdminRoleName = "Admin";
+        public const string ModeratorRoleName = "Moderator";
+        public const string MemberRoleName = "Member";
     }
 }
