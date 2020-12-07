@@ -1,6 +1,7 @@
 ﻿namespace PokerStrategy.Web.ViewModels.Forum
 {
     using System;
+    using System.ComponentModel.DataAnnotations;
 
     public class ReplyModel
     {
@@ -24,6 +25,9 @@
 
         public string ThreadTitle { get; set; }
 
+        [MaxLength(800)]
+        [MinLength(2)]
+        [Required]
         public string Content { get; set; }
     }
 }

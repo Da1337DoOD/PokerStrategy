@@ -1,5 +1,6 @@
 ﻿namespace PokerStrategy.Services.Data
 {
+    using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
@@ -11,23 +12,35 @@
     public class ForumThreadService : IForumThreadService
     {
         private readonly IDeletableEntityRepository<ForumThread> threadRepository;
-        private readonly IDeletableEntityRepository<ForumCategory> categoryRepository;
         private readonly IDeletableEntityRepository<ForumReply> replyRepository;
 
         public ForumThreadService(
             IDeletableEntityRepository<ForumThread> threadRepository,
-            IDeletableEntityRepository<ForumCategory> categoryRepository,
             IDeletableEntityRepository<ForumReply> replyRepository)
         {
             this.threadRepository = threadRepository;
-            this.categoryRepository = categoryRepository;
             this.replyRepository = replyRepository;
         }
 
         public async Task Add(ForumThread thread)
         {
-           await this.threadRepository.AddAsync(thread);
-           await this.threadRepository.SaveChangesAsync();
+            await this.threadRepository.AddAsync(thread);
+            await this.threadRepository.SaveChangesAsync();
+
+            var reply = new ForumReply
+            {
+                CategoryId = thread.CategoryId,
+                CreatedOn = thread.CreatedOn,
+                Content = thread.Content,
+                DeletedOn = thread.DeletedOn,
+                IsDeleted = thread.IsDeleted,
+                ModifiedOn = thread.ModifiedOn,
+                PostedById = thread.PostedById,
+                ThreadId = thread.Id,
+            };
+
+            await this.replyRepository.AddAsync(reply);
+            await this.replyRepository.SaveChangesAsync();
         }
 
         public async Task AddReply(ForumReply reply)
@@ -96,11 +109,28 @@
                     .OrderByDescending(t => t.CreatedOn);
         }
 
-        public IEnumerable<ForumThread> GetLatestThreads(int postsCount)
+        //public IEnumerable<ForumThread> GetLatestThreads(int postsCount)
+        //{
+        //    return this.GetAll()
+        //        .OrderByDescending(p => p.CreatedOn)
+        //        .Take(postsCount);
+        //}
+
+        //public IEnumerable<ForumReply> GetLatestReplies(int replyCount)
+        //{
+        //    return this.replyRepository.All()
+        //        .OrderBy(r => r.CreatedOn)
+        //        .Take(replyCount);
+        //}
+
+  
+
+        public IEnumerable<ForumThread> GetLatestContent()
         {
-            return this.GetAll()
-                .OrderByDescending(p => p.CreatedOn)
-                .Take(postsCount);
+            var threads = this.replyRepository.All()
+                .OrderByDescending(r => r.CreatedOn).Select(r => r.Thread);
+
+            return threads;
         }
 
         public IEnumerable<ForumThread> GetThreadsByCategory(int id)
@@ -109,4 +139,5 @@
                 .Where(x => x.CategoryId == id);
         }
     }
+
 }

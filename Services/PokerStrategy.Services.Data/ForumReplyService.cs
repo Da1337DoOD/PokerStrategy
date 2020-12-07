@@ -1,5 +1,6 @@
 ﻿namespace PokerStrategy.Services.Data
 {
+    using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
 
@@ -36,6 +37,15 @@
             await this.replyRepository.SaveChangesAsync();
         }
 
+        public IEnumerable<ForumReply> GetAll()
+        {
+            return this.replyRepository.All()
+               .Include(r => r.Thread)
+                   .ThenInclude(t => t.Category)
+               .Include(r => r.Thread)
+                   .ThenInclude(t => t.PostedBy);
+        }
+
         public ForumReply GetById(int id)
         {
             return this.replyRepository.All()
@@ -44,6 +54,11 @@
                 .Include(r => r.Thread)
                     .ThenInclude(t => t.PostedBy)
                 .First(r => r.Id == id); // First on top?
+        }
+
+        public ForumReply GetLatest(int threadId)
+        {
+            return this.GetAll().OrderByDescending(r => r.CreatedOn).Where(r => r.ThreadId == threadId).FirstOrDefault();
         }
     }
 }

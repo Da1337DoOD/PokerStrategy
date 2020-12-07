@@ -99,7 +99,7 @@
                 PostedById = user.Id,
                 PostedBy = user,
                 Content = model.Content,
-                CreatedOn = DateTime.Now,
+                CreatedOn = DateTime.UtcNow,
             };
         }
 

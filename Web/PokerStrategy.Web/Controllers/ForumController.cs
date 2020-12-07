@@ -56,7 +56,7 @@
                 AuthorId = t.PostedById,
                 AuthorName = t.PostedBy.UserName,
                 AuthorPoints = t.PostedBy.Points,
-                DateCreated = t.CreatedOn.ToString(),
+                DateCreated = t.CreatedOn,
                 RepliesCount = t.Replies.Count(),
                 Category = this.BuildCategoryListing(t),
             }).OrderByDescending(t => t.DateCreated);

@@ -1,4 +1,6 @@
-﻿namespace PokerStrategy.Web.ViewModels.Forum
+﻿using System;
+
+namespace PokerStrategy.Web.ViewModels.Forum
 {
     public class ThreadsListingModel
     {
@@ -12,10 +14,16 @@
 
         public int AuthorPoints { get; set; }
 
-        public string DateCreated { get; set; }
+        public DateTime DateCreated { get; set; }
 
         public CategoriesListingModel Category { get; set; }
 
         public int RepliesCount { get; set; }
+
+        public string LatestTitle { get; set; }
+
+        public string LatestContent { get; set; }
+
+        public int LatestThreadId { get; set; }
     }
 }

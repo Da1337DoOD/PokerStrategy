@@ -1,11 +1,12 @@
 ﻿@model PokerStrategy.Web.ViewModels.Forum.ThreadModel
-
+<header>
+	<span class="postIndexTitle">
+		@Model.Title
+	</span>
+</header>
 <div class="container body-content">
 	<div class="row postHeader">
 		<div class="postHeading">
-			<span class="postIndexTitle">
-				@Model.Title
-			</span>
 			<span id="headingBtn">
 				<a asp-controller="Forum" asp-action="Category" asp-route-id="@Model.CategoryId" class="btn btn-back">
 					<b>Back to @Model.CategoryTitle</b>

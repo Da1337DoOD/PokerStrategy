@@ -40,10 +40,14 @@ html {
     position: relative;
     min-height: 100%;
 }
+header {
+    padding-top: 20px;
+}
 
 body {
     /* Margin bottom by footer height */
     margin-bottom: 60px;
+    padding-top: 70px;
 }
 .footer {
     position: absolute;
