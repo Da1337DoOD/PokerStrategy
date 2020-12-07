@@ -17,18 +17,6 @@
             this.categoriesRepository = categoriesRepository;
         }
 
-        public Task Create(ForumCategory forumCategory)
-        {
-            // TODO
-            throw new System.NotImplementedException();
-        }
-
-        public Task Delete(int forumCategoryId)
-        {
-            // TODO
-            throw new System.NotImplementedException();
-        }
-
         public IEnumerable<ForumCategory> GetAll()
         {
             return this.categoriesRepository
@@ -47,18 +35,6 @@
                     .ThenInclude(t => t.Replies)
                         .ThenInclude(p => p.PostedBy)
                 .FirstOrDefault();
-        }
-
-        public Task UpdateDescription(int categoryId, string newDescription)
-        {
-            // TODO
-            throw new System.NotImplementedException();
-        }
-
-        public Task UpdateTitle(int categoryId, string newTitle)
-        {
-            // TODO
-            throw new System.NotImplementedException();
         }
     }
 }

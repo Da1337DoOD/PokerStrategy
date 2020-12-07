@@ -9,6 +9,10 @@
     {
         Task<int> CreateAsync(string title, string content, string url, int categoryId);
 
+        Task Delete(int id);
+
+        Task Edit(int id, string newTitle, string newContent);
+
         News GetById(int id);
 
         Task<bool> IncrementViews(int id);

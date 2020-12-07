@@ -19,7 +19,7 @@
 
         Task Delete(int id);
 
-        Task Edit(int id, string newContent);
+        Task Edit(int id, string newTitle, string newContent);
 
         Task AddReply(ForumReply reply);
 

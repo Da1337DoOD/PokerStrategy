@@ -34,6 +34,33 @@
             return news.Id;
         }
 
+        public async Task Delete(int id)
+        {
+            var thread = this.newsRepository.All()
+                .Where(x => x.Id == id)
+                .FirstOrDefault();
+
+            this.newsRepository.Delete(thread);
+
+            this.newsRepository.Update(thread);
+
+            await this.newsRepository.SaveChangesAsync();
+        }
+
+        public async Task Edit(int id, string newTitle, string newContent)
+        {
+            var thread = this.newsRepository.All()
+                .Where(x => x.Id == id)
+                .FirstOrDefault();
+
+            thread.Title = newTitle;
+            thread.Content = newContent;
+
+            this.newsRepository.Update(thread);
+
+            await this.newsRepository.SaveChangesAsync();
+        }
+
         public IEnumerable<News> GetAll(int categoryId, int? count = null)
         {
             IQueryable<News> query = this.newsRepository.All()

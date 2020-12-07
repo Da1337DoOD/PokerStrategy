@@ -9,13 +9,5 @@ namespace PokerStrategy.Services.Data
         ForumCategory GetById(int id);
 
         IEnumerable<ForumCategory> GetAll();
-
-        Task Create(ForumCategory forumCategory);
-
-        Task Delete(int forumCategoryId);
-
-        Task UpdateTitle(int categoryId, string newTitle);
-
-        Task UpdateDescription(int categoryId, string newDescription);
     }
 }

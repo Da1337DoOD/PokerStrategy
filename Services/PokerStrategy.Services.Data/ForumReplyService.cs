@@ -21,18 +21,19 @@
             var reply = this.GetById(id);
             this.replyRepository.Delete(reply); // Remove or other method??
 
+            this.replyRepository.Update(reply);
+
             await this.replyRepository.SaveChangesAsync();
         }
 
         public async Task Edit(int id, string editedContent)
         {
             var reply = this.GetById(id);
-            reply.Content = editedContent; // ??
+            reply.Content = editedContent;
+
+            this.replyRepository.Update(reply);
 
             await this.replyRepository.SaveChangesAsync();
-
-            //this.replyRepository.Update(reply);
-            //await this.replyRepository.SaveChangesAsync();
         }
 
         public ForumReply GetById(int id)

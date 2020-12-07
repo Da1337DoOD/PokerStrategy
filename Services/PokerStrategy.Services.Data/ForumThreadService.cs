@@ -36,16 +36,31 @@
             await this.replyRepository.SaveChangesAsync();
         }
 
-        public Task Delete(int id)
+        public async Task Delete(int id)
         {
-            // TODO
-            throw new System.NotImplementedException();
+            var thread = this.threadRepository.All()
+                .Where(x => x.Id == id)
+                .FirstOrDefault();
+
+            this.threadRepository.Delete(thread);
+
+            this.threadRepository.Update(thread);
+
+            await this.threadRepository.SaveChangesAsync();
         }
 
-        public Task Edit(int id, string newContent)
+        public async Task Edit(int id, string newTitle, string newContent)
         {
-            // TODO
-            throw new System.NotImplementedException();
+            var thread = this.threadRepository.All()
+                .Where(x => x.Id == id)
+                .FirstOrDefault();
+
+            thread.Title = newTitle;
+            thread.Content = newContent;
+
+            this.threadRepository.Update(thread);
+
+            await this.threadRepository.SaveChangesAsync();
         }
 
         public IEnumerable<ForumThread> GetAll()

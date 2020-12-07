@@ -74,8 +74,29 @@
         public IActionResult Search(int id, string searchQuery)
         {
             // TODO
-            return RedirectToAction("Thread", new { id, searchQuery });
+            return this.RedirectToAction("Thread", new { id, searchQuery });
         }
+
+        public IActionResult Edit(int postId)
+        {
+
+            return this.View();
+        }
+
+        public IActionResult Delete(int id)
+        {
+
+            return View();
+        }
+
+        //[HttpPost]
+        //public IActionResult ConfirmDelete(int id)
+        //{
+        //    var post = _postService.GetById(id);
+        //    _postService.Delete(id);
+
+        //    return RedirectToAction("Index", "Forum", new { id = post.Forum.Id });
+        //}
 
         private CategoriesListingModel BuildCategoryListing(ForumCategory category)
         {
