@@ -4,27 +4,31 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
-
+    using Microsoft.AspNetCore.Identity;
     using PokerStrategy.Data.Common.Repositories;
     using PokerStrategy.Data.Models;
 
     public class NewsService : INewsService
     {
         private readonly IDeletableEntityRepository<News> newsRepository;
+        private readonly UserManager<ApplicationUser> userManager;
 
-        public NewsService(IDeletableEntityRepository<News> newsRepository)
+        public NewsService(
+            IDeletableEntityRepository<News> newsRepository,
+            UserManager<ApplicationUser> userManager)
         {
             this.newsRepository = newsRepository;
+            this.userManager = userManager;
         }
 
-        public async Task<int> CreateAsync(string title, string content, string url, int categoryId)
+        public async Task<int> CreateAsync(string title, string content, string url, string category)
         {
             var news = new News
             {
                 Title = title,
                 Content = content,
                 PictureUrl = url,
-                CategoryId = categoryId,
+                CategoryName = category,
                 CreatedOn = DateTime.UtcNow,
             };
 
@@ -61,16 +65,16 @@
             await this.newsRepository.SaveChangesAsync();
         }
 
-        public IEnumerable<News> GetAll(int categoryId, int? count = null)
+        public IEnumerable<News> GetAll()
         {
             IQueryable<News> query = this.newsRepository.All()
-                .Where(n => n.CategoryId == categoryId)
+           //     .Where(n => n.CategoryName == categoryName)
                 .OrderBy(n => n.CreatedOn);
 
-            if (count.HasValue)
-            {
-                query = query.Take(count.Value);
-            }
+            //if (count.HasValue)
+            //{
+            //    query = query.Take(count.Value);
+            //}
 
             return query.ToList();
         }

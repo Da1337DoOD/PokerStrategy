@@ -19,7 +19,6 @@
 
         public virtual ApplicationUser PostedBy { get; set; }
 
-        [Required]
         public string Content { get; set; }
     }
 }

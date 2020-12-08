@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace PokerStrategy.Data.Migrations
 {
-    public partial class Pls : Migration
+    public partial class newMig : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -82,23 +82,6 @@ namespace PokerStrategy.Data.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_ForumCategories", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "NewsCategory",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    CreatedOn = table.Column<DateTime>(nullable: false),
-                    ModifiedOn = table.Column<DateTime>(nullable: true),
-                    IsDeleted = table.Column<bool>(nullable: false),
-                    DeletedOn = table.Column<DateTime>(nullable: true),
-                    Title = table.Column<string>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_NewsCategory", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -226,6 +209,34 @@ namespace PokerStrategy.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "News",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    CreatedOn = table.Column<DateTime>(nullable: false),
+                    ModifiedOn = table.Column<DateTime>(nullable: true),
+                    IsDeleted = table.Column<bool>(nullable: false),
+                    DeletedOn = table.Column<DateTime>(nullable: true),
+                    Title = table.Column<string>(nullable: true),
+                    CategoryName = table.Column<string>(nullable: true),
+                    PictureUrl = table.Column<string>(nullable: true),
+                    Content = table.Column<string>(nullable: true),
+                    TimeSeen = table.Column<int>(nullable: false),
+                    ApplicationUserId = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_News", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_News_AspNetUsers_ApplicationUserId",
+                        column: x => x.ApplicationUserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "ProfileMessages",
                 columns: table => new
                 {
@@ -283,7 +294,7 @@ namespace PokerStrategy.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "News",
+                name: "NewsComments",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -292,26 +303,23 @@ namespace PokerStrategy.Data.Migrations
                     ModifiedOn = table.Column<DateTime>(nullable: true),
                     IsDeleted = table.Column<bool>(nullable: false),
                     DeletedOn = table.Column<DateTime>(nullable: true),
-                    Title = table.Column<string>(nullable: true),
-                    AuthorId = table.Column<string>(nullable: false),
-                    CategoryId = table.Column<int>(nullable: false),
-                    PictureUrl = table.Column<string>(nullable: true),
-                    Content = table.Column<string>(nullable: true),
-                    TimeSeen = table.Column<int>(nullable: false)
+                    NewsId = table.Column<int>(nullable: false),
+                    UserId = table.Column<string>(nullable: false),
+                    Content = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_News", x => x.Id);
+                    table.PrimaryKey("PK_NewsComments", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_News_AspNetUsers_AuthorId",
-                        column: x => x.AuthorId,
-                        principalTable: "AspNetUsers",
+                        name: "FK_NewsComments_News_NewsId",
+                        column: x => x.NewsId,
+                        principalTable: "News",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_News_NewsCategory_CategoryId",
-                        column: x => x.CategoryId,
-                        principalTable: "NewsCategory",
+                        name: "FK_NewsComments_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -350,37 +358,6 @@ namespace PokerStrategy.Data.Migrations
                         name: "FK_ForumReplies_ForumThreads_ThreadId",
                         column: x => x.ThreadId,
                         principalTable: "ForumThreads",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "NewsComments",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    CreatedOn = table.Column<DateTime>(nullable: false),
-                    ModifiedOn = table.Column<DateTime>(nullable: true),
-                    IsDeleted = table.Column<bool>(nullable: false),
-                    DeletedOn = table.Column<DateTime>(nullable: true),
-                    NewsId = table.Column<int>(nullable: false),
-                    UserId = table.Column<string>(nullable: false),
-                    Content = table.Column<string>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_NewsComments", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_NewsComments_News_NewsId",
-                        column: x => x.NewsId,
-                        principalTable: "News",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_NewsComments_AspNetUsers_UserId",
-                        column: x => x.UserId,
-                        principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -486,23 +463,13 @@ namespace PokerStrategy.Data.Migrations
                 column: "PostedById");
 
             migrationBuilder.CreateIndex(
-                name: "IX_News_AuthorId",
+                name: "IX_News_ApplicationUserId",
                 table: "News",
-                column: "AuthorId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_News_CategoryId",
-                table: "News",
-                column: "CategoryId");
+                column: "ApplicationUserId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_News_IsDeleted",
                 table: "News",
-                column: "IsDeleted");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_NewsCategory_IsDeleted",
-                table: "NewsCategory",
                 column: "IsDeleted");
 
             migrationBuilder.CreateIndex(
@@ -579,9 +546,6 @@ namespace PokerStrategy.Data.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
-
-            migrationBuilder.DropTable(
-                name: "NewsCategory");
         }
     }
 }

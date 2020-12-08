@@ -15,6 +15,6 @@
         public string Url { get; set; }
 
         [Required]
-        public int CategoryId { get; set; }
+        public string Category { get; set; }
     }
 }

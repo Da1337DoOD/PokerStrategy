@@ -7,7 +7,7 @@
 
     public interface INewsService
     {
-        Task<int> CreateAsync(string title, string content, string url, int categoryId);
+        Task<int> CreateAsync(string title, string content, string url, string categoryId);
 
         Task Delete(int id);
 
@@ -17,6 +17,6 @@
 
         Task<bool> IncrementViews(int id);
 
-        IEnumerable<News> GetAll(int categoryId, int? count = null);
+        IEnumerable<News> GetAll();
     }
 }

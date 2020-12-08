@@ -10,8 +10,8 @@ using PokerStrategy.Data;
 namespace PokerStrategy.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20201205223903_Pls")]
-    partial class Pls
+    [Migration("20201208171256_offfff")]
+    partial class offfff
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -312,7 +312,6 @@ namespace PokerStrategy.Data.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Content")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("CreatedOn")
@@ -400,12 +399,11 @@ namespace PokerStrategy.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("AuthorId")
-                        .IsRequired()
+                    b.Property<string>("ApplicationUserId")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<int>("CategoryId")
-                        .HasColumnType("int");
+                    b.Property<string>("CategoryName")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Content")
                         .HasColumnType("nvarchar(max)");
@@ -433,42 +431,11 @@ namespace PokerStrategy.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("AuthorId");
-
-                    b.HasIndex("CategoryId");
+                    b.HasIndex("ApplicationUserId");
 
                     b.HasIndex("IsDeleted");
 
                     b.ToTable("News");
-                });
-
-            modelBuilder.Entity("PokerStrategy.Data.Models.NewsCategory", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("CreatedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("DeletedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTime?>("ModifiedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Title")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("IsDeleted");
-
-                    b.ToTable("NewsCategory");
                 });
 
             modelBuilder.Entity("PokerStrategy.Data.Models.NewsComment", b =>
@@ -674,17 +641,9 @@ namespace PokerStrategy.Data.Migrations
 
             modelBuilder.Entity("PokerStrategy.Data.Models.News", b =>
                 {
-                    b.HasOne("PokerStrategy.Data.Models.ApplicationUser", "Author")
+                    b.HasOne("PokerStrategy.Data.Models.ApplicationUser", null)
                         .WithMany("NewsPosted")
-                        .HasForeignKey("AuthorId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("PokerStrategy.Data.Models.NewsCategory", "Category")
-                        .WithMany("News")
-                        .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
+                        .HasForeignKey("ApplicationUserId");
                 });
 
             modelBuilder.Entity("PokerStrategy.Data.Models.NewsComment", b =>

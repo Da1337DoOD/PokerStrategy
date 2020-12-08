@@ -47,11 +47,11 @@
             return this.RedirectToAction("ById", new { id = id });
         }
 
-        public IActionResult All(int categoryId)
+        public IActionResult All()
         {
             var viewModel = new NewsListingViewModel();
 
-            var news = this.newsService.GetAll(categoryId);
+            var news = this.newsService.GetAll();
 
             viewModel.News = news.Select(n => new NewsViewModel
             {

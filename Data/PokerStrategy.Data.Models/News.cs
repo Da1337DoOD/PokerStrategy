@@ -14,14 +14,16 @@
 
         public string Title { get; set; }
 
-        [Required]
-        public string AuthorId { get; set; }
+        //[Required]
+        //public string AuthorId { get; set; }
 
-        public virtual ApplicationUser Author { get; set; }
+        //public virtual ApplicationUser Author { get; set; }
 
-        public int CategoryId { get; set; }
+        //public int CategoryId { get; set; }
 
-        public virtual NewsCategory Category { get; set; }
+        //public virtual NewsCategory Category { get; set; }
+
+        public string CategoryName { get; set; }
 
         public string PictureUrl { get; set; }
 

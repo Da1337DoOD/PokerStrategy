@@ -1402,3 +1402,5 @@ D:\Users\Kolio\Desktop\PokerStrategy\Web\PokerStrategy.Web\obj\Debug\netcoreapp3
 D:\Users\Kolio\Desktop\PokerStrategy\Web\PokerStrategy.Web\obj\Debug\netcoreapp3.1\PokerStrategy.Web.genruntimeconfig.cache
 D:\Users\Kolio\Desktop\PokerStrategy\Web\PokerStrategy.Web\obj\Debug\netcoreapp3.1\Razor\Views\News\All.cshtml.g.cs
 D:\Users\Kolio\Desktop\PokerStrategy\Web\PokerStrategy.Web\obj\Debug\netcoreapp3.1\Razor\Views\News\ById.cshtml.g.cs
+D:\Users\Kolio\Desktop\PokerStrategy\Web\PokerStrategy.Web\obj\Debug\netcoreapp3.1\Razor\Areas\Administration\Views\AdminNews\Create.cshtml.g.cs
+D:\Users\Kolio\Desktop\PokerStrategy\Web\PokerStrategy.Web\obj\Debug\netcoreapp3.1\Razor\Areas\Administration\Views\AdminNews\GetEditById.cshtml.g.cs

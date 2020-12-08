@@ -8,6 +8,8 @@
         public const string ModeratorRoleName = "Moderator";
         public const string MemberRoleName = "Member";
 
-        public const int LatestPostsAndNewsCount = 25;
+        public const int LatestPostsAndNewsCount = 10;
+
+        public const int FrontContentMaxLength = 30;
     }
 }

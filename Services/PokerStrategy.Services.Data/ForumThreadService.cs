@@ -27,20 +27,20 @@
             await this.threadRepository.AddAsync(thread);
             await this.threadRepository.SaveChangesAsync();
 
-            var reply = new ForumReply
-            {
-                CategoryId = thread.CategoryId,
-                CreatedOn = thread.CreatedOn,
-                Content = thread.Content,
-                DeletedOn = thread.DeletedOn,
-                IsDeleted = thread.IsDeleted,
-                ModifiedOn = thread.ModifiedOn,
-                PostedById = thread.PostedById,
-                ThreadId = thread.Id,
-            };
+            //var reply = new ForumReply
+            //{
+            //    CategoryId = thread.CategoryId,
+            //    CreatedOn = thread.CreatedOn,
+            //    Content = thread.Content,
+            //    DeletedOn = thread.DeletedOn,
+            //    IsDeleted = thread.IsDeleted,
+            //    ModifiedOn = thread.ModifiedOn,
+            //    PostedById = thread.PostedById,
+            //    ThreadId = thread.Id,
+            //};
 
-            await this.replyRepository.AddAsync(reply);
-            await this.replyRepository.SaveChangesAsync();
+            //await this.replyRepository.AddAsync(reply);
+            //await this.replyRepository.SaveChangesAsync();
         }
 
         public async Task AddReply(ForumReply reply)
@@ -123,14 +123,38 @@
         //        .Take(replyCount);
         //}
 
-  
 
-        public IEnumerable<ForumThread> GetLatestContent()
+
+        public IEnumerable<ForumThread> GetLatestThreads()
         {
             var threads = this.replyRepository.All()
-                .OrderByDescending(r => r.CreatedOn).Select(r => r.Thread);
+                .OrderByDescending(r => r.CreatedOn)
+                .Select(r => r.Thread);
 
-            return threads;
+            var uniqueThreads = new List<ForumThread>();
+
+            if (threads.Any())
+            {
+                foreach (var t in threads)
+                {
+                    uniqueThreads.Add(t);
+                }
+            }
+
+            if (uniqueThreads.Count <= 10)
+            {
+                return uniqueThreads;
+            }
+
+            return uniqueThreads.Take(10);
+        }
+
+        public IEnumerable<ForumReply> GetLatestReplies()
+        {
+            var replies = this.replyRepository.All()
+                .OrderByDescending(r => r.CreatedOn).Take(5);
+
+            return replies;
         }
 
         public IEnumerable<ForumThread> GetThreadsByCategory(int id)

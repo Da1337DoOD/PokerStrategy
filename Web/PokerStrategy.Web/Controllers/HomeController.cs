@@ -33,36 +33,38 @@
 
         private HomeIndexModel BuildHomeIndexModel()
         {
-            var latestPosts = this.threadService.GetLatestContent();
+            var latestThreads = this.threadService.GetLatestThreads();
 
-            var threadList = new List<ThreadsListingModel>();
-
-            var threads = latestPosts.Select(t => new ThreadsListingModel
+            var threads = latestThreads.Select(t => new ThreadsListingModel
             {
                 Id = t.Id,
                 Title = t.Title,
-                LatestContent = this.replyService.GetLatest(t.Id).Content,
+                LatestContent = t.Content,
                 DateCreated = t.CreatedOn,
             });
 
-            foreach (var thread in threads)
+            var threadList = new List<ThreadsListingModel>();
+            if (threads.Any())
             {
-                if (threadList.Any(existing => existing.Title == thread.Title))
+                foreach (var thread in threads)
                 {
-                    continue;
-                }
+                    if (threadList.Any(existing => existing.Title == thread.Title))
+                    {
+                        continue;
+                    }
 
-                threadList.Add(thread);
+                    threadList.Add(thread);
 
-                if (threadList.Count >= GlobalConstants.LatestPostsAndNewsCount)
-                {
-                    break;
+                    if (threadList.Count >= GlobalConstants.LatestPostsAndNewsCount)
+                    {
+                        break;
+                    }
                 }
             }
 
             return new HomeIndexModel
             {
-                LatestsPosts = threadList,
+                LatestThreads = threadList,
                 SearchQuery = "",
             };
         }

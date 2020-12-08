@@ -25,6 +25,8 @@
 
         //IEnumerable<ForumThread> GetLatestThreads(int postsCount);
 
-        IEnumerable<ForumThread> GetLatestContent();
+        IEnumerable<ForumThread> GetLatestThreads();
+
+        IEnumerable<ForumReply> GetLatestReplies();
     }
 }

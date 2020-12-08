@@ -10,6 +10,8 @@
     {
         public string SearchQuery { get; set; }
 
-        public IEnumerable<ThreadsListingModel> LatestsPosts { get; set; }
+        public IEnumerable<ThreadsListingModel> LatestThreads { get; set; }
+
+        public IEnumerable<ThreadsListingModel> LatestReplies { get; set; }
     }
 }

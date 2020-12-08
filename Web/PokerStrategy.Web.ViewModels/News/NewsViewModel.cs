@@ -6,9 +6,6 @@
     using System.Net;
     using System.Text.RegularExpressions;
 
-    using PokerStrategy.Data.Models;
-    using PokerStrategy.Services.Mapping;
-
     public class NewsViewModel
     {
         public int Id { get; set; }
