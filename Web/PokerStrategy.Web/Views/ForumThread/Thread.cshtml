@@ -35,7 +35,7 @@
 		</div>
 		<div class="col-md-9 postContentContainer">
 			<div class="postContent">
-				@Html.Raw(@Model.Content)
+				@Model.Content
 			</div>
 		</div>
 	</div>
@@ -46,37 +46,23 @@
 <div class="row" id="replyRow">
 	<span><a asp-controller="ForumReply" asp-action="Create" asp-route-id="@Model.Id" class="btn btn-newReply">Reply</a></span>
 </div>}
-	@if (Model.Replies.Any())
-	{
-		foreach (var reply in Model.Replies)
+
+		@foreach (var reply in Model.Replies)
 		{
-<div class="row replyContent">
-	<div class="col-md-3 replyAuthorContainer">
-		<div class="postAuthorImage" style="background-image: url(@reply.PostedByAvatarUrl); background-size: 100%;"></div>
-		<a asp-controller="Profile" asp-action="Detail" asp-route-id="@reply.PostedById">
-			<strong>@reply.PostedByName</strong>
-		</a> (<span class="postAuthorRating">@reply.PostedByPoints</span>) <br />
-		<!--
-		if (reply.IsAuthorAdmin)
-		{
-			<div class="isAdmin profileLabel smaller">Admin</div>
-						<br />
+		<div class="row replyContent">
+			<div class="col-md-3 replyAuthorContainer">
+				<div class="postAuthorImage" style="background-image: url(@reply.PostedByAvatarUrl); background-size: 100%;"></div>
+				<a asp-controller="Profile" asp-action="Detail" asp-route-id="@reply.PostedById">
+					<strong>@reply.PostedByName</strong>
+				</a> (<span class="postAuthorRating">@reply.PostedByPoints</span>) <br />
+				<span class="postDate">@reply.RepliedOn</span>
+			</div>
+			<div class="col-md-9 replyContentContainer">
+				<div class="postContent">
+					@(reply.Content)
+				</div>
+			</div>
+		</div> 
 		}
-		-->
-		<span class="postDate">@reply.RepliedOn</span>
-	</div>
-	<div class="col-md-9 replyContentContainer">
-		<div class="postContent">
-			@Html.Raw(@reply.Content)
-		</div>
-	</div>
-</div> }
-			}
-			else
-			{
-<div class="noPosts">
-	<h3>
-		There are no replies to this post.<br />
-	</h3>
-</div>}
+			
 </div>

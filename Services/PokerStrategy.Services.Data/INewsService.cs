@@ -7,7 +7,7 @@
 
     public interface INewsService
     {
-        Task<int> CreateAsync(string title, string content, string url, string categoryId);
+        Task<int> CreateAsync(string title, string content, string url, string newsType);
 
         Task Delete(int id);
 

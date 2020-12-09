@@ -12,21 +12,14 @@
             this.Comments = new HashSet<NewsComment>();
         }
 
+        [Required]
         public string Title { get; set; }
 
-        //[Required]
-        //public string AuthorId { get; set; }
-
-        //public virtual ApplicationUser Author { get; set; }
-
-        //public int CategoryId { get; set; }
-
-        //public virtual NewsCategory Category { get; set; }
-
-        public string CategoryName { get; set; }
+        public string NewsType { get; set; }
 
         public string PictureUrl { get; set; }
 
+        [Required]
         public string Content { get; set; }
 
         public int TimeSeen { get; set; }

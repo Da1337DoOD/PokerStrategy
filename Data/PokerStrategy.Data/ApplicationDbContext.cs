@@ -39,6 +39,10 @@
 
         public DbSet<ForumCategory> ForumCategories { get; set; }
 
+        public DbSet<Video> Videos { get; set; }
+
+        public DbSet<VideoComment> VideoComments { get; set; }
+
         public override int SaveChanges() => this.SaveChanges(true);
 
         public override int SaveChanges(bool acceptAllChangesOnSuccess)

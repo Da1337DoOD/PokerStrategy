@@ -11,24 +11,20 @@
     public class NewsService : INewsService
     {
         private readonly IDeletableEntityRepository<News> newsRepository;
-        private readonly UserManager<ApplicationUser> userManager;
 
-        public NewsService(
-            IDeletableEntityRepository<News> newsRepository,
-            UserManager<ApplicationUser> userManager)
+        public NewsService(IDeletableEntityRepository<News> newsRepository)
         {
             this.newsRepository = newsRepository;
-            this.userManager = userManager;
         }
 
-        public async Task<int> CreateAsync(string title, string content, string url, string category)
+        public async Task<int> CreateAsync(string title, string content, string url, string newsType)
         {
             var news = new News
             {
                 Title = title,
                 Content = content,
                 PictureUrl = url,
-                CategoryName = category,
+                NewsType = newsType,
                 CreatedOn = DateTime.UtcNow,
             };
 
@@ -67,16 +63,10 @@
 
         public IEnumerable<News> GetAll()
         {
-            IQueryable<News> query = this.newsRepository.All()
-           //     .Where(n => n.CategoryName == categoryName)
+            IQueryable<News> news = this.newsRepository.All()
                 .OrderBy(n => n.CreatedOn);
 
-            //if (count.HasValue)
-            //{
-            //    query = query.Take(count.Value);
-            //}
-
-            return query.ToList();
+            return news.ToList();
         }
 
         public News GetById(int id)

@@ -1,9 +1,10 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore.Migrations;
-
-namespace PokerStrategy.Data.Migrations
+﻿namespace PokerStrategy.Data.Migrations
 {
-    public partial class newMig : Migration
+    using System;
+
+    using Microsoft.EntityFrameworkCore.Migrations;
+
+    public partial class Videos : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -100,6 +101,25 @@ namespace PokerStrategy.Data.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Settings", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Videos",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    CreatedOn = table.Column<DateTime>(nullable: false),
+                    ModifiedOn = table.Column<DateTime>(nullable: true),
+                    IsDeleted = table.Column<bool>(nullable: false),
+                    DeletedOn = table.Column<DateTime>(nullable: true),
+                    Category = table.Column<string>(nullable: true),
+                    Title = table.Column<string>(nullable: true),
+                    VideoUrl = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Videos", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -218,10 +238,10 @@ namespace PokerStrategy.Data.Migrations
                     ModifiedOn = table.Column<DateTime>(nullable: true),
                     IsDeleted = table.Column<bool>(nullable: false),
                     DeletedOn = table.Column<DateTime>(nullable: true),
-                    Title = table.Column<string>(nullable: true),
-                    CategoryName = table.Column<string>(nullable: true),
+                    Title = table.Column<string>(nullable: false),
+                    NewsType = table.Column<string>(nullable: true),
                     PictureUrl = table.Column<string>(nullable: true),
-                    Content = table.Column<string>(nullable: true),
+                    Content = table.Column<string>(nullable: false),
                     TimeSeen = table.Column<int>(nullable: false),
                     ApplicationUserId = table.Column<string>(nullable: true)
                 },
@@ -294,6 +314,37 @@ namespace PokerStrategy.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "VideoComments",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    CreatedOn = table.Column<DateTime>(nullable: false),
+                    ModifiedOn = table.Column<DateTime>(nullable: true),
+                    IsDeleted = table.Column<bool>(nullable: false),
+                    DeletedOn = table.Column<DateTime>(nullable: true),
+                    VideoId = table.Column<int>(nullable: false),
+                    PostedById = table.Column<string>(nullable: false),
+                    Content = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_VideoComments", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_VideoComments_AspNetUsers_PostedById",
+                        column: x => x.PostedById,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_VideoComments_Videos_VideoId",
+                        column: x => x.VideoId,
+                        principalTable: "Videos",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "NewsComments",
                 columns: table => new
                 {
@@ -337,7 +388,7 @@ namespace PokerStrategy.Data.Migrations
                     CategoryId = table.Column<int>(nullable: false),
                     ThreadId = table.Column<int>(nullable: false),
                     PostedById = table.Column<string>(nullable: false),
-                    Content = table.Column<string>(nullable: false)
+                    Content = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -501,6 +552,26 @@ namespace PokerStrategy.Data.Migrations
                 name: "IX_Settings_IsDeleted",
                 table: "Settings",
                 column: "IsDeleted");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_VideoComments_IsDeleted",
+                table: "VideoComments",
+                column: "IsDeleted");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_VideoComments_PostedById",
+                table: "VideoComments",
+                column: "PostedById");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_VideoComments_VideoId",
+                table: "VideoComments",
+                column: "VideoId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Videos_IsDeleted",
+                table: "Videos",
+                column: "IsDeleted");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -533,6 +604,9 @@ namespace PokerStrategy.Data.Migrations
                 name: "Settings");
 
             migrationBuilder.DropTable(
+                name: "VideoComments");
+
+            migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
@@ -540,6 +614,9 @@ namespace PokerStrategy.Data.Migrations
 
             migrationBuilder.DropTable(
                 name: "News");
+
+            migrationBuilder.DropTable(
+                name: "Videos");
 
             migrationBuilder.DropTable(
                 name: "ForumCategories");

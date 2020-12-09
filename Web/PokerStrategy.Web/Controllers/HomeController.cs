@@ -39,7 +39,6 @@
             {
                 Id = t.Id,
                 Title = t.Title,
-                LatestContent = t.Content,
                 DateCreated = t.CreatedOn,
             });
 
