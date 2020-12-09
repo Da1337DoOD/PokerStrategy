@@ -23,10 +23,6 @@
 
         Task AddReply(ForumReply reply);
 
-        //IEnumerable<ForumThread> GetLatestThreads(int postsCount);
-
         IEnumerable<ForumThread> GetLatestThreads();
-
-        IEnumerable<ForumReply> GetLatestReplies();
     }
 }

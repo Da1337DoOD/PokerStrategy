@@ -65,12 +65,7 @@
 						<td>
 							<a asp-controller="ForumThread" asp-action="Thread" asp-route-id="@t.Id">
 								<div class="postTitle">
-
-									@t.Title
-
-								</div>
-								<div class="postSubtitle">
-									@t.LatestContent
+									@(t.Title)
 								</div>
 							</a>
 						</td>

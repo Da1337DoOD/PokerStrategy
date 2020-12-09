@@ -1,7 +1,7 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace PokerStrategy.Web.ViewModels.Forum
+﻿namespace PokerStrategy.Web.ViewModels.Forum
 {
+    using System.ComponentModel.DataAnnotations;
+
     public class NewThreadModel
     {
         public string CategoryName { get; set; }

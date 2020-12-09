@@ -1,10 +1,9 @@
-﻿namespace PokerStrategy.Data.Migrations
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
+
+namespace PokerStrategy.Data.Migrations
 {
-    using System;
-
-    using Microsoft.EntityFrameworkCore.Migrations;
-
-    public partial class Videos : Migration
+    public partial class _1001migracii : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

@@ -16,7 +16,7 @@ namespace PokerStrategy.Web.ViewModels.Forum
 
         public DateTime DateCreated { get; set; }
 
-        public CategoriesListingModel Category { get; set; }
+        public string CategoryName { get; set; }
 
         public int RepliesCount { get; set; }
 

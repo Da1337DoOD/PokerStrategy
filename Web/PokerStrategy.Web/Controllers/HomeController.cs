@@ -15,14 +15,10 @@
     public class HomeController : BaseController
     {
         private readonly IForumThreadService threadService;
-        private readonly IForumReplyService replyService;
 
-        public HomeController(
-            IForumThreadService threadService,
-            IForumReplyService replyService)
+        public HomeController(IForumThreadService threadService)
         {
             this.threadService = threadService;
-            this.replyService = replyService;
         }
 
         public IActionResult Index()

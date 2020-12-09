@@ -10,8 +10,8 @@ using PokerStrategy.Data;
 namespace PokerStrategy.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20201209002619_Videos")]
-    partial class Videos
+    [Migration("20201209130238_1001migracii")]
+    partial class _1001migracii
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

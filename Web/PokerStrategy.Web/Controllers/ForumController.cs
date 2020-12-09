@@ -58,7 +58,7 @@
                 AuthorPoints = t.PostedBy.Points,
                 DateCreated = t.CreatedOn,
                 RepliesCount = t.Replies.Count(),
-                Category = this.BuildCategoryListing(t),
+                CategoryName = this.BuildCategoryListing(t).Title,
             }).OrderByDescending(t => t.DateCreated);
 
             var model = new CategoryModel
