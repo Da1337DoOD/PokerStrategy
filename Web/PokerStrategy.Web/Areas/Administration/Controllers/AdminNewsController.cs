@@ -1,4 +1,4 @@
-﻿namespace CyberSecurityBG.Web.Areas.Administration.Controllers
+﻿namespace PokerStrategy.Web.Areas.Administration.Controllers
 {
     using System.Linq;
     using System.Threading.Tasks;
@@ -38,22 +38,6 @@
             this.newsRepository.Delete(news);
             await this.newsRepository.SaveChangesAsync();
             return this.RedirectToAction("All", "News", new { area = string.Empty });
-        }
-
-        public IActionResult GetEditById(int id)
-        {
-            var viewData = this.newsService.GetById(id);
-            return this.View(viewData);
-        }
-
-        public async Task<IActionResult> EditById(int id, string url, string title, string content)
-        {
-            var news = this.newsRepository.All().Where(x => x.Id == id).FirstOrDefault();
-            news.Title = title;
-            news.Content = content;
-            news.PictureUrl = url;
-            await this.newsRepository.SaveChangesAsync();
-            return this.RedirectToAction("ById", "News", new { id = news.Id, area = string.Empty });
         }
 
         [Authorize]

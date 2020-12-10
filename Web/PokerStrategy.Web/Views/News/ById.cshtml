@@ -70,10 +70,6 @@
 								@if (this.User.IsInRole(GlobalConstants.AdminRoleName))
 								{
 									<a type="button" class="btn btn-primary" style="background-color:red" asp-controller="AdminNews" asp-action="DeleteById" asp-area="Administration" asp-route-id="@Model.Id">Delete</a>
-
-
-									<a type="button" class="btn btn-primary" style="background-color:forestgreen" asp-controller="AdminNews" asp-action="GetEditById" asp-area="Administration" asp-route-id="@Model.Id">Edit</a>
-
 								}
 								<button type="button" class="btn btn-primary" onclick="showAddCommentForm(0)"><i class="ion ion-md-create"></i>&nbsp;Comment</button>
 							</div>
