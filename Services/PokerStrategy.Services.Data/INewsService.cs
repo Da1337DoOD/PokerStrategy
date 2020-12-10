@@ -16,5 +16,7 @@
         Task<bool> IncrementViews(int id);
 
         IEnumerable<News> GetAll();
+
+        IEnumerable<News> GetLatestNews();
     }
 }

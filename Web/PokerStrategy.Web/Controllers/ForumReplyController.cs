@@ -41,7 +41,7 @@
             var model = new ReplyModel
             {
                 PostedById = user.Id,
-                PostedByName = user.UserName,
+                PostedByName = user.DisplayName,
                 PostedByPoints = user.Points,
                 PostedByAvatarUrl = user.ImageUrl,
                 RepliedOn = DateTime.UtcNow,

@@ -65,6 +65,19 @@
             return news;
         }
 
+        public IEnumerable<News> GetLatestNews()
+        {
+            var newsByDate = this.newsRepository.All()
+                .OrderByDescending(r => r.CreatedOn).ToList();
+
+            if (newsByDate.Count <= 5)
+            {
+                return newsByDate;
+            }
+
+            return newsByDate.Take(5);
+        }
+
         public async Task<bool> IncrementViews(int id)
         {
             this.newsRepository.All()

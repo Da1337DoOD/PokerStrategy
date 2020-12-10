@@ -55,7 +55,7 @@
                 Id = t.Id,
                 Title = t.Title,
                 AuthorId = t.PostedById,
-                AuthorName = t.PostedBy.UserName,
+                AuthorName = t.PostedBy.DisplayName,
                 AuthorPoints = t.PostedBy.Points,
                 DateCreated = t.CreatedOn,
                 RepliesCount = t.Replies.Count(),

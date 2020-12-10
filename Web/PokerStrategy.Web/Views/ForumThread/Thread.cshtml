@@ -24,7 +24,7 @@
 	</div>
 
 	<div class="row" id="replyDivider">
-		<div class="ml90 col-md-2">
+		<div class="ml60 col-md-2">
 			@if (Context.User.Identity.IsAuthenticated)
 			{
 				<div class="row" id="replyRow">
@@ -45,7 +45,7 @@
 		<div class="postAuthorImage" style="background-image: url(@reply.PostedByAvatarUrl); background-size: 100%;"></div>
 		<a asp-controller="Profile" asp-action="Detail" asp-route-id="@reply.PostedById">
 			<strong>@reply.PostedByName</strong>
-		</a> (<span class="postAuthorRating">@reply.PostedByPoints</span>) <br />
+		</a>  <br />
 		<span class="postDate">@reply.RepliedOn</span>
 	</div>
 	<div class="col-md-8 replyContentContainer">

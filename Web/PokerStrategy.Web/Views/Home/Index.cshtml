@@ -22,8 +22,8 @@
 <div class="row frontPageContent">
 
 	<div class="col-lg-8">
-		<h3 id="latestNews">Latest News</h3> <!----------------------TO DO, CHANGE TO NEWS-->
-		@foreach (var t in Model.LatestThreads)
+		<h3 id="latestNews">Latest News</h3> 
+		@foreach (var n in Model.LatestNews)
 		{
 			<a href="#">
 				<div class="card">
@@ -32,18 +32,14 @@
 							<img src="//placehold.it/200x200" class="img-fluid" alt="">
 						</div>
 						<div class="col">
-							<div class="card-block px-2">
+							<div class="card-block px-2 bg-dark">
 
-								<h4 class="card-title">Title</h4>
-								<p class="card-text">Description</p>
+								<h3 class="card-title">@n.Title</h3>
+								<p class="card-text">@n.ShortContent</p>
 
 							</div>
 						</div>
 					</div>
-					<!--
-					<div class="card-footer w-100 text-muted">
-						Footer stating cats are CUTE little animals
-					</div>-->
 				</div>
 			</a>
 			<br />

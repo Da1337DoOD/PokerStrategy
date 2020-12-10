@@ -11,14 +11,17 @@
     using PokerStrategy.Web.ViewModels;
     using PokerStrategy.Web.ViewModels.Forum;
     using PokerStrategy.Web.ViewModels.Home;
+    using PokerStrategy.Web.ViewModels.News;
 
     public class HomeController : BaseController
     {
         private readonly IForumThreadService threadService;
+        private readonly INewsService newsService;
 
-        public HomeController(IForumThreadService threadService)
+        public HomeController(IForumThreadService threadService, INewsService newsService)
         {
             this.threadService = threadService;
+            this.newsService = newsService;
         }
 
         public IActionResult Index()
@@ -30,6 +33,7 @@
         private HomeIndexModel BuildHomeIndexModel()
         {
             var latestThreads = this.threadService.GetLatestThreads();
+            var latestNews = this.newsService.GetLatestNews();
 
             var threads = latestThreads.Select(t => new ThreadsListingModel
             {
@@ -57,9 +61,17 @@
                 }
             }
 
+            var news = latestNews.Select(n => new NewsViewModel
+            {
+                Title = n.Title,
+                Content = n.Content,
+                PictureUrl = n.PictureUrl,
+            });
+
             return new HomeIndexModel
             {
                 LatestThreads = threadList,
+                LatestNews = news,
                 SearchQuery = "",
             };
         }

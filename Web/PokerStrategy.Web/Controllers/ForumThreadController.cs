@@ -109,7 +109,7 @@
             {
                 Id = r.Id,
                 PostedById = r.PostedById,
-                PostedByName = r.PostedBy.UserName,
+                PostedByName = r.PostedBy.DisplayName,
                 PostedByAvatarUrl = r.PostedBy.ImageUrl,
                 PostedByPoints = r.PostedBy.Points,
                 RepliedOn = r.CreatedOn,
