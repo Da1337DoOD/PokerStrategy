@@ -23,15 +23,6 @@
             {
                 Content = dbNews.Content,
                 CreatedOn = dbNews.CreatedOn,
-                NewsComments = dbNews.Comments.Select(c => new NewsCommentViewModel
-                {
-                    Content = c.Content,
-                    CreatedOn = c.CreatedOn,
-                    Id = c.Id,
-                    NewsId = c.News.Id,
-                    UserUserName = c.UserId,
-                    ProfilePicture = c.User.ImageUrl,
-                }),
                 Id = dbNews.Id,
                 PictureUrl = dbNews.PictureUrl,
                 Title = dbNews.Title,
@@ -59,16 +50,6 @@
                 Title = n.Title,
                 Content = n.Content,
                 PictureUrl = n.PictureUrl,
-                NewsComments = n.Comments
-                    .Select(c => new NewsCommentViewModel
-                    {
-                        NewsId = c.NewsId,
-                        Id = c.Id,
-                        CreatedOn = c.CreatedOn,
-                        Content = c.Content,
-                        ProfilePicture = c.User.ImageUrl,
-                        UserUserName = c.User.UserName,
-                    }),
                 CreatedOn = n.CreatedOn,
                 Views = n.TimeSeen,
             });

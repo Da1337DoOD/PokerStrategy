@@ -11,20 +11,11 @@
     public class NewsService : INewsService
     {
         private readonly IDeletableEntityRepository<News> newsRepository;
-        private readonly IDeletableEntityRepository<NewsComment> commentRepository;
 
         public NewsService(
-            IDeletableEntityRepository<News> newsRepository,
-            IDeletableEntityRepository<NewsComment> commentRepository)
+            IDeletableEntityRepository<News> newsRepository)
         {
             this.newsRepository = newsRepository;
-            this.commentRepository = commentRepository;
-        }
-
-        public async Task AddReply(NewsComment reply)
-        {
-            await this.commentRepository.AddAsync(reply);
-            await this.commentRepository.SaveChangesAsync();
         }
 
         public async Task<int> CreateAsync(string title, string content, string url, string newsType)

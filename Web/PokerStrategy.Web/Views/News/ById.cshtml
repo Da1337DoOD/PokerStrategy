@@ -7,38 +7,6 @@
 <head>
 	<link rel="stylesheet" type="text/css" href="~/css/site.css" />
 </head>
-@{ void DisplayComments()
-	{
-		@foreach (var comment in Model.NewsComments)
-		{
-			<div class="container-fluid mt-100">
-				<div class="row">
-					<div class="col-md-12">
-						<div class="card mb-4" style="background-color:#1b1b18">
-							<div class="card-header">
-
-								<div class="media flex-wrap w-100 align-items-center">
-									<img src="@comment.ProfilePicture" style="width: 45px;" class="d-block ui-w-40 rounded-circle " alt="">
-									<div class="media-body ml-3">
-										<small class="profile-usertitle-name">@comment.UserUserName</small>
-										<div class="text-muted small">
-											<time>@comment.CreatedOnAsString</time>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="card-body">
-								<article>
-									@comment.Content
-								</article>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		}
-	}
-}
 
 <div class="container">
 	<div class="row">
@@ -55,7 +23,6 @@
 									<img src="https://cdn2.iconfinder.com/data/icons/picol-vector/32/view-512.png" style="filter: invert(100%) sepia(0%) saturate(2%) hue-rotate(337deg) brightness(106%) contrast(101%); margin-left:10px; margin-right:10px;" height="25" width="25" />
 									<span class="text-secondary">@Model.Views</span>
 									<img src="https://image.flaticon.com/icons/png/512/25/25360.png" style="filter: invert(100%) sepia(0%) saturate(2%) hue-rotate(337deg) brightness(106%) contrast(101%); margin-left:10px; margin-right:10px;" height="25" width="25" />
-									<span class="text-secondary">@Model.NewsComments.Count()</span>
 								</div>
 							</center>
 
@@ -69,9 +36,8 @@
 
 								@if (this.User.IsInRole(GlobalConstants.AdminRoleName))
 								{
-									<a type="button" class="btn btn-primary" style="background-color:red" asp-controller="AdminNews" asp-action="DeleteById" asp-area="Administration" asp-route-id="@Model.Id">Delete</a>
+									<a type="button" class="btn btn-primary" style="background-color:red" asp-area="Administration" asp-controller="Admin" asp-action="DeleteById" asp-route-id="@Model.Id">Delete</a>
 								}
-								<button type="button" class="btn btn-primary" onclick="showAddCommentForm(0)"><i class="ion ion-md-create"></i>&nbsp;Comment</button>
 							</div>
 						</div>
 					</div>
@@ -79,40 +45,4 @@
 			</div>
 		</div>
 	</div>
-</div>
-
-<br />
-
-@{ DisplayComments(); }
-
-@section Scripts {
-	<script>
-		document.getElementById('Content').onkeyup = function () {
-			if (this.value.length < 3 || this.value.length > 850) {
-				document.getElementById('submit').style.visibility = "hidden"
-			}
-			else {
-				document.getElementById('submit').style.visibility = "visible"
-			}
-		};
-
-		function showAddCommentForm() {
-			$("#AddCommentForm").show();
-			$([document.documentElement, document.body]).animate({
-				scrollTop: $("#AddCommentForm").offset().top
-			}, 1000);
-		}</script>
-}
-<div style="width:1090px; position:relative; left:10px; display:none" id="AddCommentForm">
-	<form asp-controller="NewsComments" asp-action="Create" method="post">
-		<input type="hidden" name="PostId" value="@this.Model.Id" />
-		<div>
-			<label for="Content"></label>
-			<textarea style="height:250px" onchange="CheckTextLength()" name="Content" id="Content" class="form-control"></textarea>
-			<span asp-validation-for="Content" class="text-danger"></span>
-		</div>
-		<div>
-			<input style="visibility:hidden; position: absolute; top: 84%; right: 0.5%;" type="submit" class="btn btn-primary" id="submit" value="Add" />
-		</div>
-	</form>
 </div>

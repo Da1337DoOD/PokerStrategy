@@ -7,11 +7,6 @@
 
     public class News : BaseDeletableModel<int>
     {
-        public News()
-        {
-            this.Comments = new HashSet<NewsComment>();
-        }
-
         [Required]
         public string Title { get; set; }
 
@@ -23,7 +18,5 @@
         public string Content { get; set; }
 
         public int TimeSeen { get; set; }
-
-        public virtual ICollection<NewsComment> Comments { get; set; }
     }
 }

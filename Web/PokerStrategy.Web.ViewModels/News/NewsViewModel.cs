@@ -16,8 +16,6 @@
 
         public string PictureUrl { get; set; }
 
-        public IEnumerable<NewsCommentViewModel> NewsComments { get; set; }
-
         public string ShortContent
         {
             get

@@ -40,10 +40,6 @@ namespace PokerStrategy.Data.Models
 
         public virtual ICollection<ForumReply> ForumReplies { get; set; }
 
-        public virtual ICollection<News> NewsPosted { get; set; }
-
-        public virtual ICollection<NewsComment> NewsComments { get; set; }
-
         // Users Profile
         public virtual ICollection<ApplicationUser> Friends { get; set; }
 

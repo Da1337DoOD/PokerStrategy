@@ -25,23 +25,21 @@
 
         public DbSet<Setting> Settings { get; set; }
 
+        public DbSet<ForumCategory> ForumCategories { get; set; }
+
         public DbSet<ForumThread> ForumThreads { get; set; }
 
         public DbSet<ForumReply> ForumReplies { get; set; }
 
         public DbSet<News> News { get; set; }
 
-        public DbSet<NewsComment> NewsComments { get; set; }
+        public DbSet<Video> Videos { get; set; }
+
+        public DbSet<VideoComment> VideoComments { get; set; }
 
         public DbSet<ApplicationUser> Friends { get; set; }
 
         public DbSet<ProfileMessage> ProfileMessages { get; set; }
-
-        public DbSet<ForumCategory> ForumCategories { get; set; }
-
-        public DbSet<Video> Videos { get; set; }
-
-        public DbSet<VideoComment> VideoComments { get; set; }
 
         public override int SaveChanges() => this.SaveChanges(true);
 

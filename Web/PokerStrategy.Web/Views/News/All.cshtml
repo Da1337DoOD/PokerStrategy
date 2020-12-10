@@ -1,12 +1,19 @@
 ﻿@model PokerStrategy.Web.ViewModels.News.NewsListingViewModel
+@using PokerStrategy.Data.Models
+@using Microsoft.AspNetCore.Identity
+@using PokerStrategy.Common
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
 
 <head>
 	<link rel="stylesheet" type="text/css" href="~/css/site.css" />
 </head>
-
-<li class="nav-item">
-	<a class="nav-link" style="color:seashell" border-radius:10%" asp-controller="AdminNews" asp-action="Create" asp-area="Administration">Add News</a>
-</li>
+@if (this.User.IsInRole(GlobalConstants.AdminRoleName))
+{
+	<li class="nav-item">
+		<a class="nav-link" style="color:seashell" border-radius:10%" asp-controller="Admin" asp-action="Create" asp-area="Administration">Add News</a>
+	</li>
+}
 <body>
 	@{ int count = 0; }
 	@foreach (var news in Model.News)
@@ -14,11 +21,14 @@
 		@if (count < 2)
 		{
 			<div style="width:385px; float:left">
-				<a asp-controller="News" asp-action="ById" asp-route-id="@news.Id">
+				<a asp-controller="News" asp-action="IncrementViewsById" asp-route-id="@news.Id">
 					<div class="card" style="width: 20.69rem; background-color:#282726">
 						<img class="card-img-top" src="@news.PictureUrl" alt="Card image cap" style="width:329px; height:329px">
 						<div class="card-body">
-							<strong><a class="card-title" style="color:seashell; text-align:center" asp-controller="News" asp-action="IncrementViewsById" asp-route-id="@news.Id">@news.Title</a></strong>
+							<strong class="card-title">
+								
+									@news.Title
+								</strong>
 							<p class="card-text" style="color:seashell">@news.ShortContent</p>
 
 							<img src="https://cdn2.iconfinder.com/data/icons/picol-vector/32/view-512.png" style="margin-left:5px" height="15" width="25" />

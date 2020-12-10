@@ -16,7 +16,5 @@
         Task<bool> IncrementViews(int id);
 
         IEnumerable<News> GetAll();
-
-        Task AddReply(NewsComment reply);
     }
 }

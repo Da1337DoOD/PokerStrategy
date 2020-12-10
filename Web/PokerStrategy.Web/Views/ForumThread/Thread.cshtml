@@ -1,64 +1,65 @@
 ﻿@model PokerStrategy.Web.ViewModels.Forum.ThreadModel
-	<head>
-		<link rel="stylesheet" type="text/css" href="~/css/site.css" />
-	</head>
-<header>
-	<span class="postIndexTitle">
-		@Model.Title
-	</span>
-</header>
+<head>
+	<link rel="stylesheet" type="text/css" href="~/css/site.css" />
+</head>
 <div class="container body-content">
 	<div class="row postHeader">
-		<div class="postHeading">
+
+		<header>
 			<span id="headingBtn">
 				<a asp-controller="Forum" asp-action="Category" asp-route-id="@Model.CategoryId" class="btn btn-back">
-					<b>Back to @Model.CategoryTitle</b>
+					<button class="btn btn-newBack center">Back</button>
 				</a>
 			</span>
+			<span class="postIndexTitle">
+				@Model.Title
+			</span>
+			@if (User.IsInRole("Admin"))
+			{
+				<a type="button" class="btn btn-primary" style="background-color:red" asp-area="Administration" asp-controller="Admin" asp-action="DeleteThreadById" asp-route-id="@Model.Id">Delete</a>
+			}
+
+		</header>
+
+	</div>
+
+	<div class="row" id="replyDivider">
+		<div class="ml90 col-md-2">
+			@if (Context.User.Identity.IsAuthenticated)
+			{
+				<div class="row" id="replyRow">
+					<span><a asp-controller="ForumReply" asp-action="Create" asp-route-id="@Model.Id" class="btn btn-newReply" style="background-color:royalblue; color: white;">Reply</a></span>
+				</div>
+			}
 		</div>
 	</div>
-	<!--
-	<div class="row" id="postIndexContent">
-		<div class="col-md-3 postAuthorContainer">
-			<div class="postAuthorImage" style="background-image: url(@Model.PostedByAvatarUrl); background-size: 100%;"></div>
-			<a asp-controller="Profile" asp-action="Detail" asp-route-id="@Model.PostedById">
-				<strong>@Model.PostedByName</strong>
-			</a> (<span class="postAuthorRating">@Model.UserPoints</span>) <br />
-			<span class="postDate">@Model.CreatedOn</span>
 
-		</div>
-
-	<div class="col-md-9 postContentContainer">
-		<div class="postContent">
-			@Model.Content
-		</div>
-	</div>
-		-->
 </div>
 
-	<div class="row" id="replyDivider"></div>
-	@if (Context.User.Identity.IsAuthenticated)
-	{
-	<div class="row" id="replyRow">
-		<span><a asp-controller="ForumReply" asp-action="Create" asp-route-id="@Model.Id" class="btn btn-newReply">Reply</a></span>
-	</div>
-	}
 
-		@foreach (var reply in Model.Replies)
+
+@foreach (var reply in Model.Replies)
+{
+<div class="row replyContent replyStyle">
+	<div class="col-md-3 replyAuthorContainer">
+		<div class="postAuthorImage" style="background-image: url(@reply.PostedByAvatarUrl); background-size: 100%;"></div>
+		<a asp-controller="Profile" asp-action="Detail" asp-route-id="@reply.PostedById">
+			<strong>@reply.PostedByName</strong>
+		</a> (<span class="postAuthorRating">@reply.PostedByPoints</span>) <br />
+		<span class="postDate">@reply.RepliedOn</span>
+	</div>
+	<div class="col-md-8 replyContentContainer">
+		<div class="postContent">
+			@(reply.Content)
+		</div>
+	</div>
+	<div class="col-md-1 replyContentContainer">
+
+		@if (User.IsInRole("Admin"))
 		{
-		<div class="row replyContent">
-			<div class="col-md-3 replyAuthorContainer">
-				<div class="postAuthorImage" style="background-image: url(@reply.PostedByAvatarUrl); background-size: 100%;"></div>
-				<a asp-controller="Profile" asp-action="Detail" asp-route-id="@reply.PostedById">
-					<strong>@reply.PostedByName</strong>
-				</a> (<span class="postAuthorRating">@reply.PostedByPoints</span>) <br />
-				<span class="postDate">@reply.RepliedOn</span>
-			</div>
-			<div class="col-md-9 replyContentContainer">
-				<div class="postContent">
-					@(reply.Content)
-				</div>
-			</div>
-		</div> 
+			<a type="button" class="btn btn-primary del" style="background-color:red;" asp-area="Administration" asp-controller="Admin" asp-action="DeleteReplyById" asp-route-id="@reply.Id">Delete</a>
 		}
+	</div>
+</div>
+}
 

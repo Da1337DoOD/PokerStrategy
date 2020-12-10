@@ -20,7 +20,7 @@
         public async Task Delete(int id)
         {
             var reply = this.GetById(id);
-            this.replyRepository.Delete(reply); // Remove or other method??
+            this.replyRepository.Delete(reply);
 
             this.replyRepository.Update(reply);
 

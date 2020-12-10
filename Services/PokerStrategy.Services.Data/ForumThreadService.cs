@@ -54,10 +54,10 @@
             await this.replyRepository.SaveChangesAsync();
         }
 
-        public async Task Delete(int id)
+        public async Task Delete(int threadId)
         {
             var thread = this.threadRepository.All()
-                .Where(x => x.Id == id)
+                .Where(t => t.Id == threadId)
                 .FirstOrDefault();
 
             this.threadRepository.Delete(thread);
@@ -101,17 +101,11 @@
                 .FirstOrDefault();
         }
 
-        public IEnumerable<ForumThread> GetFilteredThreads(ForumCategory category, string searchQuery)
+        public IEnumerable<ForumThread> GetThreads(ForumCategory category)
         {
-            return string.IsNullOrEmpty(searchQuery)
-                ?
-                category.Threads
-                    .OrderByDescending(t => t.CreatedOn)
-                :
-                category.Threads
-                    .Where(t => t.Title.Contains(searchQuery)
-                             || t.Content.Contains(searchQuery))
-                    .OrderByDescending(t => t.CreatedOn);
+           return category.Threads
+                .Where(t => !t.IsDeleted)
+                .OrderByDescending(t => t.CreatedOn);
         }
 
         public IEnumerable<ForumThread> GetLatestThreads()

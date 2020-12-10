@@ -2,7 +2,7 @@
 {
     using System.Collections.Generic;
     using System.Linq;
-
+    using System.Threading.Tasks;
     using Microsoft.AspNetCore.Mvc;
     using PokerStrategy.Data.Models;
     using PokerStrategy.Services.Data;
@@ -40,12 +40,13 @@
             return this.View(model);
         }
 
-        public IActionResult Category(int id, string searchQuery)
+        public IActionResult Category(int id)
         {
             var category = this.categoryService.GetById(id);
 
             var threads = this.threadService
-                .GetFilteredThreads(category, searchQuery)
+                .GetThreads(category)
+                .Where(t => !t.IsDeleted)
                 .OrderByDescending(t => t.CreatedOn)
                 .ToList();
 
@@ -76,27 +77,6 @@
             // TODO
             return this.RedirectToAction("Thread", new { id, searchQuery });
         }
-
-        public IActionResult Edit(int postId)
-        {
-
-            return this.View();
-        }
-
-        public IActionResult Delete(int id)
-        {
-
-            return View();
-        }
-
-        //[HttpPost]
-        //public IActionResult ConfirmDelete(int id)
-        //{
-        //    var post = _postService.GetById(id);
-        //    _postService.Delete(id);
-
-        //    return RedirectToAction("Index", "Forum", new { id = post.Forum.Id });
-        //}
 
         private CategoriesListingModel BuildCategoryListing(ForumCategory category)
         {

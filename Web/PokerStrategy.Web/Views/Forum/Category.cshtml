@@ -1,11 +1,17 @@
 ﻿@model PokerStrategy.Web.ViewModels.Forum.CategoryModel
-	<head>
-		<link rel="stylesheet" type="text/css" href="~/css/site.css" />
-	</head>
+@using PokerStrategy.Common
+@using PokerStrategy.Data.Models
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+<head>
+	<link rel="stylesheet" type="text/css" href="~/css/site.css" />
+</head>
 <h1>Discussion Board</h1>
 <h1>@Model.Category.Title</h1>
 
-<span id="headingBtn"><a asp-controller="ForumThread" asp-action="Create" asp-route-id="@Model.Category.Id">Create</a></span>
+<span id="headingBtn"><a type="button" class="btn btn-primary" style="background-color:Blue" asp-controller="ForumThread" asp-action="Create" asp-route-id="@Model.Category.Id">Open new thread</a></span>
+
 
 @if (Model.Threads.Any())
 {
@@ -33,6 +39,16 @@
 					<td>
 						@thread.RepliesCount
 					</td>
+
+					@if (this.User.IsInRole(GlobalConstants.AdminRoleName))
+					{
+						<td>
+							<span id="deleteButton">
+								<a type="button" class="btn btn-primary" style="background-color:red" asp-area="Administration" asp-controller="Admin" asp-action="DeleteThreadById" asp-route-id="@thread.Id">Delete</a>
+							</span>
+						</td>
+					}
+
 				</tr>
 			}
 		</tbody>

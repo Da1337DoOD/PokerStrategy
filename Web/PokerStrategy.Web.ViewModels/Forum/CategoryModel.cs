@@ -6,6 +6,10 @@
     {
         public CategoriesListingModel Category { get; set; }
 
+        public int CategoryId { get; set; }
+
         public IEnumerable<ThreadsListingModel> Threads { get; set; }
+
+        public int DeletedThreadId { get; set; }
     }
 }

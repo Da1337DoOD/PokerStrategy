@@ -14,15 +14,19 @@
     {
         private readonly IForumCategoryService categoryService;
         private readonly IForumThreadService threadService;
+        private readonly IForumReplyService replyService;
         private readonly UserManager<ApplicationUser> userManager;
 
         public ForumReplyController(
-            IForumCategoryService forumService,
-            IForumThreadService postService,
+            IForumCategoryService categoryService,
+            IForumThreadService threadService,
+            IForumReplyService replyService,
             UserManager<ApplicationUser> userManager)
         {
-            this.categoryService = forumService;
-            this.threadService = postService;
+            this.categoryService = categoryService;
+            this.threadService = threadService;
+            this.replyService = replyService;
+
             this.userManager = userManager;
         }
 

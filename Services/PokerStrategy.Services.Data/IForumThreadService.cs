@@ -11,13 +11,13 @@
 
         IEnumerable<ForumThread> GetAll();
 
-        IEnumerable<ForumThread> GetFilteredThreads(ForumCategory category, string searchQuery);
+        IEnumerable<ForumThread> GetThreads(ForumCategory category);
 
         IEnumerable<ForumThread> GetThreadsByCategory(int id);
 
         Task Add(ForumThread thread);
 
-        Task Delete(int id);
+        Task Delete(int threadId);
 
         Task Edit(int id, string newTitle, string newContent);
 

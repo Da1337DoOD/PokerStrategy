@@ -397,9 +397,6 @@ namespace PokerStrategy.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("ApplicationUserId")
-                        .HasColumnType("nvarchar(450)");
-
                     b.Property<string>("Content")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -431,51 +428,9 @@ namespace PokerStrategy.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ApplicationUserId");
-
                     b.HasIndex("IsDeleted");
 
                     b.ToTable("News");
-                });
-
-            modelBuilder.Entity("PokerStrategy.Data.Models.NewsComment", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Content")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("CreatedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("DeletedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTime?>("ModifiedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("NewsId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("UserId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("IsDeleted");
-
-                    b.HasIndex("NewsId");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("NewsComments");
                 });
 
             modelBuilder.Entity("PokerStrategy.Data.Models.ProfileMessage", b =>
@@ -710,28 +665,6 @@ namespace PokerStrategy.Data.Migrations
                     b.HasOne("PokerStrategy.Data.Models.ApplicationUser", "PostedBy")
                         .WithMany("ForumThreads")
                         .HasForeignKey("PostedById")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("PokerStrategy.Data.Models.News", b =>
-                {
-                    b.HasOne("PokerStrategy.Data.Models.ApplicationUser", null)
-                        .WithMany("NewsPosted")
-                        .HasForeignKey("ApplicationUserId");
-                });
-
-            modelBuilder.Entity("PokerStrategy.Data.Models.NewsComment", b =>
-                {
-                    b.HasOne("PokerStrategy.Data.Models.News", "News")
-                        .WithMany("Comments")
-                        .HasForeignKey("NewsId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("PokerStrategy.Data.Models.ApplicationUser", "User")
-                        .WithMany("NewsComments")
-                        .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
                 });

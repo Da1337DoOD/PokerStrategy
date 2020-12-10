@@ -103,3 +103,31 @@ div {
 .white-btn {
     background-color: white;
 }
+
+.replyStyle {
+    background-color: gray;
+    border: 2px dotted #000;
+    margin: 5px;
+}
+
+.del {
+margin-top: 5px;
+}
+
+.ml90 {
+    margin-left: 90%;
+}
+
+#headingBtn button{
+    color: white;
+}
+
+.btn-newBack {
+background-color: gray;
+color: white;
+}
+
+.center {
+margin: 0 auto;
+text-align: center;
+}
