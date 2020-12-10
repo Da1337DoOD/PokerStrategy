@@ -35,15 +35,15 @@
             return news.Id;
         }
 
-        public async Task Delete(int id)
+        public async Task Delete(int newsId)
         {
-            var thread = this.newsRepository.All()
-                .Where(x => x.Id == id)
+            var news = this.newsRepository.All()
+                .Where(n => n.Id == newsId)
                 .FirstOrDefault();
 
-            this.newsRepository.Delete(thread);
+            this.newsRepository.Delete(news);
 
-            this.newsRepository.Update(thread);
+            this.newsRepository.Update(news);
 
             await this.newsRepository.SaveChangesAsync();
         }

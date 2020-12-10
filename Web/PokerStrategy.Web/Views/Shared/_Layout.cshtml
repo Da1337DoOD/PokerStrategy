@@ -38,6 +38,12 @@
 				<li class="nav-item">
 					<a class="nav-link text-white" asp-area="" asp-controller="News" asp-action="All">News</a>
 				</li>
+				@if (this.User.IsInRole(GlobalConstants.AdminRoleName))
+				{
+					<a class="btn float-right" style="color:white; background-color:green; border-radius:5%" asp-area="Administration" asp-controller="Admin" asp-action="Create">
+						Add News
+					</a>
+				}
 				<!--
 	<li class="nav-item">
 		<a class="nav-link text-white" asp-area="" asp-controller="Settings" asp-action="Index">Settings</a>

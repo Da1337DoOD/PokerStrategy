@@ -8,12 +8,7 @@
 <head>
 	<link rel="stylesheet" type="text/css" href="~/css/site.css" />
 </head>
-@if (this.User.IsInRole(GlobalConstants.AdminRoleName))
-{
-	<a class="btn float-right" style="color:white; background-color:green; border-radius:10%" asp-area="Administration" asp-controller="Admin" asp-action="Create">
-		Add News
-	</a>
-}
+
 <body>
 	@{ int count = 0; }
 	@foreach (var news in Model.News)

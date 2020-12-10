@@ -47,11 +47,9 @@
             this.userManager = userManager;
         }
 
-        public async Task<IActionResult> DeleteById(int newsId)
+        public async Task<IActionResult> DeleteById(int id)
         {
-            var news = this.newsRepository.All().Where(x => x.Id == newsId).FirstOrDefault();
-            this.newsRepository.Delete(news);
-            await this.newsRepository.SaveChangesAsync();
+            await this.newsService.Delete(id);
             return this.RedirectToAction("All", "News", new { area = string.Empty });
         }
 
@@ -93,14 +91,5 @@
 
             return this.RedirectToAction("ById", "News", new { id = newsId, area = string.Empty });
         }
-
-        public async Task<IActionResult> DeleteCommentById(int id)
-        {
-            var news = this.newsRepository.All().Where(x => x.Id == id).FirstOrDefault();
-            this.newsRepository.Delete(news);
-            await this.newsRepository.SaveChangesAsync();
-            return this.RedirectToAction("All", "News", new { area = string.Empty });
-        }
-
     }
 }
