@@ -22,12 +22,11 @@
 									<span class="text-secondary">@Model.CreatedOnAsString</span>
 									<img src="https://cdn2.iconfinder.com/data/icons/picol-vector/32/view-512.png" style="filter: invert(100%) sepia(0%) saturate(2%) hue-rotate(337deg) brightness(106%) contrast(101%); margin-left:10px; margin-right:10px;" height="25" width="25" />
 									<span class="text-secondary">@Model.Views</span>
-									<img src="https://image.flaticon.com/icons/png/512/25/25360.png" style="filter: invert(100%) sepia(0%) saturate(2%) hue-rotate(337deg) brightness(106%) contrast(101%); margin-left:10px; margin-right:10px;" height="25" width="25" />
 								</div>
 							</center>
 
 							<div>
-								<img class="card-img-top" src="@Model.PictureUrl" alt="Card image cap" style="width:329px; height:329px">
+								<img class="card-img-top img-crop" src="@Model.PictureUrl" alt="Card image cap">
 							</div>
 							<div>
 								@Html.Raw(Model.Content)

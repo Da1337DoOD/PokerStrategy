@@ -39,6 +39,7 @@ button.accept-policy {
 html {
     position: relative;
     min-height: 100%;
+    color: white;
 }
 header {
     padding-top: 20px;
@@ -87,14 +88,9 @@ body {
     color:white;
 }
 
-td {
-    background-color:gray;
-    opacity: 0.6;
-}
 
-td:hover {
-    opacity:1;
-}
+
+
 
 div {
     color:white;
@@ -130,4 +126,41 @@ color: white;
 .center {
 margin: 0 auto;
 text-align: center;
+}
+
+.table-custom tr:nth-child(odd){
+background-color: gray;
+}
+
+.table-custom tr:nth-child(even) {
+    background-color: black;
+}
+
+.table-custom, .table-custom td a {
+        color: white;
+    }
+
+.img-crop {
+   width: 100%;
+   height: 100%;
+   max-width: 400px;
+   max-width: 400px;
+}
+
+.text-secondary {
+color: white !important;
+}
+
+.main-card a:hover{
+text-decoration: none !important;
+}
+
+.table-hover tbody tr:nth-child(even):hover {
+    background-color: black;
+    color: white;
+}
+
+.table-hover tbody tr:nth-child(odd):hover {
+    background-color: gray;
+    color: white;
 }

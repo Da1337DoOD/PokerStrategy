@@ -10,12 +10,12 @@
 <h1>Discussion Board</h1>
 <h1>@Model.Category.Title</h1>
 
-<span id="headingBtn"><a type="button" class="btn btn-primary" style="background-color:Blue" asp-controller="ForumThread" asp-action="Create" asp-route-id="@Model.Category.Id">Open new thread</a></span>
+<span id="headingBtn"><a type="button" class="btn btn-primary" style="background-color:Blue; float: left; margin-bottom: 10px;" asp-controller="ForumThread" asp-action="Create" asp-route-id="@Model.Category.Id">Open new thread</a></span>
 
 
 @if (Model.Threads.Any())
 {
-	<table class="table table-bordered table-hover">
+	<table class="table table-bordered  table-custom">
 		<tbody>
 			@foreach (var thread in Model.Threads)
 			{

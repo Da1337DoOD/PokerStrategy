@@ -10,9 +10,9 @@
 </head>
 @if (this.User.IsInRole(GlobalConstants.AdminRoleName))
 {
-	<li class="nav-item">
-		<a class="nav-link" style="color:seashell" border-radius:10%" asp-controller="Admin" asp-action="Create" asp-area="Administration">Add News</a>
-	</li>
+	<a class="btn float-right" style="color:white; background-color:green; border-radius:10%" asp-area="Administration" asp-controller="Admin" asp-action="Create">
+		Add News
+	</a>
 }
 <body>
 	@{ int count = 0; }
@@ -20,18 +20,18 @@
 	{
 		@if (count < 2)
 		{
-			<div style="width:385px; float:left">
+			<div class="main-card" style="width:385px; float:left">
 				<a asp-controller="News" asp-action="IncrementViewsById" asp-route-id="@news.Id">
 					<div class="card" style="width: 20.69rem; background-color:#282726">
 						<img class="card-img-top" src="@news.PictureUrl" alt="Card image cap" style="width:329px; height:329px">
 						<div class="card-body">
 							<strong class="card-title">
-								
-									@news.Title
-								</strong>
+
+								@news.Title
+							</strong>
 							<p class="card-text" style="color:seashell">@news.ShortContent</p>
 
-							<img src="https://cdn2.iconfinder.com/data/icons/picol-vector/32/view-512.png" style="margin-left:5px" height="15" width="25" />
+							<img src="https://cdn2.iconfinder.com/data/icons/picol-vector/32/view-512.png" style="filter: invert(100%) sepia(0%) saturate(2%) hue-rotate(337deg) brightness(106%) contrast(101%); margin-left:10px; margin-right:10px;" height="25" width="25" />
 							<span align="right" class="text-secondary" style="font-size:20px">@news.Views</span>
 						</div>
 					</div>
@@ -40,14 +40,14 @@
 		}
 		else if (count == 2)
 		{
-			<a asp-controller="News" asp-action="IncrementViewsById" asp-route-id="@news.Id" class="btn btn-primary">
+			<a asp-controller="News" asp-action="IncrementViewsById" asp-route-id="@news.Id" class="main-card" class="btn btn-primary">
 				<div class="card" style="width: 20.69rem; background-color:#282726">
 					<img class="card-img-top" src="@news.PictureUrl" alt="Card image cap" style="width:329px; height:329px">
 					<div class="card-body">
 						<strong><a class="card-title" style="color:seashell; text-align:center" asp-controller="News" asp-action="IncrementViewsById" asp-route-id="@news.Id">@news.Title</a></strong>>
 						<p class="card-text" style="color:seashell">@news.ShortContent</p>
 
-						<img src="https://cdn2.iconfinder.com/data/icons/picol-vector/32/view-512.png" style="margin-left:5px" height="25" width="25" />
+						<img src="https://cdn2.iconfinder.com/data/icons/picol-vector/32/view-512.png" style="filter: invert(100%) sepia(0%) saturate(2%) hue-rotate(337deg) brightness(106%) contrast(101%); margin-left:10px; margin-right:10px;" height="25" width="25" />
 						<span align="right" class="text-secondary" style="font-size:20px">@news.Views</span>
 					</div>
 				</div>
@@ -57,7 +57,7 @@
 		else
 		{
 			<br />
-			<div class="card flex-md-row mb-4 box-shadow h-md-250" style=" background-color:#1b1b18; -webkit-box-shadow: 10px 10px 55px 0px rgba(0,0,0,0.34);
+			<div class="main-card" class="card flex-md-row mb-4 box-shadow h-md-250" style=" background-color:#1b1b18; -webkit-box-shadow: 10px 10px 55px 0px rgba(0,0,0,0.34);
         -moz-box-shadow: 10px 10px 55px 0px rgba(0,0,0,0.34);
         box-shadow: 10px 10px 55px 0px rgba(0,0,0,0.34);">
 				<img class="card-img-right flex-auto d-none d-md-block" alt="Thumbnail [200x250]" style="width: 250px; height: 250px;" src="@news.PictureUrl" data-holder-rendered="true">
@@ -66,7 +66,7 @@
 						<div style="display: inline">
 							<h3 class="mb-0" width="90%">
 								<strong><a style="color:seashell" asp-controller="News" asp-action="IncrementViewsById" asp-route-id="@news.Id">@news.Title</a></strong>
-								<img src="https://cdn2.iconfinder.com/data/icons/picol-vector/32/view-512.png" style="margin-left:5px" height="25" width="25" />
+								<img src="https://cdn2.iconfinder.com/data/icons/picol-vector/32/view-512.png" style="filter: invert(100%) sepia(0%) saturate(2%) hue-rotate(337deg) brightness(106%) contrast(101%); margin-left:10px; margin-right:10px;" height="25" width="25" />
 								<span align="right" class="text-secondary" style="font-size:20px">@news.Views</span>
 							</h3>
 						</div>
