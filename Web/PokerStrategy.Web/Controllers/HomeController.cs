@@ -63,6 +63,7 @@
 
             var news = latestNews.Select(n => new NewsViewModel
             {
+                Id = n.Id,
                 Title = n.Title,
                 Content = n.Content,
                 PictureUrl = n.PictureUrl,

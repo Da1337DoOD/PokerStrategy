@@ -25,19 +25,20 @@
 		<h3 id="latestNews">Latest News</h3> 
 		@foreach (var n in Model.LatestNews)
 		{
-			<a href="#">
-				<div class="card">
+			<a href="/News/ById/@n.Id">
+				<div class="card bg-dark">
 					<div class="row no-gutters">
 						<div class="col-auto">
-							<img src="//placehold.it/200x200" class="img-fluid" alt="">
+							<img src=@n.PictureUrl class="img-fluid" alt="">
 						</div>
 						<div class="col">
 							<div class="card-block px-2 bg-dark">
 
-								<h3 class="card-title">@n.Title</h3>
-								<p class="card-text">@n.ShortContent</p>
+								<h6 class="card-title">@(n.Title.Length > 30 ? n.Title.Substring(0,30) : n.Title)</h6>
 
 							</div>
+
+							<p style="background-color:black" class="card-text">@Html.Raw(n.Content)</p>
 						</div>
 					</div>
 				</div>
@@ -61,7 +62,7 @@
 						<td>
 							<a asp-controller="ForumThread" asp-action="Thread" asp-route-id="@t.Id">
 								<div class="postTitle">
-									@(t.Title)
+									@(t.Title.Length > 30 ? t.Title.Substring(0,30) : t.Title)
 								</div>
 							</a>
 						</td>
