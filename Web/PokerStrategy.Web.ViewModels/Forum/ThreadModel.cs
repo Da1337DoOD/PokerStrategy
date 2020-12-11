@@ -1,5 +1,6 @@
 ﻿namespace PokerStrategy.Web.ViewModels.Forum
 {
+    using Ganss.XSS;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
@@ -31,6 +32,8 @@
         [MinLength(2)]
         [Required]
         public string Content { get; set; }
+
+        public string SanitizedContent => new HtmlSanitizer().Sanitize(this.Content);
 
         public IEnumerable<ReplyModel> Replies { get; set; }
     }

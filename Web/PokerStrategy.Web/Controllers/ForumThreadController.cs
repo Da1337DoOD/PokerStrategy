@@ -41,7 +41,7 @@
                 CategoryName = category.Title,
                 CategoryId = category.Id,
                 CategoryImageUrl = category.ImageUrl,
-                AuthorName = currentUser.Name, // current user creating the post
+                AuthorName = currentUser.Name,
             };
 
             return this.View(model);
@@ -98,7 +98,7 @@
                 Title = model.Title,
                 PostedById = user.Id,
                 PostedBy = user,
-                Content = model.Content,
+                Content = model.SanitizedContent,
                 CreatedOn = DateTime.UtcNow,
             };
         }

@@ -1,5 +1,6 @@
 ﻿namespace PokerStrategy.Web.ViewModels.Forum
 {
+    using Ganss.XSS;
     using System.ComponentModel.DataAnnotations;
 
     public class NewThreadModel
@@ -21,5 +22,7 @@
         [MinLength(2)]
         [Required]
         public string Content { get; set; }
+
+        public string SanitizedContent => new HtmlSanitizer().Sanitize(this.Content);
     }
 }
