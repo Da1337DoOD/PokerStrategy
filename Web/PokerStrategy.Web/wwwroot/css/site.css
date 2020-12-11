@@ -155,12 +155,12 @@ color: white !important;
 text-decoration: none !important;
 }
 
-.table-hover tbody tr:nth-child(even):hover {
+.table-hover tbody tr:nth-child(odd):hover {
     background-color: black;
     color: white;
 }
 
-.table-hover tbody tr:nth-child(odd):hover {
+.table-hover tbody tr:nth-child(even):hover {
     background-color: gray;
     color: white;
 }

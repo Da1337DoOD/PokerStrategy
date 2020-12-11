@@ -77,7 +77,7 @@
             {
                 Thread = thread,
                 Category = category,
-                Content = replyModel.Content,
+                Content = replyModel.SanitizedContent,
                 CreatedOn = DateTime.UtcNow,
                 PostedBy = user,
             };

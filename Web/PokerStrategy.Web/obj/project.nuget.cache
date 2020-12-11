@@ -1,11 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "4Wk+bl8OzTM8Hyh/rkL9auTEirZ/MvyzFSFN8U0zAKPccpxBcxftnhO9BVdoztp5ad1GqH7H5SwT1B7nJbhkmw==",
+  "dgSpecHash": "Ie72vyM1VrsULVVGH7w6UVKzFhlr4iSgE4B/fgB+ladRxvsYx/YMcZy9wZjSyyWwR9O4vrW1H7fp0j240g12Yg==",
   "success": true,
   "projectFilePath": "D:\\Users\\Kolio\\Desktop\\PokerStrategy\\Web\\PokerStrategy.Web\\PokerStrategy.Web.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Kolio\\.nuget\\packages\\anglesharp\\0.14.0\\anglesharp.0.14.0.nupkg.sha512",
+    "C:\\Users\\Kolio\\.nuget\\packages\\anglesharp.css\\0.14.2\\anglesharp.css.0.14.2.nupkg.sha512",
     "C:\\Users\\Kolio\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
     "C:\\Users\\Kolio\\.nuget\\packages\\buildbundlerminifier\\3.2.449\\buildbundlerminifier.3.2.449.nupkg.sha512",
+    "C:\\Users\\Kolio\\.nuget\\packages\\htmlsanitizer\\5.0.355\\htmlsanitizer.5.0.355.nupkg.sha512",
     "C:\\Users\\Kolio\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\3.1.9\\microsoft.aspnetcore.cryptography.internal.3.1.9.nupkg.sha512",
     "C:\\Users\\Kolio\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\3.1.9\\microsoft.aspnetcore.cryptography.keyderivation.3.1.9.nupkg.sha512",
     "C:\\Users\\Kolio\\.nuget\\packages\\microsoft.aspnetcore.diagnostics.entityframeworkcore\\3.1.9\\microsoft.aspnetcore.diagnostics.entityframeworkcore.3.1.9.nupkg.sha512",

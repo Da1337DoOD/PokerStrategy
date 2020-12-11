@@ -81,7 +81,7 @@
                 UserPoints = thread.PostedBy.Points,
                 CreatedOn = thread.CreatedOn,
                 Content = thread.Content,
-                Replies = replies,
+                Replies = replies.OrderByDescending(r => r.RepliedOn),
             };
 
             return this.View(model);

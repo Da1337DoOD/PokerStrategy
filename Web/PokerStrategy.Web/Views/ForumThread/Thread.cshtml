@@ -36,30 +36,33 @@
 
 </div>
 
+<a href="#@Model.Replies.LastOrDefault().Id" style="background-color:green; color: white;">Jump to First</a>
 
 
 @foreach (var reply in Model.Replies)
 {
-<div class="row replyContent replyStyle">
-	<div class="col-md-3 replyAuthorContainer">
-		<div class="postAuthorImage" style="background-image: url(@reply.PostedByAvatarUrl); background-size: 100%;"></div>
-		<a asp-controller="Profile" asp-action="Detail" asp-route-id="@reply.PostedById">
-			<strong>@reply.PostedByName</strong>
-		</a>  <br />
-		<span class="postDate">@reply.RepliedOn</span>
-	</div>
-	<div class="col-md-8 replyContentContainer">
-		<div class="postContent">
-			@(reply.Content)
+
+	<div class="row replyContent replyStyle">
+		<div class="col-md-3 replyAuthorContainer" id="@reply.Id">
+			@*<div class="postAuthorImage" style="background-image: url(@reply.PostedByAvatarUrl); background-size: 100%;"></div> *@
+			<img src="@reply.PostedByAvatarUrl">
+			<a asp-controller="Profile" asp-action="Detail" asp-route-id="@reply.PostedById">
+				<strong>@reply.PostedByName</strong>
+			</a>  <br />
+			<span class="postDate">@reply.RepliedOn</span>
+		</div>
+		<div class="col-md-8 replyContentContainer">
+			<div class="postContent">
+				@Html.Raw(reply.SanitizedContent)
+			</div>
+		</div>
+		<div class="col-md-1 replyContentContainer">
+
+			@if (User.IsInRole("Admin"))
+			{
+				<a type="button" class="btn btn-primary del" style="background-color:red;" asp-area="Administration" asp-controller="Admin" asp-action="DeleteReplyById" asp-route-id="@reply.Id">Delete</a>
+			}
 		</div>
 	</div>
-	<div class="col-md-1 replyContentContainer">
-
-		@if (User.IsInRole("Admin"))
-		{
-			<a type="button" class="btn btn-primary del" style="background-color:red;" asp-area="Administration" asp-controller="Admin" asp-action="DeleteReplyById" asp-route-id="@reply.Id">Delete</a>
-		}
-	</div>
-</div>
 }
 

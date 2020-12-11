@@ -36,6 +36,7 @@
                 EmailConfirmed = true,
                 PhoneNumber = "987654321",
                 DisplayName = "Da1337DoOD",
+                ImageUrl = "https://avatars3.githubusercontent.com/u/38983976?s=460&u=30e11edc2b4ea1929be9b5817c5673062334ac7d&v=4",
             };
 
             await userManager.CreateAsync(user, "123456");
