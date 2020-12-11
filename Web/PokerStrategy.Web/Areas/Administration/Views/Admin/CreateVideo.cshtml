@@ -1,0 +1,39 @@
+﻿@model PokerStrategy.Web.ViewModels.Videos.VideoCreateInputModel
+<head>
+	<link rel="stylesheet" type="text/css" href="~/css/site.css" />
+</head>
+
+<form method="post" asp-action="CreateVideo">
+	<div>
+		<div class="col-lg-8">
+			<label asp-for="Title">Title</label>
+			<input asp-for="Title" style="color:black" class="form-control" />
+			<span asp-validation-for="Title" class="text-danger"></span>
+		</div>
+		<br />
+		<div class="col-lg-4 float-left">
+			<label asp-for="VideoUrl">Video Url</label>
+			<input asp-for="VideoUrl" style="color:black" class="form-control" />
+			<span asp-validation-for="VideoUrl" class="text-danger"></span>
+		</div>
+		<div class="col-lg-8 float-right">
+			<label asp-for="Description">Small Description</label>
+			<textarea asp-for="Description" class="form-control"></textarea>
+			<span asp-validation-for="Description" class="text-danger"></span>
+		</div>
+		<div class="col-lg-4 float-left">
+			<label asp-for="Category">Category</label>
+			<select class="form-control" style="color:black" asp-for="Category">
+				<option value="Lifestyle">PLO</option>
+				<option value="PokerRooms">NL</option>
+				<option value="Promotions">Stud Hi</option>
+				<option value="Promotions">Stud 8</option>
+				<option value="Promotions">Razz</option>
+				<option value="Promotions">7-2 TD</option>
+			</select>
+			<span asp-validation-for="Category" class="text-danger"></span>
+		</div>
+		<hr />
+		<input type="submit" class="btn btn-primary" />
+	</div>
+</form>

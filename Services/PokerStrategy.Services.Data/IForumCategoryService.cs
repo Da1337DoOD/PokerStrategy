@@ -1,9 +1,9 @@
-﻿using PokerStrategy.Data.Models;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-
-namespace PokerStrategy.Services.Data
+﻿namespace PokerStrategy.Services.Data
 {
+    using System.Collections.Generic;
+
+    using PokerStrategy.Data.Models;
+
     public interface IForumCategoryService
     {
         ForumCategory GetById(int id);

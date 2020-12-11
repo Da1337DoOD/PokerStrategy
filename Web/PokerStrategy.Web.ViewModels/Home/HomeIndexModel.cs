@@ -7,13 +7,10 @@
 
     public class HomeIndexModel
     {
-        public string SearchQuery { get; set; }
-
         public IEnumerable<ThreadsListingModel> LatestThreads { get; set; }
 
         public IEnumerable<NewsViewModel> LatestNews { get; set; }
 
         public IEnumerable<ThreadsListingModel> LatestVideos { get; set; } // TODO
-
     }
 }

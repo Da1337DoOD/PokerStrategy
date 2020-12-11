@@ -1,17 +1,13 @@
 ﻿namespace PokerStrategy.Web.Areas.Administration.Controllers
 {
-    using System.Linq;
     using System.Threading.Tasks;
 
     using Microsoft.AspNetCore.Authorization;
-    using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
     using PokerStrategy.Common;
-    using PokerStrategy.Data.Common.Repositories;
-    using PokerStrategy.Data.Models;
     using PokerStrategy.Services.Data;
-    using PokerStrategy.Web.ViewModels.Forum;
     using PokerStrategy.Web.ViewModels.News;
+    using PokerStrategy.Web.ViewModels.Videos;
 
     [Authorize(Roles = GlobalConstants.AdminRoleName)]
     [Area("Administration")]
@@ -19,37 +15,27 @@
     {
         private readonly INewsService newsService;
 
-        private readonly IDeletableEntityRepository<News> newsRepository;
-        private readonly IDeletableEntityRepository<ForumThread> threadRepository;
-        private readonly IDeletableEntityRepository<ForumReply> replyRepository;
         private readonly IForumReplyService replyService;
         private readonly IForumThreadService threadService;
-        private readonly IForumCategoryService categoryService;
-        private UserManager<ApplicationUser> userManager;
+
+        private readonly IVideosService videosService;
 
         public AdminController(
             INewsService newsService,
-            IDeletableEntityRepository<News> newsRepository,
-            IDeletableEntityRepository<ForumThread> threadRepository,
-            IDeletableEntityRepository<ForumReply> replyRepository,
             IForumReplyService replyService,
             IForumThreadService threadService,
-            IForumCategoryService categoryService,
-            UserManager<ApplicationUser> userManager)
+            IVideosService videosService)
         {
             this.newsService = newsService;
-            this.newsRepository = newsRepository;
-            this.threadRepository = threadRepository;
-            this.replyRepository = replyRepository;
             this.replyService = replyService;
             this.threadService = threadService;
-            this.categoryService = categoryService;
-            this.userManager = userManager;
+            this.videosService = videosService;
         }
 
-        public async Task<IActionResult> DeleteById(int id)
+        public async Task<IActionResult> DeleteNewsById(int id)
         {
             await this.newsService.Delete(id);
+
             return this.RedirectToAction("All", "News", new { area = string.Empty });
         }
 
@@ -71,8 +57,15 @@
             return this.RedirectToAction("Category", "Forum", new { id = categoryId, area = string.Empty });
         }
 
+        public async Task<IActionResult> DeleteVideoById(int id)
+        {
+            await this.videosService.Delete(id);
+
+            return this.RedirectToAction("All", "Video", new { area = string.Empty });
+        }
+
         [Authorize]
-        public IActionResult Create()
+        public IActionResult CreateNews()
         {
             var viewModel = new NewsCreateInputModel();
             return this.View(viewModel);
@@ -80,7 +73,7 @@
 
         [HttpPost]
         [Authorize]
-        public async Task<IActionResult> Create(NewsCreateInputModel input)
+        public async Task<IActionResult> CreateNews(NewsCreateInputModel input)
         {
             if (!this.ModelState.IsValid)
             {
@@ -90,6 +83,27 @@
             var newsId = await this.newsService.CreateAsync(input.Title, input.Content, input.Url, input.Category);
 
             return this.RedirectToAction("ById", "News", new { id = newsId, area = string.Empty });
+        }
+
+        [Authorize]
+        public IActionResult CreateVideo()
+        {
+            var viewModel = new VideoCreateInputModel();
+            return this.View(viewModel);
+        }
+
+        [HttpPost]
+        [Authorize]
+        public async Task<IActionResult> CreateVideo(VideoCreateInputModel input)
+        {
+            if (!this.ModelState.IsValid)
+            {
+                return this.View(input);
+            }
+
+            var videoId = await this.videosService.CreateAsync(input.Title, input.Description, input.VideoUrl, input.Category);
+
+            return this.RedirectToAction("ById", "Video", new { id = videoId, area = string.Empty });
         }
     }
 }

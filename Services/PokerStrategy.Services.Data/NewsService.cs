@@ -51,7 +51,7 @@
         public IEnumerable<News> GetAll()
         {
             IQueryable<News> news = this.newsRepository.All()
-                .OrderBy(n => n.CreatedOn);
+                .OrderByDescending(n => n.CreatedOn);
 
             return news.ToList();
         }
@@ -68,7 +68,7 @@
         public IEnumerable<News> GetLatestNews()
         {
             var newsByDate = this.newsRepository.All()
-                .OrderByDescending(r => r.CreatedOn).ToList();
+                .OrderByDescending(n => n.CreatedOn).ToList();
 
             if (newsByDate.Count <= 5)
             {
@@ -83,7 +83,7 @@
             this.newsRepository.All()
                 .Where(x => x.Id == id)
                 .FirstOrDefault()
-                .TimeSeen += 1;
+                .TimesSeen += 1;
 
             await this.newsRepository.SaveChangesAsync();
 

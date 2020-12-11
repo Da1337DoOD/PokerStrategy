@@ -419,7 +419,7 @@ namespace PokerStrategy.Data.Migrations
                     b.Property<string>("PictureUrl")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("TimeSeen")
+                    b.Property<int>("TimesSeen")
                         .HasColumnType("int");
 
                     b.Property<string>("Title")
@@ -516,11 +516,17 @@ namespace PokerStrategy.Data.Migrations
                     b.Property<DateTime?>("DeletedOn")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
                     b.Property<DateTime?>("ModifiedOn")
                         .HasColumnType("datetime2");
+
+                    b.Property<int>("TimesSeen")
+                        .HasColumnType("int");
 
                     b.Property<string>("Title")
                         .HasColumnType("nvarchar(max)");
@@ -533,46 +539,6 @@ namespace PokerStrategy.Data.Migrations
                     b.HasIndex("IsDeleted");
 
                     b.ToTable("Videos");
-                });
-
-            modelBuilder.Entity("PokerStrategy.Data.Models.VideoComment", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Content")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("CreatedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("DeletedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTime?>("ModifiedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("PostedById")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<int>("VideoId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("IsDeleted");
-
-                    b.HasIndex("PostedById");
-
-                    b.HasIndex("VideoId");
-
-                    b.ToTable("VideoComments");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -674,21 +640,6 @@ namespace PokerStrategy.Data.Migrations
                     b.HasOne("PokerStrategy.Data.Models.ApplicationUser", "FromUser")
                         .WithMany("ProfileMessages")
                         .HasForeignKey("FromUserId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("PokerStrategy.Data.Models.VideoComment", b =>
-                {
-                    b.HasOne("PokerStrategy.Data.Models.ApplicationUser", "PostedBy")
-                        .WithMany()
-                        .HasForeignKey("PostedById")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("PokerStrategy.Data.Models.Video", "Video")
-                        .WithMany("VideoComments")
-                        .HasForeignKey("VideoId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
                 });

@@ -1402,8 +1402,10 @@ D:\Users\Kolio\Desktop\PokerStrategy\Web\PokerStrategy.Web\obj\Debug\netcoreapp3
 D:\Users\Kolio\Desktop\PokerStrategy\Web\PokerStrategy.Web\obj\Debug\netcoreapp3.1\PokerStrategy.Web.genruntimeconfig.cache
 D:\Users\Kolio\Desktop\PokerStrategy\Web\PokerStrategy.Web\obj\Debug\netcoreapp3.1\Razor\Views\News\All.cshtml.g.cs
 D:\Users\Kolio\Desktop\PokerStrategy\Web\PokerStrategy.Web\obj\Debug\netcoreapp3.1\Razor\Views\News\ById.cshtml.g.cs
-D:\Users\Kolio\Desktop\PokerStrategy\Web\PokerStrategy.Web\obj\Debug\netcoreapp3.1\Razor\Areas\Administration\Views\Admin\Create.cshtml.g.cs
-D:\Users\Kolio\Desktop\PokerStrategy\Web\PokerStrategy.Web\obj\Debug\netcoreapp3.1\Razor\Areas\Administration\Views\Admin\GetEditById.cshtml.g.cs
 D:\Users\Kolio\Desktop\PokerStrategy\Web\PokerStrategy.Web\bin\Debug\netcoreapp3.1\AngleSharp.dll
 D:\Users\Kolio\Desktop\PokerStrategy\Web\PokerStrategy.Web\bin\Debug\netcoreapp3.1\AngleSharp.Css.dll
 D:\Users\Kolio\Desktop\PokerStrategy\Web\PokerStrategy.Web\bin\Debug\netcoreapp3.1\HtmlSanitizer.dll
+D:\Users\Kolio\Desktop\PokerStrategy\Web\PokerStrategy.Web\obj\Debug\netcoreapp3.1\Razor\Areas\Administration\Views\Admin\CreateNews.cshtml.g.cs
+D:\Users\Kolio\Desktop\PokerStrategy\Web\PokerStrategy.Web\obj\Debug\netcoreapp3.1\Razor\Areas\Administration\Views\Admin\CreateVideo.cshtml.g.cs
+D:\Users\Kolio\Desktop\PokerStrategy\Web\PokerStrategy.Web\obj\Debug\netcoreapp3.1\Razor\Views\Video\All.cshtml.g.cs
+D:\Users\Kolio\Desktop\PokerStrategy\Web\PokerStrategy.Web\obj\Debug\netcoreapp3.1\Razor\Views\Video\ById.cshtml.g.cs

@@ -17,6 +17,6 @@
         [Required]
         public string Content { get; set; }
 
-        public int TimeSeen { get; set; }
+        public int TimesSeen { get; set; }
     }
 }

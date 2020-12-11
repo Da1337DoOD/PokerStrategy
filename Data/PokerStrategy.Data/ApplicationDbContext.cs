@@ -35,8 +35,6 @@
 
         public DbSet<Video> Videos { get; set; }
 
-        public DbSet<VideoComment> VideoComments { get; set; }
-
         public DbSet<ApplicationUser> Friends { get; set; }
 
         public DbSet<ProfileMessage> ProfileMessages { get; set; }

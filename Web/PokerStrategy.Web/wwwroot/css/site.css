@@ -129,11 +129,11 @@ text-align: center;
 }
 
 .table-custom tr:nth-child(odd){
-background-color: gray;
+background-color: black;
 }
 
 .table-custom tr:nth-child(even) {
-    background-color: black;
+    background-color: gray;
 }
 
 .table-custom, .table-custom td a {

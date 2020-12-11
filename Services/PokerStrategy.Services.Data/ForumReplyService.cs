@@ -27,25 +27,6 @@
             await this.replyRepository.SaveChangesAsync();
         }
 
-        public async Task Edit(int id, string editedContent)
-        {
-            var reply = this.GetById(id);
-            reply.Content = editedContent;
-
-            this.replyRepository.Update(reply);
-
-            await this.replyRepository.SaveChangesAsync();
-        }
-
-        public IEnumerable<ForumReply> GetAll()
-        {
-            return this.replyRepository.All()
-               .Include(r => r.Thread)
-                   .ThenInclude(t => t.Category)
-               .Include(r => r.Thread)
-                   .ThenInclude(t => t.PostedBy);
-        }
-
         public ForumReply GetById(int id)
         {
             return this.replyRepository.All()
@@ -56,9 +37,9 @@
                 .First(r => r.Id == id); // First on top?
         }
 
-        public ForumReply GetLatest(int threadId)
-        {
-            return this.GetAll().OrderByDescending(r => r.CreatedOn).Where(r => r.ThreadId == threadId).FirstOrDefault();
-        }
+        //public ForumReply GetLatest(int threadId)
+        //{
+        //    return this.GetAll().OrderByDescending(r => r.CreatedOn).Where(r => r.ThreadId == threadId).FirstOrDefault();
+        //}
     }
 }

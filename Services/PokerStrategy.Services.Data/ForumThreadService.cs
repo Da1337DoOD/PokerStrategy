@@ -67,29 +67,6 @@
             await this.threadRepository.SaveChangesAsync();
         }
 
-        public async Task Edit(int id, string newTitle, string newContent)
-        {
-            var thread = this.threadRepository.All()
-                .Where(x => x.Id == id)
-                .FirstOrDefault();
-
-            thread.Title = newTitle;
-            thread.Content = newContent;
-
-            this.threadRepository.Update(thread);
-
-            await this.threadRepository.SaveChangesAsync();
-        }
-
-        public IEnumerable<ForumThread> GetAll()
-        {
-            return this.threadRepository.All()
-                .Include(t => t.PostedBy)
-                .Include(t => t.Replies)
-                    .ThenInclude(r => r.PostedBy)
-                .Include(p => p.Category);
-        }
-
         public ForumThread GetById(int id)
         {
             return this.threadRepository.All()
@@ -131,12 +108,5 @@
 
             return result.Take(5);
         }
-
-        public IEnumerable<ForumThread> GetThreadsByCategory(int id)
-        {
-            return this.threadRepository.All()
-                .Where(x => x.CategoryId == id);
-        }
     }
-
 }

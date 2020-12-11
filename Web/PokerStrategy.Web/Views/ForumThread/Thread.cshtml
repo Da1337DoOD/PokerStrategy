@@ -38,16 +38,17 @@
 
 <a href="#@Model.Replies.LastOrDefault().Id" style="background-color:green; color: white;">Jump to First</a>
 
-
+@{int counter = 0;}
 @foreach (var reply in Model.Replies)
 {
-
+	var replyNumber = Model.Replies.Count() - counter;
+	counter++;
 	<div class="row replyContent replyStyle">
 		<div class="col-md-3 replyAuthorContainer" id="@reply.Id">
-			
-			<img src="https://lh3.googleusercontent.com/ogw/ADGmqu-J9WyRKi6DJU9hEcjgvL1MqcGFVqCZrdn-U8EbQQ=s192-c-mo"/>
+			<b style="padding-right: 25px">#@replyNumber</b>
+			<img style="padding-top: 25px; padding-bottom: 5px; " src="@reply.PostedByAvatarUrl"/>
 			<a asp-controller="Profile" asp-action="Detail" asp-route-id="@reply.PostedById">
-				<strong>@reply.PostedByName</strong>
+				<strong style="padding-left: 40px">@reply.PostedByName</strong>
 			</a>  <br />
 			<span class="postDate">@reply.RepliedOn</span>
 		</div>
@@ -66,3 +67,4 @@
 	</div>
 }
 
+<a href="#@Model.Replies.FirstOrDefault().Id" style="background-color:green; color: white;">Jump to Last</a>

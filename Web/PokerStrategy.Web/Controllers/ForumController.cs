@@ -71,13 +71,6 @@
             return this.View(model);
         }
 
-        [HttpPost]
-        public IActionResult Search(int id, string searchQuery)
-        {
-            // TODO
-            return this.RedirectToAction("Thread", new { id, searchQuery });
-        }
-
         private CategoriesListingModel BuildCategoryListing(ForumCategory category)
         {
             return new CategoriesListingModel

@@ -26,7 +26,7 @@
                 Id = dbNews.Id,
                 PictureUrl = dbNews.PictureUrl,
                 Title = dbNews.Title,
-                Views = dbNews.TimeSeen,
+                Views = dbNews.TimesSeen,
             };
 
             return this.View(viewModel);
@@ -51,7 +51,7 @@
                 Content = n.Content,
                 PictureUrl = n.PictureUrl,
                 CreatedOn = n.CreatedOn,
-                Views = n.TimeSeen,
+                Views = n.TimesSeen,
             });
             return this.View(viewModel);
         }

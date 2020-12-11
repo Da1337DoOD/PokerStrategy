@@ -73,7 +73,6 @@
             {
                 LatestThreads = threadList,
                 LatestNews = news,
-                SearchQuery = "",
             };
         }
 

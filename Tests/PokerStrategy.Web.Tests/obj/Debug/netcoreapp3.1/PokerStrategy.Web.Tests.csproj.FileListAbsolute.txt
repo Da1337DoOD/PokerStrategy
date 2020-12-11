@@ -526,3 +526,6 @@ D:\Users\Kolio\Desktop\PokerStrategy\Tests\PokerStrategy.Web.Tests\obj\Debug\net
 D:\Users\Kolio\Desktop\PokerStrategy\Tests\PokerStrategy.Web.Tests\obj\Debug\netcoreapp3.1\PokerStrategy.Web.Tests.dll
 D:\Users\Kolio\Desktop\PokerStrategy\Tests\PokerStrategy.Web.Tests\obj\Debug\netcoreapp3.1\PokerStrategy.Web.Tests.pdb
 D:\Users\Kolio\Desktop\PokerStrategy\Tests\PokerStrategy.Web.Tests\obj\Debug\netcoreapp3.1\PokerStrategy.Web.Tests.genruntimeconfig.cache
+D:\Users\Kolio\Desktop\PokerStrategy\Tests\PokerStrategy.Web.Tests\bin\Debug\netcoreapp3.1\AngleSharp.dll
+D:\Users\Kolio\Desktop\PokerStrategy\Tests\PokerStrategy.Web.Tests\bin\Debug\netcoreapp3.1\AngleSharp.Css.dll
+D:\Users\Kolio\Desktop\PokerStrategy\Tests\PokerStrategy.Web.Tests\bin\Debug\netcoreapp3.1\HtmlSanitizer.dll
