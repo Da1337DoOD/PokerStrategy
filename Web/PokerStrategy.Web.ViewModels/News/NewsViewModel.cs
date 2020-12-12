@@ -22,8 +22,8 @@
             {
                 var content = WebUtility.HtmlDecode(Regex.Replace(this.Content, @"<[^>]+>", string.Empty));
                 content.Replace("\n", string.Empty).Replace("\r", string.Empty);
-                return content.Length > 120
-                        ? content.Substring(0, 120) + "..."
+                return content.Length > 90
+                        ? content.Substring(0, 90) + ".."
                         : content;
             }
         }

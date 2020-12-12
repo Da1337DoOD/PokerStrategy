@@ -191,7 +191,7 @@ text-decoration: none !important;
     text-align: left !important;
 }
 
-.home-card h6, .home-card p{
+.home-card h6, .home-card {
 text-align: left !important;
 padding-bottom: 10px;
 }

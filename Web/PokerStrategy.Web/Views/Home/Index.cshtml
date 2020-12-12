@@ -34,15 +34,18 @@
 						<div class="col home-card">
 							<div class="card-block home-card px-2 bg-dark">
 
-								<h6 class="card-title">
+								<h2 class="card-title">
 									@(n.Title.Length > 30 ?
-										n.Title.Substring(0,30) :
-										n.Title)
-								</h6>
+		n.Title.Substring(0, 30) :
+		n.Title)
+								</h2>
 
 							</div>
-
-							<p style="background-color:black; font-size:350%;" class="card-text">@Html.Raw(n.Content)</p>
+							@{
+								string content = Html.Raw(n.Content).ToString();
+								string trimmedContent = content.Length > 200 ? content.Substring(0,200) : content;
+							}
+							<p style="background-color:black; font-size:100%;" class="card-text">@Html.Raw(trimmedContent)</p>
 						</div>
 					</div>
 				</div>

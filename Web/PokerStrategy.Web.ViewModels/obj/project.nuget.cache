@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "WFlwa2kxMD2VtjRA+DcowI1xbEFa+bIXecJGxDQ6P2HJy54VvzhZ37y5JE7huDIFjFR6Rz9mS+siGLQ/HoOBaA==",
+  "dgSpecHash": "09hwzFYMGa7inVMx8ukYpSF9s5anFBCTOhwR4vOaDMUbAufMd+NPFtb/IvJy2S4mZdBP4U+N5Z2oPc/SozSxtA==",
   "success": true,
-  "projectFilePath": "D:\\Users\\Kolio\\Desktop\\PokerStrategy\\Web\\PokerStrategy.Web.ViewModels\\PokerStrategy.Web.ViewModels.csproj",
+  "projectFilePath": "D:\\Users\\Kolio\\Desktop\\PokerStrategy new version\\Web\\PokerStrategy.Web.ViewModels\\PokerStrategy.Web.ViewModels.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Kolio\\.nuget\\packages\\anglesharp\\0.14.0\\anglesharp.0.14.0.nupkg.sha512",
     "C:\\Users\\Kolio\\.nuget\\packages\\anglesharp.css\\0.14.2\\anglesharp.css.0.14.2.nupkg.sha512",

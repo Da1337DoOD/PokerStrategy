@@ -236,11 +236,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Users\\Kolio\\Desktop\\PokerStrategy\\Services\\PokerStrategy.Services.Mapping\\PokerStrategy.Services.Mapping.csproj",
+      "projectUniqueName": "D:\\Users\\Kolio\\Desktop\\PokerStrategy new version\\Services\\PokerStrategy.Services.Mapping\\PokerStrategy.Services.Mapping.csproj",
       "projectName": "PokerStrategy.Services.Mapping",
-      "projectPath": "D:\\Users\\Kolio\\Desktop\\PokerStrategy\\Services\\PokerStrategy.Services.Mapping\\PokerStrategy.Services.Mapping.csproj",
+      "projectPath": "D:\\Users\\Kolio\\Desktop\\PokerStrategy new version\\Services\\PokerStrategy.Services.Mapping\\PokerStrategy.Services.Mapping.csproj",
       "packagesPath": "C:\\Users\\Kolio\\.nuget\\packages\\",
-      "outputPath": "D:\\Users\\Kolio\\Desktop\\PokerStrategy\\Services\\PokerStrategy.Services.Mapping\\obj\\",
+      "outputPath": "D:\\Users\\Kolio\\Desktop\\PokerStrategy new version\\Services\\PokerStrategy.Services.Mapping\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Kolio\\AppData\\Roaming\\NuGet\\NuGet.Config",

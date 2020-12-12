@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Ie72vyM1VrsULVVGH7w6UVKzFhlr4iSgE4B/fgB+ladRxvsYx/YMcZy9wZjSyyWwR9O4vrW1H7fp0j240g12Yg==",
+  "dgSpecHash": "vrbtKG8Buxh1r1utPfpBjLkLqDErUMv3tOec3yC37wNaK07DNx5DBk8LbYC4yx3H51Z0y13MMLSj3/4aRUMsIg==",
   "success": true,
-  "projectFilePath": "D:\\Users\\Kolio\\Desktop\\PokerStrategy\\Web\\PokerStrategy.Web\\PokerStrategy.Web.csproj",
+  "projectFilePath": "D:\\Users\\Kolio\\Desktop\\PokerStrategy new version\\Web\\PokerStrategy.Web\\PokerStrategy.Web.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Kolio\\.nuget\\packages\\anglesharp\\0.14.0\\anglesharp.0.14.0.nupkg.sha512",
     "C:\\Users\\Kolio\\.nuget\\packages\\anglesharp.css\\0.14.2\\anglesharp.css.0.14.2.nupkg.sha512",

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "crksT2rinSuTzXxuOvYqH7xuIRdkLxIcvxiL04AHaH3tD5Aqa/P6kmzdGJcxk9xGc37dPEEzNkQ0eqfnHjAtJw==",
+  "dgSpecHash": "OuqdptHuw8wb2YjoULYFYkS1npaRR7FYix1uav1n1wIneUT9ojk9n1Lfp3GX48T5gr1DvSHOJoxVY3du5nOasQ==",
   "success": true,
-  "projectFilePath": "D:\\Users\\Kolio\\Desktop\\PokerStrategy\\Services\\PokerStrategy.Services\\PokerStrategy.Services.csproj",
+  "projectFilePath": "D:\\Users\\Kolio\\Desktop\\PokerStrategy new version\\Services\\PokerStrategy.Services\\PokerStrategy.Services.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Kolio\\.nuget\\packages\\stylecop.analyzers\\1.2.0-beta.205\\stylecop.analyzers.1.2.0-beta.205.nupkg.sha512",
     "C:\\Users\\Kolio\\.nuget\\packages\\stylecop.analyzers.unstable\\1.2.0.205\\stylecop.analyzers.unstable.1.2.0.205.nupkg.sha512"

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "WE5FUtzpTGQm1bJ872PUZj/EAwRgG+HY7RTijEzd/j0QhuFj5PxWiUbSwOfh43zBRprxR8u7Cc/agKO+VnyUfQ==",
+  "dgSpecHash": "g6aBwqZuULtkepN5ltAq42zX0+VNaRlwEUcqUiqhE2t97Gg6xmDo9BoxMe0ZQyMfuj5yLFCfsLCzng/cY+q96A==",
   "success": true,
-  "projectFilePath": "D:\\Users\\Kolio\\Desktop\\PokerStrategy\\Tests\\PokerStrategy.Services.Data.Tests\\PokerStrategy.Services.Data.Tests.csproj",
+  "projectFilePath": "D:\\Users\\Kolio\\Desktop\\PokerStrategy new version\\Tests\\PokerStrategy.Services.Data.Tests\\PokerStrategy.Services.Data.Tests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Kolio\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
     "C:\\Users\\Kolio\\.nuget\\packages\\castle.core\\4.4.0\\castle.core.4.4.0.nupkg.sha512",

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "v1W/Vckzm3ieW2dVe2aLTcjMm0eoRuTPcuoknhcNBXlHkGryeny+nk+8Hu345MoPJ/t4XWK6QRXyrQ7l6kdztw==",
+  "dgSpecHash": "aAWnLMW61hsIYSdnScKtQo6PUb2mshp7fg+b5o6PcHIILw92lkEhMgvIUAY6Yhsu/MhfoQih7hN2kXlTX347ow==",
   "success": true,
-  "projectFilePath": "D:\\Users\\Kolio\\Desktop\\PokerStrategy\\Services\\PokerStrategy.Services.Messaging\\PokerStrategy.Services.Messaging.csproj",
+  "projectFilePath": "D:\\Users\\Kolio\\Desktop\\PokerStrategy new version\\Services\\PokerStrategy.Services.Messaging\\PokerStrategy.Services.Messaging.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Kolio\\.nuget\\packages\\microsoft.csharp\\4.0.1\\microsoft.csharp.4.0.1.nupkg.sha512",
     "C:\\Users\\Kolio\\.nuget\\packages\\microsoft.netcore.platforms\\1.0.1\\microsoft.netcore.platforms.1.0.1.nupkg.sha512",

@@ -8,7 +8,7 @@
 <head>
 	<link rel="stylesheet" type="text/css" href="~/css/site.css" />
 </head>
-
+@*
 <body>
 	@{ int count = 0; }
 	@foreach (var news in Model.News)
@@ -74,4 +74,28 @@
 			<br />
 			count = 0;
 		}}
+</body>
+
+	*@
+
+<body>
+	@foreach (var news in Model.News)
+	{
+		<div class="main-card" style="padding-left:30px; width:auto; height:440px; float:left">
+			<a asp-controller="Video" asp-action="IncrementViewsById" asp-route-id="@news.Id">
+				<div class="card" style="width: 20.69rem; background-color:#282726">
+					<img class="card" src="@news.PictureUrl" style="width:auto; height:200px">
+					<div class="card-body">
+						<strong class="card-title">
+							@news.Title
+						</strong>
+						<p class="card-text" style="color:seashell; text-align: left;">@news.ShortContent</p>
+
+						<img src="https://cdn2.iconfinder.com/data/icons/picol-vector/32/view-512.png" style="filter: invert(100%) sepia(0%) saturate(2%) hue-rotate(337deg) brightness(106%) contrast(101%); margin-left:10px; margin-right:10px;" height="25" width="25" />
+						<span align="right" class="text-secondary" style="font-size:20px">@news.Views</span>
+					</div>
+				</div>
+			</a>
+		</div>
+	}
 </body>
