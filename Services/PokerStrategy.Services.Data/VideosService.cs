@@ -77,6 +77,17 @@
             return videosByDate.Take(5);
         }
 
+        public string GetThumbnailLink(string videoUrl)
+        {
+            string startLink = "https://i.ytimg.com/vi/";
+            string midLink1 = videoUrl.Replace("https://www.youtube.com/watch?v=", "");
+            string midLink2 = midLink1.Replace("&feature=emb_title", "");
+            string endLink = "/0.jpg";
+            string thumbnailLink = string.Concat(startLink, midLink2, endLink);
+
+            return thumbnailLink;
+        }
+
         public async Task<bool> IncrementViews(int id)
         {
             this.videoRepository.All()

@@ -53,6 +53,7 @@
                 Id = v.Id,
                 Title = v.Title,
                 Views = v.TimesSeen,
+                VideoThumbnailUrl = this.videoService.GetThumbnailLink(v.Description),
             });
 
             return this.View(viewModel);

@@ -8,7 +8,10 @@
 
         public string Title { get; set; }
 
+        public string ShortenedTitle => Title.Length > 25 ? Title.Substring(0, 25) + "..." : Title;
         public string Description { get; set; }
+
+        public string ShortenedDescription => Description.Length > 25 ? Description.Substring(0, 25) + "..." : Description;
 
         public string VideoUrl { get; set; }
 
@@ -16,10 +19,6 @@
 
         public int Views { get; set; }
 
-        private string StartLink = "https://i.ytimg.com/vi/";
-        private string MidLink1 => this.VideoUrl.Replace("https://www.youtube.com/watch?v=", "");
-        private string MidLink2 => MidLink1.Replace("&feature=emb_title", "");
-        private string EndLink = "/0.jpg";
-        public string ThumbnailLink => String.Concat(StartLink, MidLink2, EndLink);
+        public string VideoThumbnailUrl { get; set; }
     }
 }

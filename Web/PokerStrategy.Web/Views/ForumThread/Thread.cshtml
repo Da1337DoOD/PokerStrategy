@@ -46,7 +46,8 @@
 	<div class="row replyContent replyStyle">
 		<div class="col-md-3 replyAuthorContainer" id="@reply.Id">
 			<b style="padding-right: 25px">#@replyNumber</b>
-			<img style="padding-top: 25px; padding-bottom: 5px; " src="@reply.PostedByAvatarUrl"/>
+			
+			<img style="padding-top: 25px; padding-bottom: 5px; " src="@reply.PostedByAvatarUrl" alt="[No Image]" />
 			<a asp-controller="Profile" asp-action="Detail" asp-route-id="@reply.PostedById">
 				<strong style="padding-left: 40px">@reply.PostedByName</strong>
 			</a>  <br />

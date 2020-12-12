@@ -17,12 +17,12 @@
 </header>
 
 
-<br/>
-<br/>
+<br />
+<br />
 <div class="row frontPageContent">
 
 	<div class="col-lg-8">
-		<h3 id="latestNews">Latest News</h3> 
+		<h3 id="latestNews">Latest News</h3>
 		@foreach (var n in Model.LatestNews)
 		{
 			<a href="/News/ById/@n.Id">
@@ -46,10 +46,10 @@
 			<br />
 		}
 	</div>
-	<br/>
+	<br />
 	<div class="col-lg-4">
 
-		
+
 
 		<h3 id="latestPosts">Latest Discussions</h3>
 		<table class="table border-left border-bottom border-right bg-dark" id="latestPostsTable">
@@ -68,30 +68,29 @@
 				}
 			</tbody>
 		</table>
-		<br/>
+		<br />
 
 		<h3 id="latestNews">Latest Videos</h3> <!----------------------TO DO, CHANGE TO VIDEOS-->
-		@foreach (var t in Model.LatestThreads)
+		@foreach (var t in Model.LatestVideos)
 		{
-			<a href="#">
-				<div class="card">
+			<a href="/Video/ById/@t.Id">
+				<div class="card bg-dark">
 					<div class="row no-gutters">
+						
 						<div class="col-auto">
-							<img src="//placehold.it/150x150" class="img-fluid" alt="">
+							<img src="@t.VideoThumbnailUrl" class="img-fluid" alt="">
 						</div>
+						@{string a = t.VideoThumbnailUrl;
+						}
 						<div class="col">
 							<div class="card-block px-2">
 
-								<h4 class="card-title">Title</h4>
-								<p class="card-text">Description</p>
+								<h4 class="card-title">@t.ShortenedTitle</h4>
+								<p class="card-text">@t.ShortenedDescription</p>
 
 							</div>
 						</div>
 					</div>
-					<!--
-				<div class="card-footer w-100 text-muted">
-					Footer stating cats are CUTE little animals
-				</div>-->
 				</div>
 			</a>
 			<br />
