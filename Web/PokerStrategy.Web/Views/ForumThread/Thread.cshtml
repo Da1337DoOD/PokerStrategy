@@ -2,7 +2,7 @@
 <head>
 	<link rel="stylesheet" type="text/css" href="~/css/site.css" />
 </head>
-<div class="container body-content">
+<div class="container body-content" id="top">
 	<div class="row postHeader">
 
 		<header>
@@ -20,19 +20,21 @@
 	</div>
 
 	<div class="row" id="replyDivider">
-		<div class="ml60 col-md-2">
+		<div class="ml60 col-md-12">
 			@if (Context.User.Identity.IsAuthenticated)
 			{
-				<div class="row" id="replyRow">
-					<span><a asp-controller="ForumReply" asp-action="Create" asp-route-id="@Model.Id" class="btn btn-newReply" style="background-color:royalblue; color: white;">Reply</a></span>
+				<div  id="replyRow">
+					<span><a asp-controller="ForumReply" asp-action="Create" asp-route-id="@Model.Id" class="btn btn-newReply" style="background-color:royalblue; float: left; color: white;">Reply</a></span>
 				</div>
 			}
+
+			<a href="#@Model.Replies.LastOrDefault().Id" class="btn btn-newReply " style="float: left; margin-left: 15px; background-color: green; color: white;">Jump to First</a>
 		</div>
 	</div>
 
 </div>
 
-<a href="#@Model.Replies.LastOrDefault().Id" style="background-color:green; color: white;">Jump to First</a>
+
 
 @{int counter = 0;}
 @foreach (var reply in Model.Replies)
@@ -40,8 +42,8 @@
 	var replyNumber = Model.Replies.Count() - counter;
 	counter++;
 	<div class="row replyContent replyStyle">
-		<div class="col-md-3 replyAuthorContainer" id="@reply.Id">
-			<b class="float-left">#@replyNumber</b>
+		<div class="col-md-2 replyAuthorContainer" id="@reply.Id">
+			<b class="float-left number-logo">#@replyNumber</b>
 
 
 			<div class="bg-cover"
@@ -53,7 +55,7 @@
 			</a>  <br />
 			<span class="float-left">@reply.RepliedOn</span>
 		</div>
-		<div class="col-md-8 replyContentContainer">
+		<div class="col-md-9 replyContentContainer">
 			<div class="postContent">
 				<!--class="postContent"-->
 
@@ -70,4 +72,4 @@
 	</div>
 }
 
-<a class="float-left" href="#@Model.Replies.FirstOrDefault().Id" style="background-color:green; color: white;">Jump to Last</a>
+<a class="float-left btn btn-newReply " href="#top" style="background-color:green; color: white;">Jump to Last</a>

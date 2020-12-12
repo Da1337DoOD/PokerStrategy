@@ -26,9 +26,11 @@
 							</center>
 
 							<div>
-								<img class="card-img-top img-crop" src="@Model.PictureUrl" alt="Card image cap">
+								<center>
+									<img class="card-img-top img-crop" src="@Model.PictureUrl" alt="Card image cap">
+								</center>
 							</div>
-							<div>
+							<div style="text-align: left;">
 								@Html.Raw(Model.Content)
 							</div>
 							<div class="px-4 pt-3" align="right">

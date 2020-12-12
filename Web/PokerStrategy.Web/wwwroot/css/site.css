@@ -69,9 +69,7 @@ h3 {
     color: white;
 }
 
-p {
-    text-align: center;
-}
+
 
 div {
     text-align: left;
@@ -177,8 +175,48 @@ text-decoration: none !important;
     height: 100px;
     background: url("https://source.unsplash.com/7JX0-bfiuxQ/1200x1200") no-repeat center;
     background-size: cover;
+    margin-top:10px;
 }
 
 .postContent {
     text-align:left;
 }
+
+.number-logo {
+    padding-left: 3px;
+    padding-top: 6px;
+}
+
+.replyContentContainer  div p {
+    text-align: left !important;
+}
+
+.home-card h6, .home-card p{
+text-align: left !important;
+padding-bottom: 10px;
+}
+
+.border-info {
+border-color: white !important;
+}
+
+.description {
+    padding: 0px 20%;
+    word-wrap: break-word;
+}
+@media (min-width:576px) {
+    .navbar-expand-sm > .container {
+        flex-wrap: wrap;
+    }
+}
+    @media (max-width:576px) {
+
+
+        .collapse:not(.show) {
+            display: block;
+        }
+
+        button.navbar-toggler {
+            display: none !important;
+        }
+    }

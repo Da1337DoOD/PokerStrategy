@@ -24,20 +24,24 @@
 									<span class="text-secondary">@Model.Views</span>
 								</div>
 							</center>
-
-							@{string embedVideoLink =
-										Model.VideoUrl.Replace("watch?v=", "embed/"); }
-							<iframe width="600" height="400" src="@embedVideoLink" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-							<div>
+								<div>
+									<center>
+										@{string embedVideoLink =
+														  Model.VideoUrl.Replace("watch?v=", "embed/"); }
+										<iframe width="600" height="400" src="@embedVideoLink" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+									</center>
+										</div>
+							
+							<div class="description">
 								@Html.Raw(Model.Description)
 							</div>
 							<div class="px-4 pt-3" align="right">
-
-								@if (this.User.IsInRole(GlobalConstants.AdminRoleName))
-								{
-									<a type="button" class="btn btn-primary" style="background-color:red" asp-area="Administration" asp-controller="Admin" asp-action="DeleteVideoById" asp-route-id="@Model.Id">Delete</a>
-								}
+								<center>
+									@if (this.User.IsInRole(GlobalConstants.AdminRoleName))
+									{
+										<a type="button" class="btn btn-primary" style="background-color:red" asp-area="Administration" asp-controller="Admin" asp-action="DeleteVideoById" asp-route-id="@Model.Id">Delete</a>
+									}
+								</center>
 							</div>
 						</div>
 					</div>

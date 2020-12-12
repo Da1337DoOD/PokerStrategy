@@ -31,8 +31,8 @@
 						<div class="col-auto">
 							<img src=@n.PictureUrl class="img-fluid" alt="">
 						</div>
-						<div class="col">
-							<div class="card-block px-2 bg-dark">
+						<div class="col home-card">
+							<div class="card-block home-card px-2 bg-dark">
 
 								<h6 class="card-title">
 									@(n.Title.Length > 30 ?
@@ -87,7 +87,7 @@
 						@{string a = t.VideoThumbnailUrl;
 						}
 						<div class="col">
-							<div class="card-block px-2">
+							<div class="card-block home-card px-2">
 
 								<h4 class="card-title">@t.ShortenedTitle</h4>
 								<p class="card-text">@t.ShortenedDescription</p>

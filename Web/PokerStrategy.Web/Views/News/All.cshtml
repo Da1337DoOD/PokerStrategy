@@ -15,16 +15,16 @@
 	{
 		@if (count < 2)
 		{
-			<div class="main-card" style="width:385px; float:left">
+			<div class="main-card" style="width:385px; float:left; max-height:347px">
 				<a asp-controller="News" asp-action="IncrementViewsById" asp-route-id="@news.Id">
-					<div class="card" style="width: 20.69rem; background-color:#282726">
-						<img class="card-img-top" src="@news.PictureUrl" alt="Card image cap" style="width:329px; height:329px">
+					<div class="card" style="width: 20.69rem; background-color:#282726; min-height:347px">
+						<img class="card-img-top" src="@news.PictureUrl" alt="Card image cap" style="max-width:360px; max-height:auto;">
 						<div class="card-body">
-							<strong class="card-title">
+							<strong class="card-title" style="text-align: left;">
 
 								@news.Title
 							</strong>
-							<p class="card-text" style="color:seashell">@news.ShortContent</p>
+							<p class="card-text" style="color:seashell; text-align: left;">@news.ShortContent</p>
 
 							<img src="https://cdn2.iconfinder.com/data/icons/picol-vector/32/view-512.png" style="filter: invert(100%) sepia(0%) saturate(2%) hue-rotate(337deg) brightness(106%) contrast(101%); margin-left:10px; margin-right:10px;" height="25" width="25" />
 							<span align="right" class="text-secondary" style="font-size:20px">@news.Views</span>
