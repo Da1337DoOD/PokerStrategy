@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "KsV5W5tsRiTmRaYcJa5H5mkWrwfHP3gP8tFAdie9SgaXzPW8tKfKBu2ktNncLLxUCPLpQhl83JKQcoQkfdoowQ==",
+  "dgSpecHash": "O9UEGotavBfBsQEv1ZRJgVBDHY+lMbBS73iVIzM+AXyObRNuwdxE1h/hf3+qYh+h/P20zl7CqJw9rGgvEu7/+A==",
   "success": true,
-  "projectFilePath": "D:\\Users\\Kolio\\Desktop\\PokerStrategy new version\\Data\\PokerStrategy.Data.Models\\PokerStrategy.Data.Models.csproj",
+  "projectFilePath": "D:\\Users\\Kolio\\Desktop\\PokerStrategy\\Data\\PokerStrategy.Data.Models\\PokerStrategy.Data.Models.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Kolio\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\3.1.9\\microsoft.aspnetcore.cryptography.internal.3.1.9.nupkg.sha512",
     "C:\\Users\\Kolio\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\3.1.9\\microsoft.aspnetcore.cryptography.keyderivation.3.1.9.nupkg.sha512",

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "apu/6ZXEjaid9nv2CMMbWHcwv3RJg5tP99N1AUiqR+VI1+94Rb4FSjgOaihhlSZJG4KFfgtZVL7BZPGSbtwggg==",
+  "dgSpecHash": "F4rcw+3ksjvnQmIp4XMYS4Dn2GcWsWGedcuisnjTybXlV2xe0VZYeR4eWcHAaXXh/JGjsTXQaT6xeyVstDtaJg==",
   "success": true,
-  "projectFilePath": "D:\\Users\\Kolio\\Desktop\\PokerStrategy new version\\Tests\\Sandbox\\Sandbox.csproj",
+  "projectFilePath": "D:\\Users\\Kolio\\Desktop\\PokerStrategy\\Tests\\Sandbox\\Sandbox.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Kolio\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
     "C:\\Users\\Kolio\\.nuget\\packages\\commandlineparser\\2.8.0\\commandlineparser.2.8.0.nupkg.sha512",

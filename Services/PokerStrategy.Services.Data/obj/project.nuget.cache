@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "+iBnGAryG9Nu97M3zGn33GrjKjl1+g/CRGUNvOdpZlst6QpUL6xAsBQSBvBQ2L8c4cOADDQ88LUe0By8cp1OXA==",
+  "dgSpecHash": "DflVPH746gyaunxgYljiJtdlbJWIa12SDLyXpop+lT793bMa/v88CSVVUfO+QIix144BfvIGX0EursnjPMalAQ==",
   "success": true,
-  "projectFilePath": "D:\\Users\\Kolio\\Desktop\\PokerStrategy new version\\Services\\PokerStrategy.Services.Data\\PokerStrategy.Services.Data.csproj",
+  "projectFilePath": "D:\\Users\\Kolio\\Desktop\\PokerStrategy\\Services\\PokerStrategy.Services.Data\\PokerStrategy.Services.Data.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Kolio\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
     "C:\\Users\\Kolio\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\3.1.9\\microsoft.aspnetcore.cryptography.internal.3.1.9.nupkg.sha512",
