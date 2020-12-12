@@ -34,7 +34,11 @@
 						<div class="col">
 							<div class="card-block px-2 bg-dark">
 
-								<h6 class="card-title">@(n.Title.Length > 30 ? n.Title.Substring(0,30) : n.Title)</h6>
+								<h6 class="card-title">
+									@(n.Title.Length > 30 ?
+										n.Title.Substring(0,30) :
+										n.Title)
+								</h6>
 
 							</div>
 
@@ -52,7 +56,7 @@
 
 
 		<h3 id="latestPosts">Latest Discussions</h3>
-		<table class="table border-left border-bottom border-right bg-dark" id="latestPostsTable">
+		<table class="table bg-dark border-left border-bottom border-top border-right" id="latestPostsTable">
 			<tbody>
 				@foreach (var t in Model.LatestThreads)
 				{
@@ -74,9 +78,9 @@
 		@foreach (var t in Model.LatestVideos)
 		{
 			<a href="/Video/ById/@t.Id">
-				<div class="card bg-dark">
+				<div class="card bg-dark border-info">
 					<div class="row no-gutters">
-						
+
 						<div class="col-auto">
 							<img src="@t.VideoThumbnailUrl" class="img-fluid" alt="">
 						</div>

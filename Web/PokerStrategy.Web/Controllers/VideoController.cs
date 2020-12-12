@@ -26,7 +26,7 @@
                 Title = video.Title,
                 Description = video.Description,
                 CreatedOn = video.CreatedOn,
-                VideoUrl = video.VideoUrl,
+                VideoUrl = this.videoService.GetEmbededVideoLink(video.VideoUrl),
                 Views = video.TimesSeen,
             };
 
@@ -53,7 +53,7 @@
                 Id = v.Id,
                 Title = v.Title,
                 Views = v.TimesSeen,
-                VideoThumbnailUrl = this.videoService.GetThumbnailLink(v.Description),
+                VideoThumbnailUrl = this.videoService.GetThumbnailLink(v.VideoUrl),
             });
 
             return this.View(viewModel);

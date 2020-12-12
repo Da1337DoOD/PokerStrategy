@@ -20,5 +20,7 @@
         IEnumerable<Video> GetLatestVideos();
 
         string GetThumbnailLink(string videoUrl);
+
+        string GetEmbededVideoLink(string videoUrl);
     }
 }

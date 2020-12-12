@@ -103,7 +103,7 @@ div {
 .replyStyle {
     background-color: gray;
     border: 2px dotted #000;
-    margin: 5px;
+    margin: 5px; 
 }
 
 .del {

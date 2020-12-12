@@ -19,11 +19,6 @@
 <div class="container body-content">
 	<div class="row sectionHeader">
 		<div class="col-md-12">
-			<div class="sectionHeading">
-				Reply | @Model.RepliedOn
-				<div class="forumLogo" style="background-color: lightgreen; background-size:100%"></div>
-				<span id="headingBtn"><a asp-controller="Category" asp-action="Index" asp-route-id="@Model.CategoryId" class="btn btn-newBack center"><b>Back</b></a></span>
-			</div>
 		</div>
 	</div>
 
@@ -31,7 +26,7 @@
 		<div class="col-md-12">
 			<div class="replyOriginalPost">
 				<h2 class="text-align: center;">
-					@Model.ThreadTitle
+					Reply for Thread "@Model.ThreadTitle"
 				</h2>
 			</div>
 		</div>
@@ -50,7 +45,7 @@
 						<textarea asp-for="Content" rows="20" class="form-control" placeholder="Write your reply here."></textarea>
 						<span asp-validation-for="Content" class="text-danger"></span>
 					</div>
-					<button type="submit" id="registerBtn" class="btn btn-submitPost btn-newBack">Submit Reply</button>
+					<button type="submit" id="registerBtn" class="btn btn-submitPost btn-newBack">Submit</button>
 					<input asp-for="PostedById" type="hidden" />
 					<input asp-for="ThreadId" type="hidden" />
 					<input asp-for="CategoryTitle" type="hidden" />

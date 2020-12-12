@@ -81,11 +81,29 @@
         {
             string startLink = "https://i.ytimg.com/vi/";
             string midLink1 = videoUrl.Replace("https://www.youtube.com/watch?v=", "");
-            string midLink2 = midLink1.Replace("&feature=emb_title", "");
+            midLink1 = midLink1.Replace("https://youtu.be/", "");
+            string midLink2 = "";
+            foreach(var ch in midLink1)
+            {
+                if (ch == '&') break;
+                midLink2 += ch;
+            }
             string endLink = "/0.jpg";
             string thumbnailLink = string.Concat(startLink, midLink2, endLink);
 
             return thumbnailLink;
+        }
+
+        public string GetEmbededVideoLink(string videoUrl)
+        {
+            string embedVideoLink = videoUrl
+                .Replace("https://www.youtube.com/watch?v=",
+                            "https://www.youtube.com/embed/");
+
+            embedVideoLink = embedVideoLink
+                .Replace("https://youtu.be/", "https://www.youtube.com/embed/");
+
+            return embedVideoLink;
         }
 
         public async Task<bool> IncrementViews(int id)
