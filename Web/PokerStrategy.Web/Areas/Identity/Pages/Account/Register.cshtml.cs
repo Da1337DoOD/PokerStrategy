@@ -50,6 +50,9 @@ namespace PokerStrategy.Web.Areas.Identity.Pages.Account
             [Display(Name = "Nickname")]
             public string DisplayName { get; set; }
 
+            [Display(Name = "Avatar Url")]
+            public string AvatarUrl { get; set; }
+
             [Required]
             [EmailAddress]
             [Display(Name = "Email")]
@@ -79,7 +82,7 @@ namespace PokerStrategy.Web.Areas.Identity.Pages.Account
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { DisplayName = Input.DisplayName, UserName = Input.Email, Email = Input.Email };
+                var user = new ApplicationUser { ImageUrl = Input.AvatarUrl, DisplayName = Input.DisplayName, UserName = Input.Email, Email = Input.Email };
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
                 {

@@ -45,16 +45,22 @@
 	counter++;
 	<div class="row replyContent replyStyle">
 		<div class="col-md-3 replyAuthorContainer" id="@reply.Id">
-			<b style="padding-right: 25px">#@replyNumber</b>
-			
-			<img style="padding-top: 25px; padding-bottom: 5px; " src="@reply.PostedByAvatarUrl" alt="[No Image]" />
+			<b class="float-left">#@replyNumber</b>
+
+
+			<div class="bg-cover"
+				 style="background-image: url('@reply.PostedByAvatarUrl'); padding-top:25px; padding-bottom:5px;">
+			</div>
+
 			<a asp-controller="Profile" asp-action="Detail" asp-route-id="@reply.PostedById">
-				<strong style="padding-left: 40px">@reply.PostedByName</strong>
+				<strong class="float-left">@reply.PostedByName</strong>
 			</a>  <br />
-			<span class="postDate">@reply.RepliedOn</span>
+			<span class="float-left">@reply.RepliedOn</span>
 		</div>
 		<div class="col-md-8 replyContentContainer">
 			<div class="postContent">
+				<!--class="postContent"-->
+
 				@Html.Raw(reply.SanitizedContent)
 			</div>
 		</div>
@@ -62,10 +68,10 @@
 
 			@if (User.IsInRole("Admin"))
 			{
-				<a type="button" class="btn btn-primary del" style="background-color:red;" asp-area="Administration" asp-controller="Admin" asp-action="DeleteReplyById" asp-route-id="@reply.Id">Delete</a>
+				<a type="button" class="btn btn-primary del float-right" style="background-color:red;" asp-area="Administration" asp-controller="Admin" asp-action="DeleteReplyById" asp-route-id="@reply.Id">Delete</a>
 			}
 		</div>
 	</div>
 }
 
-<a href="#@Model.Replies.FirstOrDefault().Id" style="background-color:green; color: white;">Jump to Last</a>
+<a class="float-left" href="#@Model.Replies.FirstOrDefault().Id" style="background-color:green; color: white;">Jump to Last</a>

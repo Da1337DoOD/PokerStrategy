@@ -74,7 +74,7 @@ p {
 }
 
 div {
-    text-align: center;
+    text-align: left;
 }
 
 a {
@@ -163,4 +163,22 @@ text-decoration: none !important;
 .table-hover tbody tr:nth-child(even):hover {
     background-color: gray;
     color: white;
+}
+
+.center-cropped {
+    width: 90px;
+    height: 90px;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.bg-cover {
+    width: 100px;
+    height: 100px;
+    background: url("https://source.unsplash.com/7JX0-bfiuxQ/1200x1200") no-repeat center;
+    background-size: cover;
+}
+
+.postContent {
+    text-align:left;
 }
