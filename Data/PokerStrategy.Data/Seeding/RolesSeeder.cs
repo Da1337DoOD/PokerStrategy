@@ -23,13 +23,18 @@
             {
                 await this.CreateInitialAdmin(userManager, roleManager);
             }
+
+            if (!dbContext.Users.Any(x => x.Email == "gunsnrosesfan88@gmail.com"))
+            {
+                await this.CreateInitialMember(userManager, roleManager);
+            }
         }
 
         private async Task CreateInitialAdmin(
             UserManager<ApplicationUser> userManager,
             RoleManager<ApplicationRole> roleManager)
         {
-            var user = new ApplicationUser
+            var admin = new ApplicationUser
             {
                 Email = "nsavov21@abv.bg",
                 UserName = "nsavov21@abv.bg",
@@ -37,9 +42,10 @@
                 PhoneNumber = "987654321",
                 DisplayName = "Da1337DoOD",
                 ImageUrl = "https://avatars3.githubusercontent.com/u/38983976?s=460&u=30e11edc2b4ea1929be9b5817c5673062334ac7d&v=4",
+                Id = "THEveryBESTadminID",
             };
 
-            await userManager.CreateAsync(user, "123456");
+            await userManager.CreateAsync(admin, "123456");
 
             if (!await roleManager.RoleExistsAsync("Admin"))
             {
@@ -49,7 +55,35 @@
                 });
             }
 
-            await userManager.AddToRoleAsync(user, "Admin");
+            await userManager.AddToRoleAsync(admin, "Admin");
+            return;
+        }
+
+        private async Task CreateInitialMember(
+            UserManager<ApplicationUser> userManager,
+            RoleManager<ApplicationRole> roleManager)
+        {
+            var member = new ApplicationUser
+            {
+                Email = "gunsnrosesfan88@gmail.com",
+                UserName = "gunsnrosesfan88@gmail.com",
+                EmailConfirmed = true,
+                PhoneNumber = "123456789",
+                DisplayName = "GunsNRosesFan",
+                ImageUrl = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTa0ogMc3emzZtPzOih0weBBXa6qRCOUMkSXQ&usqp=CAU",
+            };
+
+            await userManager.CreateAsync(member, "123456");
+
+            if (!await roleManager.RoleExistsAsync("Member"))
+            {
+                await roleManager.CreateAsync(new ApplicationRole
+                {
+                    Name = "Member",
+                });
+            }
+
+            await userManager.AddToRoleAsync(member, "Member");
             return;
         }
 

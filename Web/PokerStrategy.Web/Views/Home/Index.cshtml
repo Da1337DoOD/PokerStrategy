@@ -21,31 +21,37 @@
 <br />
 <div class="row frontPageContent">
 
-	<div class="col-lg-8">
-		<h3 id="latestNews">Latest News</h3>
+	<div class="col-lg-7">
+		<h3 id="latestNews" style="padding-bottom:2%">Latest News</h3>
 		@foreach (var n in Model.LatestNews)
 		{
-			<a href="/News/ById/@n.Id">
-				<div class="card bg-dark">
+			<a href="/News/News/@n.Id">
+				<div class="card" style="background-color:#282726">
 					<div class="row no-gutters">
-						<div class="col-auto">
-							<img src=@n.PictureUrl class="img-fluid" alt="">
+						<div style="padding: 1%">
+							<img src="https://www.pngitem.com/pimgs/m/10-102407_date-and-time-clock-comments-free-date-icon.png" style="filter: invert(100%) sepia(0%) saturate(2%) hue-rotate(337deg) brightness(106%) contrast(101%); color:white; margin-left:10px; margin-right:10px;" height="25" width="25" />
+							<span class="text-secondary">@n.CreatedOn.ToString()</span>
 						</div>
+						<br/>
+						<div class="col-auto">
+							
+							<img class="card bg-dark" src="@n.PictureUrl" style="object-fit: cover; width:100%; height:400px">
+						</div>
+						<br/>
 						<div class="col home-card">
-							<div class="card-block home-card px-2 bg-dark">
+							<div class="card-block home-card px-2 ">
 
 								<h2 class="card-title">
 									@(n.Title.Length > 30 ?
-		n.Title.Substring(0, 30) :
-		n.Title)
+										n.Title.Substring(0, 30) :
+										n.Title)
 								</h2>
 
 							</div>
-							@{
-								string content = Html.Raw(n.Content).ToString();
-								string trimmedContent = content.Length > 200 ? content.Substring(0,200) : content;
-							}
-							<p style="background-color:black; font-size:100%;" class="card-text">@Html.Raw(trimmedContent)</p>
+							<br/>
+							<div>
+								<p style="font-size: 100%;" class="card-text">@Html.Raw(n.ShortContentForLatestNews)</p>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -54,7 +60,7 @@
 		}
 	</div>
 	<br />
-	<div class="col-lg-4">
+	<div class="col-lg-5">
 
 
 
@@ -80,8 +86,8 @@
 		<h3 id="latestNews">Latest Videos</h3> <!----------------------TO DO, CHANGE TO VIDEOS-->
 		@foreach (var t in Model.LatestVideos)
 		{
-			<a href="/Video/ById/@t.Id">
-				<div class="card bg-dark border-info">
+			<a href="/Video/Video/@t.Id">
+				<div class="card border-info">
 					<div class="row no-gutters">
 
 						<div class="col-auto">
@@ -90,9 +96,9 @@
 						@{string a = t.VideoThumbnailUrl;
 						}
 						<div class="col">
-							<div class="card-block home-card px-2">
+							<div class="card-block home-card px-2" style="background-color:#282726">
 
-								<h4 class="card-title">@t.ShortenedTitle</h4>
+								<h4 class="card-title" style="padding-top:4%">@t.ShortenedTitle</h4>
 								<p class="card-text">@t.ShortenedDescription</p>
 
 							</div>

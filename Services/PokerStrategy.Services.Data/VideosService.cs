@@ -96,12 +96,17 @@
 
         public string GetEmbededVideoLink(string videoUrl)
         {
-            string embedVideoLink = videoUrl
-                .Replace("https://www.youtube.com/watch?v=",
-                            "https://www.youtube.com/embed/");
+            string embedVideoLink = videoUrl;
+            embedVideoLink = embedVideoLink
+                .Replace("https://www.youtube.com/watch?v=", "");
 
             embedVideoLink = embedVideoLink
-                .Replace("https://youtu.be/", "https://www.youtube.com/embed/");
+                .Replace("https://youtu.be/", "");
+
+            if (embedVideoLink.Contains('&'))
+            {
+                embedVideoLink = embedVideoLink.Substring(0, embedVideoLink.IndexOf('&'));
+            }
 
             return embedVideoLink;
         }

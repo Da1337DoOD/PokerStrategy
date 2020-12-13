@@ -201,7 +201,7 @@ border-color: white !important;
 }
 
 .description {
-    padding: 0px 20%;
+    padding: 50px 30%;
     word-wrap: break-word;
 }
 @media (min-width:576px) {

@@ -12,11 +12,23 @@
 
         public string Title { get; set; }
 
+        public string ShortTitle
+        {
+            get
+            {
+                var title = WebUtility.HtmlDecode(Regex.Replace(this.Title, @"<[^>]+>", string.Empty));
+                title.Replace("\n", string.Empty).Replace("\r", string.Empty);
+                return title.Length > 30
+                        ? title.Substring(0, 30) + ".."
+                        : title;
+            }
+        }
+
         public string Content { get; set; }
 
         public string PictureUrl { get; set; }
 
-        public string ShortContent
+        public string ShortContentForAllNews
         {
             get
             {
@@ -24,6 +36,18 @@
                 content.Replace("\n", string.Empty).Replace("\r", string.Empty);
                 return content.Length > 90
                         ? content.Substring(0, 90) + ".."
+                        : content;
+            }
+        }
+
+        public string ShortContentForLatestNews
+        {
+            get
+            {
+                var content = WebUtility.HtmlDecode(Regex.Replace(this.Content, @"<[^>]+>", string.Empty));
+                content.Replace("\n", string.Empty).Replace("\r", string.Empty);
+                return content.Length > 330
+                        ? content.Substring(0, 330) + ".."
                         : content;
             }
         }

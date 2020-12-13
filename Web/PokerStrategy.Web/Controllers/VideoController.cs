@@ -47,7 +47,7 @@
 
             viewModel.Videos = videos.Select(v => new VideoViewModel
             {
-                VideoUrl = v.VideoUrl,
+                VideoUrl = this.videoService.GetEmbededVideoLink(v.VideoUrl),
                 Description = v.Description,
                 CreatedOn = v.CreatedOn,
                 Id = v.Id,
