@@ -7,10 +7,15 @@
 <head>
 	<link rel="stylesheet" type="text/css" href="~/css/site.css" />
 </head>
-<h1>Discussion Board</h1>
-<h1>@Model.Category.Title</h1>
 
-<span id="headingBtn"><a type="button" class="btn btn-primary" style="background-color:Blue; float: left; margin-bottom: 10px;" asp-controller="ForumThread" asp-action="Create" asp-route-id="@Model.Category.Id">Open new thread</a></span>
+<center>
+	<h1>Discussion Board</h1>
+	<h1>@Model.Category.Title</h1>
+</center>
+<br />
+
+<a type="button" class="btn btn-primary" style="background-color:royalblue; margin-bottom: 10px;" asp-controller="ForumThread" asp-action="Create" asp-route-id="@Model.Category.Id">Open new thread</a>
+
 
 
 @if (Model.Threads.Any())
@@ -53,5 +58,7 @@
 }
 else
 {
+<center>
 	<h2>No threads in this Board yet.</h2>
+</center>
 }
