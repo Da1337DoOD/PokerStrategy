@@ -28,7 +28,7 @@
 				</div>
 			}
 
-			<a href="#@Model.Replies.LastOrDefault().Id" class="btn btn-newReply " style="float: left; margin-left: 15px; background-color: green; color: white;">Jump to First</a>
+			<a href="@Model.GetReplyJumpPosition()" class="btn btn-newReply " style="float: left; margin-left: 15px; background-color: green; color: white;">Jump to First</a>
 		</div>
 	</div>
 

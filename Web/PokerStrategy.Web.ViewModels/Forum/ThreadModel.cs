@@ -1,10 +1,11 @@
 ﻿namespace PokerStrategy.Web.ViewModels.Forum
 {
-    using Ganss.XSS;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.Linq;
+
+    using Ganss.XSS;
 
     public class ThreadModel
     {
@@ -37,5 +38,10 @@
         public string SanitizedContent => new HtmlSanitizer().Sanitize(this.Content);
 
         public IEnumerable<ReplyModel> Replies { get; set; }
+
+        public string GetReplyJumpPosition() => this.Replies.Any() ?
+            ("#" + this.Replies.LastOrDefault().Id.ToString())
+            :
+            "#top";
     }
 }

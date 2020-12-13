@@ -1,10 +1,8 @@
 ﻿namespace PokerStrategy.Web.Controllers
 {
-    using System.Collections.Generic;
     using System.Linq;
-    using System.Threading.Tasks;
+
     using Microsoft.AspNetCore.Mvc;
-    using PokerStrategy.Data.Models;
     using PokerStrategy.Services.Data;
     using PokerStrategy.Web.ViewModels.Forum;
 
@@ -25,11 +23,11 @@
         {
             var allForumCategories = this.categoryService
                 .GetAll()
-                .Select(x => new CategoriesListingModel
+                .Select(c => new CategoriesListingModel
                 {
-                    Id = x.Id,
-                    Title = x.Title,
-                    Description = x.Description,
+                    Id = c.Id,
+                    Title = c.Title,
+                    Description = c.Description,
                 });
 
             ForumIndexModel model = new ForumIndexModel
@@ -44,9 +42,16 @@
         {
             var category = this.categoryService.GetById(id);
 
+            var categoryListing = new CategoriesListingModel
+            {
+                Id = category.Id,
+                Title = category.Title,
+                Description = category.Description,
+                ImageUrl = category.ImageUrl,
+            };
+
             var threads = this.threadService
                 .GetThreads(category)
-                .Where(t => !t.IsDeleted)
                 .OrderByDescending(t => t.CreatedOn)
                 .ToList();
 
@@ -59,33 +64,16 @@
                 AuthorPoints = t.PostedBy.Points,
                 DateCreated = t.CreatedOn,
                 RepliesCount = t.Replies.Count(),
-                CategoryName = this.BuildCategoryListing(t).Title,
+                CategoryName = t.Category.Title,
             }).OrderByDescending(t => t.DateCreated);
 
             var model = new CategoryModel
             {
-                Category = this.BuildCategoryListing(category),
+                Category = categoryListing,
                 Threads = threadListing,
             };
 
             return this.View(model);
-        }
-
-        private CategoriesListingModel BuildCategoryListing(ForumCategory category)
-        {
-            return new CategoriesListingModel
-            {
-                Id = category.Id,
-                Title = category.Title,
-                Description = category.Description,
-                ImageUrl = category.ImageUrl,
-            };
-        }
-
-        private CategoriesListingModel BuildCategoryListing(ForumThread thread)
-        {
-            var category = thread.Category;
-            return this.BuildCategoryListing(category);
         }
     }
 }

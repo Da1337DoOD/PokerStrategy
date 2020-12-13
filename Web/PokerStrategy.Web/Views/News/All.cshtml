@@ -13,7 +13,7 @@
 	@foreach (var news in Model.News)
 	{
 		<div class="main-card" style="padding-left:30px; width:auto; height:440px; float:left">
-			<a asp-controller="Video" asp-action="IncrementViewsById" asp-route-id="@news.Id">
+			<a asp-controller="News" asp-action="IncrementViewsById" asp-route-id="@news.Id">
 				<div class="card" style="width: 20.69rem; background-color:#282726">
 					<img class="card" src="@news.PictureUrl" style="width:auto; height:200px">
 					<div class="card-body">

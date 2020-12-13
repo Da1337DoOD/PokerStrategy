@@ -82,7 +82,7 @@
 
             var newsId = await this.newsService.CreateAsync(input.Title, input.Content, input.Url, input.Category);
 
-            return this.RedirectToAction("ById", "News", new { id = newsId, area = string.Empty });
+            return this.RedirectToAction("News", "News", new { id = newsId, area = string.Empty });
         }
 
         [Authorize]
@@ -103,7 +103,7 @@
 
             var videoId = await this.videosService.CreateAsync(input.Title, input.Description, input.VideoUrl, input.Category);
 
-            return this.RedirectToAction("ById", "Video", new { id = videoId, area = string.Empty });
+            return this.RedirectToAction("Video", "Video", new { id = videoId, area = string.Empty });
         }
     }
 }

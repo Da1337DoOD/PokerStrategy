@@ -9,5 +9,7 @@
         ForumReply GetById(int id);
 
         Task Delete(int id);
+
+        Task AddReply(string userId, int threadId, string content);
     }
 }

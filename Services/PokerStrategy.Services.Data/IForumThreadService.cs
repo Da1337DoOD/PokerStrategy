@@ -11,6 +11,8 @@
 
         IEnumerable<ForumThread> GetThreads(ForumCategory category);
 
+        Task<ForumThread> CreateNewThread(string userId, int categoryId, string title, string content);
+
         Task Add(ForumThread thread);
 
         Task Delete(int threadId);

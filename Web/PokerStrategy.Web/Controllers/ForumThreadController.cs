@@ -1,6 +1,5 @@
 ﻿namespace PokerStrategy.Web.Controllers
 {
-    using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
@@ -52,11 +51,7 @@
         {
             var userId = this.userManager.GetUserId(this.User);
 
-            var user = await this.userManager.FindByIdAsync(userId);
-
-            var thread = this.BuildThread(model, user);
-
-            await this.threadService.Add(thread);
+            var thread = await this.threadService.CreateNewThread(userId, model.CategoryId, model.Title, model.SanitizedContent);
 
             return this.RedirectToAction("Thread", "ForumThread", new { id = thread.Id });
         }
@@ -67,7 +62,16 @@
 
             var category = this.categoryService.GetById(thread.CategoryId);
 
-            var replies = this.BuildThreadReplies(thread.Replies);
+            var replies = thread.Replies.Select(r => new ReplyModel
+            {
+                Id = r.Id,
+                PostedById = r.PostedById,
+                PostedByName = r.PostedBy.DisplayName,
+                PostedByAvatarUrl = r.PostedBy.ImageUrl,
+                PostedByPoints = r.PostedBy.Points,
+                RepliedOn = r.CreatedOn,
+                Content = r.Content,
+            });
 
             var model = new ThreadModel
             {
@@ -85,36 +89,6 @@
             };
 
             return this.View(model);
-        }
-
-        private ForumThread BuildThread(NewThreadModel model, ApplicationUser user)
-        {
-            var category = this.categoryService.GetById(model.CategoryId);
-
-            return new ForumThread
-            {
-                CategoryId = category.Id,
-                Category = category,
-                Title = model.Title,
-                PostedById = user.Id,
-                PostedBy = user,
-                Content = model.SanitizedContent,
-                CreatedOn = DateTime.UtcNow,
-            };
-        }
-
-        private IEnumerable<ReplyModel> BuildThreadReplies(ICollection<ForumReply> replies)
-        {
-            return replies.Select(r => new ReplyModel
-            {
-                Id = r.Id,
-                PostedById = r.PostedById,
-                PostedByName = r.PostedBy.DisplayName,
-                PostedByAvatarUrl = r.PostedBy.ImageUrl,
-                PostedByPoints = r.PostedBy.Points,
-                RepliedOn = r.CreatedOn,
-                Content = r.Content,
-            });
         }
     }
 }

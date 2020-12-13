@@ -15,7 +15,7 @@
             this.newsService = newsService;
         }
 
-        public IActionResult ById(int id)
+        public IActionResult News(int id)
         {
             var dbNews = this.newsService.GetById(id);
 
@@ -35,7 +35,7 @@
         public async Task<IActionResult> IncrementViewsById(int id, bool? aftercomment)
         {
             await this.newsService.IncrementViews(id);
-            return this.RedirectToAction("ById", new { id = id });
+            return this.RedirectToAction("News", new { id = id });
         }
 
         public IActionResult All()

@@ -1401,14 +1401,12 @@ D:\Users\Kolio\Desktop\PokerStrategy\Web\PokerStrategy.Web\obj\Debug\netcoreapp3
 D:\Users\Kolio\Desktop\PokerStrategy\Web\PokerStrategy.Web\obj\Debug\netcoreapp3.1\PokerStrategy.Web.csproj.CopyComplete
 D:\Users\Kolio\Desktop\PokerStrategy\Web\PokerStrategy.Web\obj\Debug\netcoreapp3.1\PokerStrategy.Web.genruntimeconfig.cache
 D:\Users\Kolio\Desktop\PokerStrategy\Web\PokerStrategy.Web\obj\Debug\netcoreapp3.1\Razor\Views\News\All.cshtml.g.cs
-D:\Users\Kolio\Desktop\PokerStrategy\Web\PokerStrategy.Web\obj\Debug\netcoreapp3.1\Razor\Views\News\ById.cshtml.g.cs
 D:\Users\Kolio\Desktop\PokerStrategy\Web\PokerStrategy.Web\bin\Debug\netcoreapp3.1\AngleSharp.dll
 D:\Users\Kolio\Desktop\PokerStrategy\Web\PokerStrategy.Web\bin\Debug\netcoreapp3.1\AngleSharp.Css.dll
 D:\Users\Kolio\Desktop\PokerStrategy\Web\PokerStrategy.Web\bin\Debug\netcoreapp3.1\HtmlSanitizer.dll
 D:\Users\Kolio\Desktop\PokerStrategy\Web\PokerStrategy.Web\obj\Debug\netcoreapp3.1\Razor\Areas\Administration\Views\Admin\CreateNews.cshtml.g.cs
 D:\Users\Kolio\Desktop\PokerStrategy\Web\PokerStrategy.Web\obj\Debug\netcoreapp3.1\Razor\Areas\Administration\Views\Admin\CreateVideo.cshtml.g.cs
 D:\Users\Kolio\Desktop\PokerStrategy\Web\PokerStrategy.Web\obj\Debug\netcoreapp3.1\Razor\Views\Video\All.cshtml.g.cs
-D:\Users\Kolio\Desktop\PokerStrategy\Web\PokerStrategy.Web\obj\Debug\netcoreapp3.1\Razor\Views\Video\ById.cshtml.g.cs
 D:\Users\Kolio\Desktop\PokerStrategy new version\Web\PokerStrategy.Web\bin\Debug\netcoreapp3.1\appsettings.Development.json
 D:\Users\Kolio\Desktop\PokerStrategy new version\Web\PokerStrategy.Web\bin\Debug\netcoreapp3.1\appsettings.json
 D:\Users\Kolio\Desktop\PokerStrategy new version\Web\PokerStrategy.Web\bin\Debug\netcoreapp3.1\bundleconfig.json
@@ -1887,3 +1885,5 @@ D:\Users\Kolio\Desktop\PokerStrategy new version\Web\PokerStrategy.Web\obj\Debug
 D:\Users\Kolio\Desktop\PokerStrategy new version\Web\PokerStrategy.Web\obj\Debug\netcoreapp3.1\PokerStrategy.Web.dll
 D:\Users\Kolio\Desktop\PokerStrategy new version\Web\PokerStrategy.Web\obj\Debug\netcoreapp3.1\PokerStrategy.Web.pdb
 D:\Users\Kolio\Desktop\PokerStrategy new version\Web\PokerStrategy.Web\obj\Debug\netcoreapp3.1\PokerStrategy.Web.genruntimeconfig.cache
+D:\Users\Kolio\Desktop\PokerStrategy\Web\PokerStrategy.Web\obj\Debug\netcoreapp3.1\Razor\Views\News\News.cshtml.g.cs
+D:\Users\Kolio\Desktop\PokerStrategy\Web\PokerStrategy.Web\obj\Debug\netcoreapp3.1\Razor\Views\Video\Video.cshtml.g.cs

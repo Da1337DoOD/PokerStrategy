@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace PokerStrategy.Data.Migrations
 {
-    public partial class vids : Migration
+    public partial class newmIG : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -317,7 +317,6 @@ namespace PokerStrategy.Data.Migrations
                     ModifiedOn = table.Column<DateTime>(nullable: true),
                     IsDeleted = table.Column<bool>(nullable: false),
                     DeletedOn = table.Column<DateTime>(nullable: true),
-                    CategoryId = table.Column<int>(nullable: false),
                     ThreadId = table.Column<int>(nullable: false),
                     PostedById = table.Column<string>(nullable: false),
                     Content = table.Column<string>(nullable: true)
@@ -325,12 +324,6 @@ namespace PokerStrategy.Data.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_ForumReplies", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_ForumReplies_ForumCategories_CategoryId",
-                        column: x => x.CategoryId,
-                        principalTable: "ForumCategories",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_ForumReplies_AspNetUsers_PostedById",
                         column: x => x.PostedById,
@@ -409,11 +402,6 @@ namespace PokerStrategy.Data.Migrations
                 name: "IX_ForumCategories_IsDeleted",
                 table: "ForumCategories",
                 column: "IsDeleted");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_ForumReplies_CategoryId",
-                table: "ForumReplies",
-                column: "CategoryId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_ForumReplies_IsDeleted",

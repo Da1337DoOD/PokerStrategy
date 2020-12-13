@@ -306,9 +306,6 @@ namespace PokerStrategy.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("CategoryId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Content")
                         .HasColumnType("nvarchar(max)");
 
@@ -332,8 +329,6 @@ namespace PokerStrategy.Data.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("CategoryId");
 
                     b.HasIndex("IsDeleted");
 
@@ -601,12 +596,6 @@ namespace PokerStrategy.Data.Migrations
 
             modelBuilder.Entity("PokerStrategy.Data.Models.ForumReply", b =>
                 {
-                    b.HasOne("PokerStrategy.Data.Models.ForumCategory", "Category")
-                        .WithMany()
-                        .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
                     b.HasOne("PokerStrategy.Data.Models.ApplicationUser", "PostedBy")
                         .WithMany("ForumReplies")
                         .HasForeignKey("PostedById")

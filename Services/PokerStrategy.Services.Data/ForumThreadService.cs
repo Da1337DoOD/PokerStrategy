@@ -4,7 +4,7 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
-
+    using Microsoft.AspNetCore.Identity;
     using Microsoft.EntityFrameworkCore;
     using PokerStrategy.Data.Common.Repositories;
     using PokerStrategy.Data.Models;
@@ -13,22 +13,49 @@
     {
         private readonly IDeletableEntityRepository<ForumThread> threadRepository;
         private readonly IDeletableEntityRepository<ForumReply> replyRepository;
+        private readonly IForumCategoryService categoryService;
+        private readonly UserManager<ApplicationUser> userManager;
 
         public ForumThreadService(
             IDeletableEntityRepository<ForumThread> threadRepository,
-            IDeletableEntityRepository<ForumReply> replyRepository)
+            IDeletableEntityRepository<ForumReply> replyRepository,
+            IForumCategoryService categoryService,
+            UserManager<ApplicationUser> userManager)
         {
+            this.userManager = userManager;
             this.threadRepository = threadRepository;
             this.replyRepository = replyRepository;
+            this.categoryService = categoryService;
+        }
+
+        public async Task<ForumThread> CreateNewThread(string userId, int categoryId, string title, string content)
+        {
+            var user = await this.userManager.FindByIdAsync(userId);
+
+            var thread = new ForumThread
+            {
+                CategoryId = categoryId,
+                Category = this.categoryService.GetById(categoryId),
+                Title = title,
+                PostedById = user.Id,
+                PostedBy = user,
+                Content = content,
+                CreatedOn = DateTime.UtcNow,
+            };
+
+            await this.Add(thread);
+
+            return thread;
         }
 
         public async Task Add(ForumThread thread)
         {
             await this.threadRepository.AddAsync(thread);
 
+            await this.threadRepository.SaveChangesAsync();
+
             var reply = new ForumReply
             {
-                CategoryId = thread.CategoryId,
                 CreatedOn = thread.CreatedOn,
                 Content = thread.Content,
                 DeletedOn = thread.DeletedOn,
@@ -36,15 +63,12 @@
                 ModifiedOn = thread.ModifiedOn,
                 PostedById = thread.PostedById,
                 ThreadId = thread.Id,
-                Category = thread.Category,
                 PostedBy = thread.PostedBy,
                 Thread = thread,
             };
 
             await this.AddReply(reply);
-            await this.threadRepository.SaveChangesAsync();
-            await this.replyRepository.SaveChangesAsync();
-            await this.threadRepository.SaveChangesAsync();
+
             await this.replyRepository.SaveChangesAsync();
         }
 

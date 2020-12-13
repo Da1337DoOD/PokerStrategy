@@ -12,21 +12,17 @@
 
     public class ForumReplyController : Controller
     {
-        private readonly IForumCategoryService categoryService;
         private readonly IForumThreadService threadService;
         private readonly IForumReplyService replyService;
         private readonly UserManager<ApplicationUser> userManager;
 
         public ForumReplyController(
-            IForumCategoryService categoryService,
             IForumThreadService threadService,
             IForumReplyService replyService,
             UserManager<ApplicationUser> userManager)
         {
-            this.categoryService = categoryService;
             this.threadService = threadService;
             this.replyService = replyService;
-
             this.userManager = userManager;
         }
 
@@ -57,30 +53,9 @@
         [HttpPost]
         public async Task<IActionResult> AddReply(ReplyModel model)
         {
-            var userId = this.userManager.GetUserId(this.User);
-
-            var user = await this.userManager.FindByIdAsync(userId);
-
-            var reply = this.BuildReply(model, user);
-
-            await this.threadService.AddReply(reply);
+            await this.replyService.AddReply(model.PostedById, model.ThreadId, model.SanitizedContent);
 
             return this.RedirectToAction("Thread", "ForumThread", new { id = model.ThreadId });
-        }
-
-        private ForumReply BuildReply(ReplyModel replyModel, ApplicationUser user)
-        {
-            var thread = this.threadService.GetById(replyModel.ThreadId);
-            var category = this.categoryService.GetById(replyModel.CategoryId);
-
-            return new ForumReply
-            {
-                Thread = thread,
-                Category = category,
-                Content = replyModel.SanitizedContent,
-                CreatedOn = DateTime.UtcNow,
-                PostedBy = user,
-            };
         }
     }
 }
