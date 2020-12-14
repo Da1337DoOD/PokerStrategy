@@ -3,71 +3,92 @@
 	<link rel="stylesheet" type="text/css" href="~/css/site.css" />
 </head>
 <div class="container body-content" id="top">
-	<div class="row postHeader">
 
-		<header>
-			<h3>
-				<span class="postIndexTitle">
-					@Model.Title
-				</span>
-				@if (User.IsInRole("Admin"))
-				{
-					<a type="button" class="btn btn-primary" style="background-color:red" asp-area="Administration" asp-controller="Admin" asp-action="DeleteThreadById" asp-route-id="@Model.Id">Delete</a>
+	<!--Thread Title-->
+	<h2 style="text-align:left;">
+		<b>@Model.Title</b>
+	</h2>
+
+	<!--EDIT AND DELETE-->
+	@if (this.User.IsInRole("Admin") || this.User.IsInRole("Moderator"))
+	{
+		<form method="post" >
+			<!--Delete with Confirmation-->
+			<span id="confirmDeleteSpan_@Model.Id" style="display:none">
+				<span>Are you sure?</span>
+				<button type="submit" class="btn btn-danger" asp-area="Administration" asp-controller="Admin" asp-action="DeleteVideoById" asp-route-id="@Model.Id">Yes</button>
+				<a class="btn btn-primary"
+				   onclick="confirmDelete('@Model.Id', false)">No</a>
+			</span>
+			<span id="deleteSpan_@Model.Id">
+				<a class="btn btn-danger"
+				   onclick="confirmDelete('@Model.Id', true)">Delete</a>
+			</span>
+		</form>
+		<script>
+			function confirmDelete(uniqueId, isDeleteClicked) {
+				var deleteSpan = 'deleteSpan_' + uniqueId;
+				var confirmDeleteSpan = 'confirmDeleteSpan_' + uniqueId;
+
+				if (isDeleteClicked) {
+					$('#' + deleteSpan).hide();
+					$('#' + confirmDeleteSpan).show();
+				} else {
+					$('#' + deleteSpan).show();
+					$('#' + confirmDeleteSpan).hide();
 				}
-			</h3>
-		</header>
-
-	</div>
-
-	<div class="row" id="replyDivider">
-		<div class="ml60 col-md-12">
-			@if (Context.User.Identity.IsAuthenticated)
-			{
-				<div  id="replyRow">
-					<span><a asp-controller="ForumReply" asp-action="Create" asp-route-id="@Model.Id" class="btn btn-newReply" style="background-color:royalblue; float: left; color: white;">Reply</a></span>
-				</div>
 			}
+		</script>
+	}
 
-			<a href="@Model.GetReplyJumpPosition()" class="btn btn-newReply " style="float: left; margin-left: 15px; background-color: green; color: white;">Jump to First</a>
+	<br />
+
+	<a href="@Model.GetReplyJumpPosition()" class="btn btn-newReply" style="float: left; margin-left:-12px;  background-color: green; color: white;">Jump to First</a>
+
+	@if (Context.User.Identity.IsAuthenticated)
+	{
+		<div id="replyRow">
+			<span><a asp-controller="ForumReply" asp-action="Create" asp-route-id="@Model.Id" class="btn btn-newReply" style="background-color:royalblue; color: white; margin-left:5px;">Reply</a></span>
 		</div>
-	</div>
+	}
 
 </div>
+<div class="repliesSection">
+	<!--All Replies-->
+	@{int counter = 0;}
+	@foreach (var reply in Model.Replies)
+	{
+		var replyNumber = Model.Replies.Count() - counter;
+		counter++;
+		<div class="row replyContent replyStyle">
+			<div class="col-md-2 replyAuthorContainer" id="@reply.Id">
+				<b class="float-left number-logo">#@replyNumber</b>
 
-@{int counter = 0;}
-@foreach (var reply in Model.Replies)
-{
-	var replyNumber = Model.Replies.Count() - counter;
-	counter++;
-	<div class="row replyContent replyStyle">
-		<div class="col-md-2 replyAuthorContainer" id="@reply.Id">
-			<b class="float-left number-logo">#@replyNumber</b>
 
+				<div class="bg-cover"
+					 style="background-image: url('@reply.PostedByAvatarUrl'); padding-top:25px; padding-bottom:5px;">
+				</div>
 
-			<div class="bg-cover"
-				 style="background-image: url('@reply.PostedByAvatarUrl'); padding-top:25px; padding-bottom:5px;">
+				<a asp-controller="Profile" asp-action="Detail" asp-route-id="@reply.PostedById">
+					<strong class="float-left">@reply.PostedByName</strong>
+				</a>  <br />
+				<span class="float-left">@reply.RepliedOn</span>
 			</div>
+			<div class="col-md-9 replyContentContainer" style="padding:2%">
+				<div class="postContent">
+					<!--class="postContent"-->
 
-			<a asp-controller="Profile" asp-action="Detail" asp-route-id="@reply.PostedById">
-				<strong class="float-left">@reply.PostedByName</strong>
-			</a>  <br />
-			<span class="float-left">@reply.RepliedOn</span>
-		</div>
-		<div class="col-md-9 replyContentContainer" style="padding:2%">
-			<div class="postContent">
-				<!--class="postContent"-->
+					@Html.Raw(reply.SanitizedContent)
+				</div>
+			</div>
+			<div class="col-md-1 replyContentContainer">
 
-				@Html.Raw(reply.SanitizedContent)
+				@if (User.IsInRole("Admin"))
+				{
+					<a type="button" class="btn btn-primary del float-right" style="background-color:red;" asp-area="Administration" asp-controller="Admin" asp-action="DeleteReplyById" asp-route-id="@reply.Id">Delete</a>
+				}
 			</div>
 		</div>
-		<div class="col-md-1 replyContentContainer">
-
-			@if (User.IsInRole("Admin"))
-			{
-				<a type="button" class="btn btn-primary del float-right" style="background-color:red;" asp-area="Administration" asp-controller="Admin" asp-action="DeleteReplyById" asp-route-id="@reply.Id">Delete</a>
-			}
-		</div>
-	</div>
-}
-
-<a class="float-left btn btn-newReply " href="#top" style="background-color:green; color: white;">Jump to Last</a>
+	}
+</div>
+<a href="#top" class="btn btn-newReply" style="float:left; background-color:green; color: white;">Jump to Last</a>

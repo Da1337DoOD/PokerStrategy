@@ -1887,3 +1887,5 @@ D:\Users\Kolio\Desktop\PokerStrategy new version\Web\PokerStrategy.Web\obj\Debug
 D:\Users\Kolio\Desktop\PokerStrategy new version\Web\PokerStrategy.Web\obj\Debug\netcoreapp3.1\PokerStrategy.Web.genruntimeconfig.cache
 D:\Users\Kolio\Desktop\PokerStrategy\Web\PokerStrategy.Web\obj\Debug\netcoreapp3.1\Razor\Views\News\News.cshtml.g.cs
 D:\Users\Kolio\Desktop\PokerStrategy\Web\PokerStrategy.Web\obj\Debug\netcoreapp3.1\Razor\Views\Video\Video.cshtml.g.cs
+D:\Users\Kolio\Desktop\PokerStrategy\Web\PokerStrategy.Web\obj\Debug\netcoreapp3.1\Razor\Areas\Administration\Views\Admin\EditNewsById.cshtml.g.cs
+D:\Users\Kolio\Desktop\PokerStrategy\Web\PokerStrategy.Web\obj\Debug\netcoreapp3.1\Razor\Areas\Administration\Views\Admin\EditVideoById.cshtml.g.cs

@@ -64,6 +64,64 @@
             return this.RedirectToAction("All", "Video", new { area = string.Empty });
         }
 
+        [HttpGet]
+        public ViewResult EditNewsById(int id)
+        {
+            var news = this.newsService.GetById(id);
+            var model = new NewsViewModel
+            {
+                Id = news.Id,
+                Content = news.Content,
+                Title = news.Title,
+                PictureUrl = news.PictureUrl,
+            };
+
+            return this.View(model);
+        }
+
+        [HttpPost]
+        [Authorize]
+        public async Task<IActionResult> EditNewsById(NewsViewModel input)
+        {
+            if (!this.ModelState.IsValid)
+            {
+                return this.View(input);
+            }
+
+            await this.newsService.EditAsync(input.Id, input.Title, input.Content, input.PictureUrl);
+
+            return this.RedirectToAction("News", "News", new { area="", input.Id });
+        }
+
+        [HttpGet]
+        public ViewResult EditVideoById(int id)
+        {
+            var news = this.videosService.GetById(id);
+            var model = new VideoViewModel
+            {
+                Id = news.Id,
+                Description = news.Description,
+                Title = news.Title,
+                VideoUrl = news.VideoUrl,
+            };
+
+            return this.View(model);
+        }
+
+        [HttpPost]
+        [Authorize]
+        public async Task<IActionResult> EditVideoById(VideoViewModel input)
+        {
+            if (!this.ModelState.IsValid)
+            {
+                return this.View(input);
+            }
+
+            await this.videosService.EditAsync(input.Id, input.Title, input.Description, input.VideoUrl);
+
+            return this.RedirectToAction("Video", "Video", new { area = "", input.Id });
+        }
+
         [Authorize]
         public IActionResult CreateNews()
         {

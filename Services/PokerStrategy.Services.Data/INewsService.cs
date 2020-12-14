@@ -18,5 +18,7 @@
         IEnumerable<News> GetAll();
 
         IEnumerable<News> GetLatestNews();
+
+        Task EditAsync(int newsId, string title, string content, string pictureUrl);
     }
 }

@@ -11,6 +11,8 @@
 
         Task Delete(int id);
 
+        Task Edit(int id);
+
         Video GetById(int id);
 
         Task<bool> IncrementViews(int id);
@@ -22,5 +24,7 @@
         string GetThumbnailLink(string videoUrl);
 
         string GetEmbededVideoLink(string videoUrl);
+
+        Task EditAsync(int videoId, string title, string description, string videoUrl);
     }
 }

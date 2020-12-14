@@ -30,11 +30,40 @@
 					</div>
 				</div>
 			</a>
+			<!--EDIT AND DELETE-->
 			@if (this.User.IsInRole("Admin"))
 			{
-				<center style="padding:2%">
-					<a type="button" class="btn btn-primary" style="background-color:red" asp-area="Administration" asp-controller="Admin" asp-action="DeleteNewsById" asp-route-id="@news.Id">Delete</a>
-				</center>
+				<!--Edit-->
+				<form method="post" style="padding:2%">
+					<a asp-area="Administration" asp-controller="Admin" asp-action="EditNewsById"
+					   asp-route-id="@news.Id" class="btn btn-primary">Edit</a>
+
+					<!--Delete with Confirmation-->
+					<span id="confirmDeleteSpan_@news.Id" style="display:none">
+						<span>Are you sure?</span>
+						<button type="submit" class="btn btn-danger" asp-area="Administration" asp-controller="Admin" asp-action="DeleteNewsById" asp-route-id="@news.Id">Yes</button>
+						<a class="btn btn-primary"
+						   onclick="confirmDelete('@news.Id', false)">No</a>
+					</span>
+					<span id="deleteSpan_@news.Id">
+						<a class="btn btn-danger"
+						   onclick="confirmDelete('@news.Id', true)">Delete</a>
+					</span>
+				</form>
+				<script>
+					function confirmDelete(uniqueId, isDeleteClicked) {
+						var deleteSpan = 'deleteSpan_' + uniqueId;
+						var confirmDeleteSpan = 'confirmDeleteSpan_' + uniqueId;
+
+						if (isDeleteClicked) {
+							$('#' + deleteSpan).hide();
+							$('#' + confirmDeleteSpan).show();
+						} else {
+							$('#' + deleteSpan).show();
+							$('#' + confirmDeleteSpan).hide();
+						}
+					}
+				</script>
 			}
 		</div>
 	}

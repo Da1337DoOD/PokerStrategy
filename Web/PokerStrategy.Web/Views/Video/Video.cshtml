@@ -31,15 +31,41 @@
 							<div class="description" style="padding-left: 25%; padding-right: 25%; padding-top:1%">
 								@Html.Raw(Model.Description)
 							</div>
+							<!--EDIT AND DELETE-->
+							@if (this.User.IsInRole("Admin"))
+							{
+								<!--Edit-->
+								<form method="post" style="padding:2%">
+									<a asp-area="Administration" asp-controller="Admin" asp-action="EditVideoById"
+									   asp-route-id="@Model.Id" class="btn btn-primary">Edit</a>
 
-							<div class="px-4 pt-3" align="right">
-								<center>
-									@if (this.User.IsInRole(GlobalConstants.AdminRoleName))
-									{
-										<a type="button" class="btn btn-primary" style="background-color:red" asp-area="Administration" asp-controller="Admin" asp-action="DeleteVideoById" asp-route-id="@Model.Id">Delete</a>
+									<!--Delete with Confirmation-->
+									<span id="confirmDeleteSpan_@Model.Id" style="display:none">
+										<span>Are you sure?</span>
+										<button type="submit" class="btn btn-danger" asp-area="Administration" asp-controller="Admin" asp-action="DeleteVideoById" asp-route-id="@Model.Id">Yes</button>
+										<a class="btn btn-primary"
+										   onclick="confirmDelete('@Model.Id', false)">No</a>
+									</span>
+									<span id="deleteSpan_@Model.Id">
+										<a class="btn btn-danger"
+										   onclick="confirmDelete('@Model.Id', true)">Delete</a>
+									</span>
+								</form>
+								<script>
+									function confirmDelete(uniqueId, isDeleteClicked) {
+										var deleteSpan = 'deleteSpan_' + uniqueId;
+										var confirmDeleteSpan = 'confirmDeleteSpan_' + uniqueId;
+
+										if (isDeleteClicked) {
+											$('#' + deleteSpan).hide();
+											$('#' + confirmDeleteSpan).show();
+										} else {
+											$('#' + deleteSpan).show();
+											$('#' + confirmDeleteSpan).hide();
+										}
 									}
-								</center>
-							</div>
+								</script>
+							}
 						</div>
 					</div>
 				</div>

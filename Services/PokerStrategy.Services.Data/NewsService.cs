@@ -4,6 +4,7 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
+
     using Microsoft.AspNetCore.Identity;
     using PokerStrategy.Data.Common.Repositories;
     using PokerStrategy.Data.Models;
@@ -46,6 +47,18 @@
             this.newsRepository.Update(news);
 
             await this.newsRepository.SaveChangesAsync();
+        }
+
+        public async Task EditAsync(int newsId, string title, string content, string pictureUrl)
+        {
+            var news = this.GetById(newsId);
+            news.Title = title;
+            news.Content = content;
+            news.PictureUrl = pictureUrl;
+
+            await this.newsRepository.SaveChangesAsync();
+
+            return;
         }
 
         public IEnumerable<News> GetAll()

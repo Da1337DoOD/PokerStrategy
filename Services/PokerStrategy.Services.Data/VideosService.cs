@@ -47,6 +47,12 @@
             await this.videoRepository.SaveChangesAsync();
         }
 
+        public async Task Edit(int id)
+        {
+            var video = this.GetById(id);
+
+        }
+
         public IEnumerable<Video> GetAll()
         {
             IQueryable<Video> video = this.videoRepository.All()
@@ -121,6 +127,18 @@
             await this.videoRepository.SaveChangesAsync();
 
             return true;
+        }
+
+        public async Task EditAsync(int videoId, string title, string description, string videoUrl)
+        {
+            var video = this.GetById(videoId);
+            video.Title = title;
+            video.Description = description;
+            video.VideoUrl = videoUrl;
+
+            await this.videoRepository.SaveChangesAsync();
+
+            return;
         }
     }
 }
