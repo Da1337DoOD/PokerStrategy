@@ -12,11 +12,11 @@
 	<!--EDIT AND DELETE-->
 	@if (this.User.IsInRole("Admin") || this.User.IsInRole("Moderator"))
 	{
-		<form method="post" >
+		<form method="post">
 			<!--Delete with Confirmation-->
 			<span id="confirmDeleteSpan_@Model.Id" style="display:none">
 				<span>Are you sure?</span>
-				<button type="submit" class="btn btn-danger" asp-area="Administration" asp-controller="Admin" asp-action="DeleteVideoById" asp-route-id="@Model.Id">Yes</button>
+				<button type="submit" class="btn btn-danger" asp-area="Administration" asp-controller="Admin" asp-action="DeleteThreadById" asp-route-id="@Model.Id">Yes</button>
 				<a class="btn btn-primary"
 				   onclick="confirmDelete('@Model.Id', false)">No</a>
 			</span>
@@ -64,7 +64,6 @@
 			<div class="col-md-2 replyAuthorContainer" id="@reply.Id">
 				<b class="float-left number-logo">#@replyNumber</b>
 
-
 				<div class="bg-cover"
 					 style="background-image: url('@reply.PostedByAvatarUrl'); padding-top:25px; padding-bottom:5px;">
 				</div>
@@ -81,12 +80,44 @@
 					@Html.Raw(reply.SanitizedContent)
 				</div>
 			</div>
-			<div class="col-md-1 replyContentContainer">
+			<div class="replyDeleteBtnContainer" style="margin:1%">
 
-				@if (User.IsInRole("Admin"))
+				<!--EDIT AND DELETE-->
+				@if (this.User.IsInRole("Admin") || this.User.IsInRole("Moderator"))
 				{
-					<a type="button" class="btn btn-primary del float-right" style="background-color:red;" asp-area="Administration" asp-controller="Admin" asp-action="DeleteReplyById" asp-route-id="@reply.Id">Delete</a>
+					<form method="post">
+						<!--Delete with Confirmation-->
+						<span id="confirmDeleteReplySpan_@reply.Id" style="display:none">
+							<span>Are you sure?</span>
+							<button type="submit" class="btn btn-danger" 
+									asp-area="Administration" 
+									asp-controller="Admin" 
+									asp-action="DeleteReplyById" 
+									asp-route-id="@reply.Id">Yes</button>
+							<a class="btn btn-primary"
+							   onclick="confirmDeleteReply('@reply.Id', false)">No</a>
+						</span>
+						<span id="deleteReplySpan_@reply.Id">
+							<a class="btn btn-danger"
+							   onclick="confirmDeleteReply('@reply.Id', true)">Delete</a>
+						</span>
+					</form>
+					<script>
+						function confirmDeleteReply(uniqueId, isDeleteClicked) {
+							var deleteReplySpan = 'deleteReplySpan_' + uniqueId;
+							var confirmDeleteReplySpan = 'confirmDeleteReplySpan_' + uniqueId;
+
+							if (isDeleteClicked) {
+								$('#' + deleteReplySpan).hide();
+								$('#' + confirmDeleteReplySpan).show();
+							} else {
+								$('#' + deleteReplySpan).show();
+								$('#' + confirmDeleteReplySpan).hide();
+							}
+						}
+					</script>
 				}
+
 			</div>
 		</div>
 	}

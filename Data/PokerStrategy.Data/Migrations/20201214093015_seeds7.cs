@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace PokerStrategy.Data.Migrations
 {
-    public partial class seeds6 : Migration
+    public partial class seeds7 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

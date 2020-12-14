@@ -21,7 +21,7 @@
                 CreatedOn = DateTime.UtcNow,
                 Title = "The Dan Bilzerian problem",
                 NewsType = "Lifestyle",
-                PictureUrl = "https://www.vip-grinders.com/wp-content/uploads/2020/06/Dan-Bilzerian.jpg",
+                PictureUrl = "https://www.insidehook.com/wp-content/uploads/2020/06/GettyImages-1140982418-e1591627485300.jpg?fit=3625%2C2419",
             });
 
             await dbContext.News.AddAsync(new News

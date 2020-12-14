@@ -64,30 +64,29 @@
 
 
 
-		<h3 id="latestPosts" style="padding-bottom:3%">Latest Discussions</h3>
-		<table class="table bg-dark border-left border-bottom border-top border-right" id="latestPostsTable">
-			<tbody>
+		<h3 id="latestPosts" style="padding-bottom:1%">Latest Discussions</h3>
+		<div class="table" id="latestPostsTable" style="margin-top:15px;">
+			
 				@foreach (var t in Model.LatestThreads)
 				{
-					<tr>
-						<td>
+					<div style="margin:5px; background-color:#282726;   display: flex;justify-content: center;align-items: center;height: 30px;">
 							<a asp-controller="ForumThread" asp-action="Thread" asp-route-id="@t.Id">
 								<div class="postTitle">
 									@(t.Title.Length > 30 ? t.Title.Substring(0,30) : t.Title)
 								</div>
 							</a>
-						</td>
-					</tr>
+						
+					</div>
 				}
-			</tbody>
-		</table>
+			
+		</div>
 		<br />
 
 		<h3 id="latestNews">Latest Videos</h3> <!----------------------TO DO, CHANGE TO VIDEOS-->
 		@foreach (var t in Model.LatestVideos)
 		{
 			<a href="/Video/Video/@t.Id">
-				<div class="card border-info">
+				<div>
 					<div class="row no-gutters">
 
 						<div class="col-auto">

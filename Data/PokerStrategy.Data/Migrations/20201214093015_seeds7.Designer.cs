@@ -10,8 +10,8 @@ using PokerStrategy.Data;
 namespace PokerStrategy.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20201213162931_seeds6")]
-    partial class seeds6
+    [Migration("20201214093015_seeds7")]
+    partial class seeds7
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
