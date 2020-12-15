@@ -57,8 +57,6 @@
         {
             var thread = this.threadService.GetById(id);
 
-            //var category = this.categoryService.GetById(thread.CategoryId);
-
             var currentUserId = this.userManager.GetUserId(this.User);
 
             var replies = thread.Replies.Select(r => new ReplyViewModel

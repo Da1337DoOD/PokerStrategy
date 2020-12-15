@@ -39,7 +39,7 @@
 							</div>
 							<br />
 							<div class="col home-card">
-								<div class="card-block home-card px-2 ">
+								<div class="card-block home-card px-2" style="margin-top:3%">
 
 									<h2 class="card-title">
 										@(n.Title.Length > 30 ?
@@ -50,7 +50,7 @@
 								</div>
 								<br />
 								<div>
-									<p style="font-size: 100%;" class="card-text">@Html.Raw(n.ShortContentForLatestNews)</p>
+									<div style="font-size: 100%; margin: 1%; margin-top:-4%" class="card-text" >@Html.Raw(n.ShortContentForLatestNews)</div>
 								</div>
 							</div>
 						</div>
