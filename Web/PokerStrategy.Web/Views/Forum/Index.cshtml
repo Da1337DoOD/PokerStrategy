@@ -1,4 +1,4 @@
-﻿@model PokerStrategy.Web.ViewModels.Forum.ForumIndexModel
+﻿@model PokerStrategy.Web.ViewModels.Forum.CategoriesListingViewModel
 	<head>
 		<link rel="stylesheet" type="text/css" href="~/css/site.css" />
 	</head>
@@ -6,7 +6,7 @@
 <br/>
 <table class= "table table-hover table-custom border" id="forumIndexTable">
 	<tbody>
-		@foreach (var cat in Model.ForumList)
+		@foreach (var cat in Model.CategoriesList)
 		{
 		<tr>
 			<td>

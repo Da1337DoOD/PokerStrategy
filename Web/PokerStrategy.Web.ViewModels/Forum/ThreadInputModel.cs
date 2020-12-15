@@ -3,16 +3,8 @@
     using Ganss.XSS;
     using System.ComponentModel.DataAnnotations;
 
-    public class NewThreadModel
+    public class ThreadInputModel
     {
-        public string CategoryName { get; set; }
-
-        public int CategoryId { get; set; }
-
-        public string AuthorName { get; set; }
-
-        public string CategoryImageUrl { get; set; }
-
         [MaxLength(50)]
         [MinLength(5)]
         [Required]
@@ -22,6 +14,8 @@
         [MinLength(2)]
         [Required]
         public string Content { get; set; }
+
+        public int CategoryId { get; set; }
 
         public string SanitizedContent => new HtmlSanitizer().Sanitize(this.Content);
     }

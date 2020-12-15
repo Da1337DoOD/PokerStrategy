@@ -34,24 +34,21 @@
 
             var thread = this.threadService.GetById(id);
 
-            var model = new ReplyModel
+            var model = new ReplyViewModel
             {
                 PostedById = user.Id,
                 PostedByName = user.DisplayName,
-                PostedByPoints = user.Points,
                 PostedByAvatarUrl = user.ImageUrl,
                 RepliedOn = DateTime.UtcNow,
                 ThreadId = id,
                 ThreadTitle = thread.Title,
-                CategoryId = thread.Category.Id,
-                CategoryTitle = thread.Category.Title,
             };
 
             return this.View(model);
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddReply(ReplyModel model)
+        public async Task<IActionResult> AddReply(ReplyInputModel model)
         {
             await this.replyService.AddReply(model.PostedById, model.ThreadId, model.SanitizedContent);
 

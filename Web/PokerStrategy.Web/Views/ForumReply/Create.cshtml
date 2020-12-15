@@ -1,4 +1,4 @@
-﻿@model PokerStrategy.Web.ViewModels.Forum.ReplyModel
+﻿@model PokerStrategy.Web.ViewModels.Forum.ReplyViewModel
 <head>
 	<link rel="stylesheet" type="text/css" href="~/css/site.css" />
 
@@ -48,8 +48,6 @@
 					<button type="submit" id="registerBtn" class="btn btn-submitPost btn-newBack" style="background-color:royalblue">Submit</button>
 					<input asp-for="PostedById" type="hidden" />
 					<input asp-for="ThreadId" type="hidden" />
-					<input asp-for="CategoryTitle" type="hidden" />
-					<input asp-for="CategoryId" type="hidden" />
 				</form>
 			</div>
 		</div>

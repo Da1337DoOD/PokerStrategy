@@ -7,7 +7,7 @@
 
     using Ganss.XSS;
 
-    public class ThreadModel
+    public class ThreadViewModel
     {
         public int Id { get; set; }
 
@@ -16,17 +16,9 @@
         [Required]
         public string Title { get; set; }
 
-        public int CategoryId { get; set; }
-
-        public string CategoryTitle { get; set; }
-
-        public string PostedById { get; set; }
-
         public string PostedByName { get; set; }
 
         public string PostedByAvatarUrl { get; set; }
-
-        public int UserPoints { get; set; }
 
         public DateTime CreatedOn { get; set; }
 
@@ -37,7 +29,7 @@
 
         public string SanitizedContent => new HtmlSanitizer().Sanitize(this.Content);
 
-        public IEnumerable<ReplyModel> Replies { get; set; }
+        public IEnumerable<ReplyViewModel> Replies { get; set; }
 
         public string GetReplyJumpPosition() => this.Replies.Any() ?
             ("#" + this.Replies.LastOrDefault().Id.ToString())

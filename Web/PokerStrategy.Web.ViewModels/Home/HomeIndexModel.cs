@@ -8,7 +8,7 @@
 
     public class HomeIndexModel
     {
-        public IEnumerable<ThreadsListingModel> LatestThreads { get; set; }
+        public IEnumerable<ThreadViewModel> LatestThreads { get; set; }
 
         public IEnumerable<NewsViewModel> LatestNews { get; set; }
         //  VideoListingViewModel

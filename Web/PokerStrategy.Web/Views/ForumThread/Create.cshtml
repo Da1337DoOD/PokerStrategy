@@ -1,4 +1,4 @@
-﻿@model PokerStrategy.Web.ViewModels.Forum.NewThreadModel
+﻿@model PokerStrategy.Web.ViewModels.Forum.ThreadInputModel
 @using Microsoft.AspNetCore.Identity
 @inject UserManager<PokerStrategy.Data.Models.ApplicationUser> UserManager
 @inject SignInManager<PokerStrategy.Data.Models.ApplicationUser> SignInManager
@@ -53,7 +53,6 @@
 		<span asp-validation-for="Content" class="text-danger"></span>
 	</div>
 	<button type="submit" id="registerBtn" class="btn btn-submitPost btn-newBack">Create</button>
-	<input asp-for="AuthorName" type="hidden" />
-	<input asp-for="CategoryName" type="hidden" />
+
 	<input asp-for="CategoryId" type="hidden" />
 </form>

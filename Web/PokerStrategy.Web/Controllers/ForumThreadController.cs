@@ -35,19 +35,16 @@
 
             var currentUser = this.User.Identity;
 
-            var model = new NewThreadModel
+            var model = new ThreadInputModel
             {
-                CategoryName = category.Title,
                 CategoryId = category.Id,
-                CategoryImageUrl = category.ImageUrl,
-                AuthorName = currentUser.Name,
             };
 
             return this.View(model);
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddThread(NewThreadModel model)
+        public async Task<IActionResult> AddThread(ThreadInputModel model)
         {
             var userId = this.userManager.GetUserId(this.User);
 
@@ -62,27 +59,22 @@
 
             var category = this.categoryService.GetById(thread.CategoryId);
 
-            var replies = thread.Replies.Select(r => new ReplyModel
+            var replies = thread.Replies.Select(r => new ReplyViewModel
             {
                 Id = r.Id,
-                PostedById = r.PostedById,
                 PostedByName = r.PostedBy.DisplayName,
                 PostedByAvatarUrl = r.PostedBy.ImageUrl,
-                PostedByPoints = r.PostedBy.Points,
                 RepliedOn = r.CreatedOn,
                 Content = r.Content,
+                ThreadId = r.ThreadId,
             });
 
-            var model = new ThreadModel
+            var model = new ThreadViewModel
             {
                 Id = thread.Id,
                 Title = thread.Title,
-                CategoryId = thread.CategoryId,
-                CategoryTitle = category.Title,
-                PostedById = thread.PostedById,
                 PostedByName = thread.PostedBy.UserName,
                 PostedByAvatarUrl = thread.PostedBy.ImageUrl,
-                UserPoints = thread.PostedBy.Points,
                 CreatedOn = thread.CreatedOn,
                 Content = thread.Content,
                 Replies = replies.OrderByDescending(r => r.RepliedOn),

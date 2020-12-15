@@ -23,16 +23,16 @@
         {
             var allForumCategories = this.categoryService
                 .GetAll()
-                .Select(c => new CategoriesListingModel
+                .Select(c => new CategoryViewModel
                 {
                     Id = c.Id,
                     Title = c.Title,
                     Description = c.Description,
                 });
 
-            ForumIndexModel model = new ForumIndexModel
+            CategoriesListingViewModel model = new CategoriesListingViewModel
             {
-                ForumList = allForumCategories,
+                CategoriesList = allForumCategories,
             };
 
             return this.View(model);
@@ -42,12 +42,11 @@
         {
             var category = this.categoryService.GetById(id);
 
-            var categoryListing = new CategoriesListingModel
+            var categoryListing = new CategoryViewModel
             {
                 Id = category.Id,
                 Title = category.Title,
                 Description = category.Description,
-                ImageUrl = category.ImageUrl,
             };
 
             var threads = this.threadService
@@ -55,22 +54,21 @@
                 .OrderByDescending(t => t.CreatedOn)
                 .ToList();
 
-            var threadListing = threads.Select(t => new ThreadsListingModel
+            var threadListing = threads.Select(t => new ThreadViewModel
             {
                 Id = t.Id,
                 Title = t.Title,
-                AuthorId = t.PostedById,
-                AuthorName = t.PostedBy.DisplayName,
-                AuthorPoints = t.PostedBy.Points,
-                DateCreated = t.CreatedOn,
-                RepliesCount = t.Replies.Count(),
-                CategoryName = t.Category.Title,
-            }).OrderByDescending(t => t.DateCreated);
+                Content = t.Content,
+                CreatedOn = t.CreatedOn,
+                PostedByAvatarUrl = t.PostedBy.ImageUrl,
+                PostedByName = t.PostedBy.DisplayName,
+            })
+            .OrderByDescending(t => t.CreatedOn);
 
-            var model = new CategoryModel
+            var model = new ThreadListingViewModel
             {
                 Category = categoryListing,
-                Threads = threadListing,
+                ThreadsList = threadListing,
             };
 
             return this.View(model);

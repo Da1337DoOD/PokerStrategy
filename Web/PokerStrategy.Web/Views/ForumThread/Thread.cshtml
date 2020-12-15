@@ -1,4 +1,4 @@
-﻿@model PokerStrategy.Web.ViewModels.Forum.ThreadModel
+﻿@model PokerStrategy.Web.ViewModels.Forum.ThreadViewModel
 <head>
 	<link rel="stylesheet" type="text/css" href="~/css/site.css" />
 </head>
@@ -53,7 +53,14 @@
 	}
 
 </div>
-<div class="repliesSection">
+
+@{string margin = "47px";}
+@if (Context.User.Identity.IsAuthenticated)
+{
+	margin = "0px";
+}
+
+<div class="repliesSection" style="margin-top:@margin; margin-bottom: 9px;">
 	<!--All Replies-->
 	@{int counter = 0;}
 	@foreach (var reply in Model.Replies)
@@ -89,11 +96,13 @@
 						<!--Delete with Confirmation-->
 						<span id="confirmDeleteReplySpan_@reply.Id" style="display:none">
 							<span>Are you sure?</span>
-							<button type="submit" class="btn btn-danger" 
-									asp-area="Administration" 
-									asp-controller="Admin" 
-									asp-action="DeleteReplyById" 
-									asp-route-id="@reply.Id">Yes</button>
+							<button type="submit" class="btn btn-danger"
+									asp-area="Administration"
+									asp-controller="Admin"
+									asp-action="DeleteReplyById"
+									asp-route-id="@reply.Id">
+								Yes
+							</button>
 							<a class="btn btn-primary"
 							   onclick="confirmDeleteReply('@reply.Id', false)">No</a>
 						</span>

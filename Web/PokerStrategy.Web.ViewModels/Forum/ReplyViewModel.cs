@@ -4,7 +4,7 @@
     using System;
     using System.ComponentModel.DataAnnotations;
 
-    public class ReplyModel
+    public class ReplyViewModel
     {
         public int Id { get; set; }
 
@@ -12,15 +12,9 @@
 
         public string PostedByName { get; set; }
 
-        public int PostedByPoints { get; set; }
-
         public string PostedByAvatarUrl { get; set; }
 
         public DateTime RepliedOn { get; set; }
-
-        public int CategoryId { get; set; }
-
-        public string CategoryTitle { get; set; }
 
         public int ThreadId { get; set; }
 

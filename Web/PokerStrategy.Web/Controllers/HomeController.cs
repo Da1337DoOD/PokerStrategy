@@ -21,7 +21,7 @@
         private readonly IVideosService videoService;
 
         public HomeController(
-            IForumThreadService threadService, 
+            IForumThreadService threadService,
             INewsService newsService,
             IVideosService videoService)
         {
@@ -42,14 +42,14 @@
             var latestNews = this.newsService.GetLatestNews();
             var latestVideos = this.videoService.GetLatestVideos();
 
-            var threads = latestThreads.Select(t => new ThreadsListingModel
+            var threads = latestThreads.Select(t => new ThreadViewModel
             {
                 Id = t.Id,
                 Title = t.Title,
-                DateCreated = t.CreatedOn,
+                CreatedOn = t.CreatedOn,
             });
 
-            var threadList = new List<ThreadsListingModel>();
+            var threadList = new List<ThreadViewModel>();
             if (threads.Any())
             {
                 foreach (var thread in threads)
@@ -93,17 +93,17 @@
             };
         }
 
-        private CategoriesListingModel GetCategoryListingForThread(ForumThread t)
-        {
-            var category = t.Category;
+        //private CategoriesListingModel GetCategoryListingForThread(ForumThread t)
+        //{
+        //    var category = t.Category;
 
-            return new CategoriesListingModel
-            {
-                Id = category.Id,
-                Title = category.Title,
-                ImageUrl = category.ImageUrl,
-            };
-        }
+        //    return new CategoriesListingModel
+        //    {
+        //        Id = category.Id,
+        //        Title = category.Title,
+        //        ImageUrl = category.ImageUrl,
+        //    };
+        //}
 
         public IActionResult GetPrivacy()
         {

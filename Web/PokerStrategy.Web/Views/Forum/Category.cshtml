@@ -1,4 +1,4 @@
-﻿@model PokerStrategy.Web.ViewModels.Forum.CategoryModel
+﻿@model PokerStrategy.Web.ViewModels.Forum.ThreadListingViewModel
 @using PokerStrategy.Common
 @using PokerStrategy.Data.Models
 @using Microsoft.AspNetCore.Identity
@@ -18,11 +18,11 @@
 
 
 
-@if (Model.Threads.Any())
+@if (Model.ThreadsList.Any())
 {
 	<table class="table table-bordered  table-custom">
 		<tbody>
-			@foreach (var thread in Model.Threads)
+			@foreach (var thread in Model.ThreadsList)
 			{
 				<tr>
 					<td>
@@ -33,21 +33,49 @@
 						</a>
 					</td>
 					<td>
-						@thread.AuthorName
+						@thread.PostedByName
 					</td>
 					<td>
-						@thread.DateCreated
+						@thread.CreatedOn
 					</td>
-					<td>
-						@thread.RepliesCount
-					</td>
+
 
 					@if (this.User.IsInRole(GlobalConstants.AdminRoleName))
 					{
 						<td>
-							<span id="deleteButton">
-								<a type="button" class="btn btn-primary" style="background-color:red" asp-area="Administration" asp-controller="Admin" asp-action="DeleteThreadById" asp-route-id="@thread.Id">Delete</a>
-							</span>
+					
+
+							<!--EDIT AND DELETE-->
+							@if (this.User.IsInRole("Admin") || this.User.IsInRole("Moderator"))
+							{
+								<form method="post">
+									<!--Delete with Confirmation-->
+									<span id="confirmDeleteSpan_@thread.Id" style="display:none">
+										<span>Are you sure?</span>
+										<button type="submit" class="btn btn-danger" asp-area="Administration" asp-controller="Admin" asp-action="DeleteThreadById" asp-route-id="@thread.Id">Yes</button>
+										<a class="btn btn-primary"
+										   onclick="confirmDelete('@thread.Id', false)">No</a>
+									</span>
+									<span id="deleteSpan_@thread.Id">
+										<a class="btn btn-danger"
+										   onclick="confirmDelete('@thread.Id', true)">Delete</a>
+									</span>
+								</form>
+								<script>
+									function confirmDelete(uniqueId, isDeleteClicked) {
+										var deleteSpan = 'deleteSpan_' + uniqueId;
+										var confirmDeleteSpan = 'confirmDeleteSpan_' + uniqueId;
+
+										if (isDeleteClicked) {
+											$('#' + deleteSpan).hide();
+											$('#' + confirmDeleteSpan).show();
+										} else {
+											$('#' + deleteSpan).show();
+											$('#' + confirmDeleteSpan).hide();
+										}
+									}
+								</script>
+							}
 						</td>
 					}
 
@@ -58,7 +86,7 @@
 }
 else
 {
-<center>
-	<h2>No threads in this Board yet.</h2>
-</center>
+	<center>
+		<h2>No threads in this Board yet.</h2>
+	</center>
 }
