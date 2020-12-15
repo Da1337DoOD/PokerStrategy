@@ -45,23 +45,6 @@
                 .First(r => r.Id == id); // First on top?
         }
 
-        //public async Task<int> CreateAsync(string title, string content, string url, string newsType)
-        //{
-        //    var news = new News
-        //    {
-        //        Title = title,
-        //        Content = content,
-        //        PictureUrl = url,
-        //        NewsType = newsType,
-        //        CreatedOn = DateTime.UtcNow,
-        //    };
-
-        //    await this.newsRepository.AddAsync(news);
-        //    await this.newsRepository.SaveChangesAsync();
-
-        //    return news.Id;
-        //}
-
         public async Task AddReply(string userId, int threadId, string content)
         {
             var user = await this.userManager.FindByIdAsync(userId);
@@ -79,9 +62,22 @@
             await this.threadService.AddReply(reply);
         }
 
-        //public ForumReply GetLatest(int threadId)
-        //{
-        //    return this.GetAll().OrderByDescending(r => r.CreatedOn).Where(r => r.ThreadId == threadId).FirstOrDefault();
-        //}
+        public async Task EditAsync(int replyId, string newContent)
+        {
+            var reply = this.GetById(replyId);
+            reply.Content = newContent;
+
+            this.replyRepository.Update(reply);
+            await this.replyRepository.SaveChangesAsync();
+
+            return;
+        }
+
+        public bool UserIsCreator(string userId, int replyId)
+        {
+            var reply = this.replyRepository.All().First(r => r.Id == replyId);
+
+            return reply.PostedById == userId;
+        }
     }
 }

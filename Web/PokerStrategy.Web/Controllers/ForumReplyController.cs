@@ -1,6 +1,7 @@
 ﻿namespace PokerStrategy.Web.Controllers
 {
     using System;
+    using System.Linq;
     using System.Threading.Tasks;
 
     using Microsoft.AspNetCore.Authorization;
@@ -29,16 +30,15 @@
         [Authorize]
         public async Task<IActionResult> Create(int id)
         {
-            var user = await this.userManager
+            var currentUser = await this.userManager
                 .FindByNameAsync(this.User.Identity.Name);
 
             var thread = this.threadService.GetById(id);
 
             var model = new ReplyViewModel
             {
-                PostedById = user.Id,
-                PostedByName = user.DisplayName,
-                PostedByAvatarUrl = user.ImageUrl,
+                PostedByName = currentUser.DisplayName,
+                PostedByAvatarUrl = currentUser.ImageUrl,
                 RepliedOn = DateTime.UtcNow,
                 ThreadId = id,
                 ThreadTitle = thread.Title,
@@ -50,9 +50,50 @@
         [HttpPost]
         public async Task<IActionResult> AddReply(ReplyInputModel model)
         {
-            await this.replyService.AddReply(model.PostedById, model.ThreadId, model.SanitizedContent);
+            var userId = this.userManager.GetUserId(this.User);
+
+            await this.replyService.AddReply(userId, model.ThreadId, model.SanitizedContent);
 
             return this.RedirectToAction("Thread", "ForumThread", new { id = model.ThreadId });
+        }
+
+        [HttpGet]
+        public ActionResult EditReplyById(int id)
+        {
+            var reply = this.replyService.GetById(id);
+
+            var userId = this.userManager.GetUserId(this.User);
+
+            if (!this.replyService.UserIsCreator(userId, id) 
+                && !this.User.IsInRole("Admin"))
+            {
+                 return this.Redirect("https://localhost:44319/Identity/Account/AccessDenied");
+            }
+
+            var model = new ReplyViewModel
+            {
+                Id = reply.Id,
+                Content = reply.Content,
+                ThreadId = reply.ThreadId,
+                ThreadTitle = reply.Thread.Title,
+                CurrentUserIsCreator = this.replyService.UserIsCreator(userId, id),
+            };
+
+            return this.View(model);
+        }
+
+        [HttpPost]
+        [Authorize]
+        public async Task<IActionResult> EditReplyById(ReplyViewModel input)
+        {
+            if (!this.ModelState.IsValid)
+            {
+                return this.View(input);
+            }
+
+            await this.replyService.EditAsync(input.Id, input.Content);
+
+            return this.RedirectToAction("Thread", "ForumThread", new { area = "", id = input.ThreadId });
         }
     }
 }

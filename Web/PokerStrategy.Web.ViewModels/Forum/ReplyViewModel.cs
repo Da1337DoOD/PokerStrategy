@@ -8,8 +8,6 @@
     {
         public int Id { get; set; }
 
-        public string PostedById { get; set; }
-
         public string PostedByName { get; set; }
 
         public string PostedByAvatarUrl { get; set; }
@@ -26,5 +24,7 @@
         public string Content { get; set; }
 
         public string SanitizedContent => new HtmlSanitizer().Sanitize(this.Content);
+
+        public bool CurrentUserIsCreator { get; set; }
     }
 }

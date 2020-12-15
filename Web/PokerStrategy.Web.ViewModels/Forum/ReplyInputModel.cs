@@ -12,8 +12,6 @@ namespace PokerStrategy.Web.ViewModels.Forum
 
         public int ThreadId { get; set; }
 
-        public string PostedById { get; set; }
-
         public string SanitizedContent => new HtmlSanitizer().Sanitize(this.Content);
     }
 }

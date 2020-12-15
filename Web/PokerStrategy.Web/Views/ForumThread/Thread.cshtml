@@ -43,15 +43,14 @@
 
 	<br />
 
-	<a href="@Model.GetReplyJumpPosition()" class="btn btn-newReply" style="float: left; margin-left:-12px;  background-color: green; color: white;">Jump to First</a>
+	<a href="@Model.GetReplyJumpPosition()" class="btn btn-newReply" style="float: left; margin-left:-15px;  background-color: gray; color: white;">Jump to First</a>
 
 	@if (Context.User.Identity.IsAuthenticated)
 	{
 		<div id="replyRow">
-			<span><a asp-controller="ForumReply" asp-action="Create" asp-route-id="@Model.Id" class="btn btn-newReply" style="background-color:royalblue; color: white; margin-left:5px;">Reply</a></span>
+			<span><a asp-controller="ForumReply" asp-action="Create" asp-route-id="@Model.Id" class="btn btn-newReply" style="background-color:darkgreen; color: white; margin-left:5px;">Reply</a></span>
 		</div>
 	}
-
 </div>
 
 @{string margin = "47px";}
@@ -75,7 +74,7 @@
 					 style="background-image: url('@reply.PostedByAvatarUrl'); padding-top:25px; padding-bottom:5px;">
 				</div>
 
-				<a asp-controller="Profile" asp-action="Detail" asp-route-id="@reply.PostedById">
+				<a>
 					<strong class="float-left">@reply.PostedByName</strong>
 				</a>  <br />
 				<span class="float-left">@reply.RepliedOn</span>
@@ -87,8 +86,8 @@
 					@Html.Raw(reply.SanitizedContent)
 				</div>
 			</div>
-			<div class="replyDeleteBtnContainer" style="margin:1%">
 
+			<div class="replyDeleteBtnContainer" style="margin:1%">
 				<!--EDIT AND DELETE-->
 				@if (this.User.IsInRole("Admin") || this.User.IsInRole("Moderator"))
 				{
@@ -127,8 +126,19 @@
 					</script>
 				}
 
+				<!--------Edit reply---------->
+				@if (reply.CurrentUserIsCreator || User.IsInRole("Admin"))
+				{
+
+					<!--Edit-->
+					<form method="post" style="margin-top:15%">
+						<a asp-controller="ForumReply" asp-action="EditReplyById"
+						   asp-route-id="@reply.Id" class="btn btn-primary">Edit</a>
+					</form>
+				}
+
 			</div>
 		</div>
 	}
 </div>
-<a href="#top" class="btn btn-newReply" style="float:left; background-color:green; color: white;">Jump to Last</a>
+<a href="#top" class="btn btn-newReply" style="float:left; background-color:gray; color: white;">Jump to Last</a>

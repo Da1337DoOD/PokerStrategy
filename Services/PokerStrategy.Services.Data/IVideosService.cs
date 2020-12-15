@@ -11,8 +11,6 @@
 
         Task Delete(int id);
 
-        Task Edit(int id);
-
         Video GetById(int id);
 
         Task<bool> IncrementViews(int id);

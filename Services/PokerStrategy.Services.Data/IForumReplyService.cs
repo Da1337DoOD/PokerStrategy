@@ -11,5 +11,9 @@
         Task Delete(int id);
 
         Task AddReply(string userId, int threadId, string content);
+
+        Task EditAsync(int replyId, string newContent);
+
+        bool UserIsCreator(string userId, int replyId);
     }
 }

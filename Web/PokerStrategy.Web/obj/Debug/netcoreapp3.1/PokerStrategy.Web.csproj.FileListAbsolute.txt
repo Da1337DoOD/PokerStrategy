@@ -1887,3 +1887,4 @@ D:\Users\Kolio\Desktop\PokerStrategy\Web\PokerStrategy.Web\obj\Debug\netcoreapp3
 D:\Users\Kolio\Desktop\PokerStrategy\Web\PokerStrategy.Web\obj\Debug\netcoreapp3.1\Razor\Views\Video\Video.cshtml.g.cs
 D:\Users\Kolio\Desktop\PokerStrategy\Web\PokerStrategy.Web\obj\Debug\netcoreapp3.1\Razor\Areas\Administration\Views\Admin\EditNewsById.cshtml.g.cs
 D:\Users\Kolio\Desktop\PokerStrategy\Web\PokerStrategy.Web\obj\Debug\netcoreapp3.1\Razor\Areas\Administration\Views\Admin\EditVideoById.cshtml.g.cs
+D:\Users\Kolio\Desktop\PokerStrategy\Web\PokerStrategy.Web\obj\Debug\netcoreapp3.1\Razor\Views\ForumReply\EditReplyById.cshtml.g.cs

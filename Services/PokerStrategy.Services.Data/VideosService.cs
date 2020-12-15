@@ -47,12 +47,6 @@
             await this.videoRepository.SaveChangesAsync();
         }
 
-        public async Task Edit(int id)
-        {
-            var video = this.GetById(id);
-
-        }
-
         public IEnumerable<Video> GetAll()
         {
             IQueryable<Video> video = this.videoRepository.All()

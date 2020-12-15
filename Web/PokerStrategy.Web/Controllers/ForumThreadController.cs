@@ -15,16 +15,18 @@
     {
         private readonly IForumThreadService threadService;
         private readonly IForumCategoryService categoryService;
-
+        private readonly IForumReplyService replyService;
         private readonly UserManager<ApplicationUser> userManager;
 
         public ForumThreadController(
             IForumThreadService threadService,
             IForumCategoryService categoryService,
+            IForumReplyService replyService,
             UserManager<ApplicationUser> userManager)
         {
             this.threadService = threadService;
             this.categoryService = categoryService;
+            this.replyService = replyService;
             this.userManager = userManager;
         }
 
@@ -32,8 +34,6 @@
         public IActionResult Create(int id)
         {
             var category = this.categoryService.GetById(id);
-
-            var currentUser = this.User.Identity;
 
             var model = new ThreadInputModel
             {
@@ -57,7 +57,9 @@
         {
             var thread = this.threadService.GetById(id);
 
-            var category = this.categoryService.GetById(thread.CategoryId);
+            //var category = this.categoryService.GetById(thread.CategoryId);
+
+            var currentUserId = this.userManager.GetUserId(this.User);
 
             var replies = thread.Replies.Select(r => new ReplyViewModel
             {
@@ -67,6 +69,7 @@
                 RepliedOn = r.CreatedOn,
                 Content = r.Content,
                 ThreadId = r.ThreadId,
+                CurrentUserIsCreator = this.replyService.UserIsCreator(currentUserId, r.Id),
             });
 
             var model = new ThreadViewModel
