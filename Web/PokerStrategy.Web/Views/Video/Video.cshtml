@@ -6,8 +6,22 @@
 @inject UserManager<ApplicationUser> UserManager
 <head>
 	<link rel="stylesheet" type="text/css" href="~/css/site.css" />
-	<meta http-equiv="Pragma" content="no-cache">
+	<meta http-equiv="Cache-Control" content="no-cache, no-store">
+
 </head>
+
+@{
+	Random random = new Random();
+	string GenerateNewString(int length)
+	{
+		string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+		return new string(Enumerable.Repeat(chars, length)
+		  .Select(s => s[random.Next(s.Length)]).ToArray());
+	}
+
+	string randomString = GenerateNewString(8);
+	string antiCacheString = "?fs=1&amp;hl=en_GB&amp;" + randomString;
+}
 
 <div class="container">
 	<div class="row">

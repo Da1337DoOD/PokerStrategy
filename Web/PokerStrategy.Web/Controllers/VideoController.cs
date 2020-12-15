@@ -16,6 +16,7 @@
             this.videoService = videoService;
         }
 
+        [ResponseCache(NoStore = true)]
         public IActionResult Video(int id)
         {
             var video = this.videoService.GetById(id);
@@ -33,7 +34,7 @@
             return this.View(viewModel);
         }
 
-        public async Task<IActionResult> IncrementViewsById(int id, bool? aftercomment)
+        public async Task<IActionResult> IncrementViewsById(int id)
         {
             await this.videoService.IncrementViews(id);
             return this.RedirectToAction("Video", new { id = id });
