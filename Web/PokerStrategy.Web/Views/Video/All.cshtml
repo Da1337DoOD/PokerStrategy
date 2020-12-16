@@ -13,18 +13,22 @@
 	{<div>
 			<div class="main-card" style="padding-left:1%; padding-bottom:1%; float:left">
 				<a asp-controller="Video" asp-action="IncrementViewsById" asp-route-id="@vid.Id">
-					<div class="card" style="width: 20.69rem; height:25rem; background-color:#282726">
+					<div class="card" style="width: 21rem; height:25.2rem; background-color:#282726">
 						<img class="card bg-dark" src="@vid.VideoThumbnailUrl" style="object-fit: cover; width:100%; height:200px">
 						<div class="card-body">
 							<strong class="card-title">
 								@vid.ShortenedTitle
 							</strong>
-							<p class="card-text" style="color:seashell; text-align: left;">@vid.ShortenedDescription</p>
+							
+								<div class="card-text" style="height:80px; color:seashell; text-align: left;">@vid.ShortenedDescription</div>
 
-							<img src="https://www.pngitem.com/pimgs/m/10-102407_date-and-time-clock-comments-free-date-icon.png" style="filter: invert(100%) sepia(0%) saturate(2%) hue-rotate(337deg) brightness(106%) contrast(101%); color:white; margin-left:10px; margin-right:10px;" height="25" width="25" />
-							<span class="text-secondary">@vid.CreatedOn.ToString()</span>
-							<img src="https://cdn2.iconfinder.com/data/icons/picol-vector/32/view-512.png" style="filter: invert(100%) sepia(0%) saturate(2%) hue-rotate(337deg) brightness(106%) contrast(101%); margin-left:10px; margin-right:10px;" height="25" width="25" />
-							<span align="right" class="text-secondary" style="font-size:20px">@vid.Views</span>
+							<!-- date and view count-->
+								<div style="padding:10px; ">
+									
+									<span class="text-secondary">@vid.CreatedOn.ToString()</span>
+									<img src="https://cdn2.iconfinder.com/data/icons/picol-vector/32/view-512.png" style="filter: invert(100%) sepia(0%) saturate(2%) hue-rotate(337deg) brightness(106%) contrast(101%); margin-left:10px; margin-right:10px;" height="25" width="25" />
+									<span align="right" class="text-secondary" style="font-size:20px; margin-top:10px;">@vid.Views</span>
+								</div>
 						</div>
 					</div>
 				</a>

@@ -38,7 +38,9 @@
 
 							<div style="width: 600px;">
 								<div class="col-sm">
-									<img class="card bg-dark" src="@n.PictureUrl" style="object-fit: cover; width:500px">
+									<center>
+										<img src="@n.PictureUrl" class="card bg-dark" style="object-fit: cover; width:500px">
+									</center>
 								</div>
 								<div class="w-100"></div>
 								<div class="col-sm">
@@ -98,12 +100,10 @@
 							<div class="col-auto">
 								<img src="@t.VideoThumbnailUrl" class="img-fluid" alt="">
 							</div>
-							@{string a = t.VideoThumbnailUrl;
-							}
 							<div class="col">
-								<div class="card-block home-card px-2" style="background-color:#282726">
+								<div class="card-text" style="background-color:#282726">
 
-									<h4 class="card-title" style="padding-top:4%">@t.ShortenedTitle</h4>
+									<h4 class="card-text" style="padding-top:4%">@t.ShortenedTitle</h4>
 									<p class="card-text">@t.ShortenedDescription</p>
 
 								</div>
