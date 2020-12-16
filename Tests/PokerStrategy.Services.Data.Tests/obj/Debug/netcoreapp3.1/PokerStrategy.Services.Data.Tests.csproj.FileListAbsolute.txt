@@ -27,7 +27,6 @@ D:\Users\Kolio\Desktop\PokerStrategy\Tests\PokerStrategy.Services.Data.Tests\bin
 D:\Users\Kolio\Desktop\PokerStrategy\Tests\PokerStrategy.Services.Data.Tests\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Memory.dll
 D:\Users\Kolio\Desktop\PokerStrategy\Tests\PokerStrategy.Services.Data.Tests\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.dll
 D:\Users\Kolio\Desktop\PokerStrategy\Tests\PokerStrategy.Services.Data.Tests\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Abstractions.dll
-D:\Users\Kolio\Desktop\PokerStrategy\Tests\PokerStrategy.Services.Data.Tests\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Binder.dll
 D:\Users\Kolio\Desktop\PokerStrategy\Tests\PokerStrategy.Services.Data.Tests\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.FileExtensions.dll
 D:\Users\Kolio\Desktop\PokerStrategy\Tests\PokerStrategy.Services.Data.Tests\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Json.dll
 D:\Users\Kolio\Desktop\PokerStrategy\Tests\PokerStrategy.Services.Data.Tests\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.UserSecrets.dll
@@ -162,3 +161,5 @@ D:\Users\Kolio\Desktop\PokerStrategy\Tests\PokerStrategy.Services.Data.Tests\obj
 D:\Users\Kolio\Desktop\PokerStrategy\Tests\PokerStrategy.Services.Data.Tests\obj\Debug\netcoreapp3.1\PokerStrategy.Services.Data.Tests.dll
 D:\Users\Kolio\Desktop\PokerStrategy\Tests\PokerStrategy.Services.Data.Tests\obj\Debug\netcoreapp3.1\PokerStrategy.Services.Data.Tests.pdb
 D:\Users\Kolio\Desktop\PokerStrategy\Tests\PokerStrategy.Services.Data.Tests\obj\Debug\netcoreapp3.1\PokerStrategy.Services.Data.Tests.genruntimeconfig.cache
+D:\Users\Kolio\Desktop\PokerStrategy\Tests\PokerStrategy.Services.Data.Tests\bin\Debug\netcoreapp3.1\Microsoft.AspNet.Identity.Core.dll
+D:\Users\Kolio\Desktop\PokerStrategy\Tests\PokerStrategy.Services.Data.Tests\bin\Debug\netcoreapp3.1\System.ComponentModel.Annotations.dll

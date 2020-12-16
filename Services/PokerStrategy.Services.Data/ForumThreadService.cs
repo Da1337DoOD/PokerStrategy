@@ -37,7 +37,7 @@
                 CategoryId = categoryId,
                 Category = this.categoryService.GetById(categoryId),
                 Title = title,
-                PostedById = user.Id,
+                PostedById = userId,
                 PostedBy = user,
                 Content = content,
                 CreatedOn = DateTime.UtcNow,
