@@ -25,46 +25,38 @@
 			<h3 id="latestNews" style="padding-bottom:2%">Latest News</h3>
 			@foreach (var n in Model.LatestNews)
 			{
-				<a href="/News/News/@n.Id">
-					<div class="card" style="padding-bottom:50px; background-color:#282726">
-						<div class="row no-gutters">
-							<div style="padding: 3%; margin-left:30%">
-								<img src="https://www.pngitem.com/pimgs/m/10-102407_date-and-time-clock-comments-free-date-icon.png" style="filter: invert(100%) sepia(0%) saturate(2%) hue-rotate(337deg) brightness(106%) contrast(101%); color:white; margin-left:10px; margin-right:10px;" height="25" width="25" />
-								<span class="text-secondary">@n.CreatedOn.ToString()</span>
+			<a href="/News/News/@n.Id">
+				<div class="card" style="padding-bottom:50px; background-color:#282726">
+					@*<div class="row no-gutters">*@
+
+					@*<div style="margin-top:5%;width: 600px;">*@
+					<div class="card-img-top" style="padding:5%">
+						<center>
+							<img src="@n.PictureUrl" class="card bg-dark" style="object-fit: cover; width:inherit">
+						</center>
+					</div>
+					<div class="w-100"></div>
+					<div class="card-text">
+						<div class="col home-card">
+							<div class="card-block home-card px-2" style="margin-top:3%">
+
+								<h2 class="card-title">
+									@n.Title
+								</h2>
+
 							</div>
 							<br />
-
-
-
-							<div style="width: 600px;">
-								<div class="col-sm">
-									<center>
-										<img src="@n.PictureUrl" class="card bg-dark" style="object-fit: cover; width:500px">
-									</center>
-								</div>
-								<div class="w-100"></div>
-								<div class="col-sm">
-									<div class="col home-card">
-										<div class="card-block home-card px-2" style="margin-top:3%">
-
-											<h2 class="card-title">
-												@(n.Title.Length > 30 ?
-										n.Title.Substring(0, 30) :
-										n.Title)
-											</h2>
-
-										</div>
-										<br />
-										<div>
-											<div style="font-size: 100%; margin: 1%; margin-top:-4%" class="card-text">@Html.Raw(n.ShortContentForLatestNews)</div>
-										</div>
-									</div>
-								</div>
+							<div>
+								<div style="font-size: 100%; margin: 1%; margin-top:-4%" class="card-text">@Html.Raw(n.ShortContentForLatestNews)</div>
 							</div>
 						</div>
 					</div>
-				</a>
-				<br />
+					@*</div>*@
+
+					@*</div>*@
+				</div>
+			</a>
+			<br />
 			}
 		</div>
 		<br />
@@ -77,41 +69,49 @@
 
 				@foreach (var t in Model.LatestThreads)
 				{
-					<div style="margin:5px; background-color:#282726;   display: flex;justify-content: center;align-items: center;height: 30px;">
-						<a asp-controller="ForumThread" asp-action="Thread" asp-route-id="@t.Id">
-							<div class="postTitle">
-								@(t.Title.Length > 30 ? t.Title.Substring(0,30) : t.Title)
-							</div>
-						</a>
+				<div style="margin:5px; background-color:#282726;   display: flex;justify-content: center;align-items: center;height: 30px;">
+					<a asp-controller="ForumThread" asp-action="Thread" asp-route-id="@t.Id">
+						<div class="postTitle">
+							@(t.Title.Length > 30 ? t.Title.Substring(0,30) : t.Title)
+						</div>
+					</a>
 
-					</div>
+				</div>
 				}
 
 			</div>
 			<br />
 
-			<h3 id="latestNews">Latest Videos</h3> <!----------------------TO DO, CHANGE TO VIDEOS-->
+			<h3 id="latestNews">Latest Videos</h3>
 			@foreach (var t in Model.LatestVideos)
 			{
-				<a href="/Video/Video/@t.Id">
-					<div>
-						<div class="row no-gutters">
+			<a href="/Video/Video/@t.Id">
+				<div class="card" style="background-color: #282726;">
+					@*<center>
+			<div class="card-img-top">
+				<img src="@t.VideoThumbnailUrl" class="max-width:90%" alt="">
+			</div>
+		</center>*@
 
-							<div class="col-auto">
-								<img src="@t.VideoThumbnailUrl" class="img-fluid" alt="">
-							</div>
-							<div class="col">
-								<div class="card-text" style="background-color:#282726">
-
-									<h4 class="card-text" style="padding-top:4%">@t.ShortenedTitle</h4>
-									<p class="card-text">@t.ShortenedDescription</p>
-
-								</div>
-							</div>
-						</div>
+					<div class="card-img-top" style="padding:5%">
+						<center>
+							<img src="@t.VideoThumbnailUrl" class="card bg-dark" style="object-fit: cover; width:inherit">
+						</center>
 					</div>
-				</a>
-				<br />
+
+
+
+
+					<div class="card-text">
+						<center>
+							<h3 class="card-text" style="padding-top:4%">@t.ShortenedTitle</h3>
+							<p class="card-text">@t.ShortenedDescription</p>
+						</center>
+						<br />
+					</div>
+				</div>
+			</a>
+			<br />
 			}
 
 		</div>

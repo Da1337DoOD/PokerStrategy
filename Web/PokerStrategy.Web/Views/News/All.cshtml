@@ -20,13 +20,17 @@
 						<strong class="card-title">
 							@news.ShortTitle
 						</strong>
-						
+
 						<div class="card-text" style="height:80px; color:seashell; text-align: left;">@news.ShortContentForAllNews</div>
 
-						
-						<span class="text-secondary" style="margin-right:5%">@news.CreatedOn.ToString()</span>
-						
-						<span align="right" class="text-secondary" style="margin-left:5%;font-size:20px">Seen: @news.Views</span>
+
+						<div class="card footer" style="background-color:inherit">
+
+							<span>
+								@news.CreatedOn.ToString()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								&nbsp;&nbsp;Views: @news.Views
+							</span>
+						</div>
 
 					</div>
 				</div>

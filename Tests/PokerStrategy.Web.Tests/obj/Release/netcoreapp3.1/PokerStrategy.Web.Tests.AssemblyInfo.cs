@@ -12,8 +12,8 @@ using System;
 using System.Reflection;
 
 [assembly: Microsoft.AspNetCore.Identity.UI.UIFrameworkAttribute("Bootstrap4")]
-[assembly: Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactoryContentRootAttribute("PokerStrategy.Data", "D:\\Users\\Kolio\\Desktop\\PokerStrategy\\Data\\PokerStrategy.Data", "PokerStrategy.Data.csproj", "0")]
-[assembly: Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactoryContentRootAttribute("PokerStrategy.Web", "D:\\Users\\Kolio\\Desktop\\PokerStrategy\\Web\\PokerStrategy.Web", "PokerStrategy.Web.csproj", "0")]
+[assembly: Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactoryContentRootAttribute("PokerStrategy.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null", "D:\\Users\\Kolio\\Desktop\\PokerStrategy\\Data\\PokerStrategy.Data", "PokerStrategy.Data.csproj", "0")]
+[assembly: Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactoryContentRootAttribute("PokerStrategy.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null", "D:\\Users\\Kolio\\Desktop\\PokerStrategy\\Web\\PokerStrategy.Web", "PokerStrategy.Web.csproj", "0")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("PokerStrategy.Web.Tests")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]

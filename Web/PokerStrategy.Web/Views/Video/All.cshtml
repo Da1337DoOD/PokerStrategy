@@ -19,16 +19,17 @@
 							<strong class="card-title">
 								@vid.ShortenedTitle
 							</strong>
-							
-								<div class="card-text" style="height:80px; color:seashell; text-align: left;">@vid.ShortenedDescription</div>
 
-							<!-- date and view count-->
-								<div style="padding:10px; ">
-									
-									<span style="margin-right:5%"class="text-secondary">@vid.CreatedOn.ToString()</span>
-									
-									<span align="right" class="text-secondary" style="font-size:20px; margin-top:10px;margin-left:5%;">Views: @vid.Views</span>
-								</div>
+							<div class="card-text" style="height:80px; color:seashell; text-align: left;">@vid.ShortenedDescription</div>
+
+							<div class="card footer" style="background-color:inherit">
+
+								<span>
+									@vid.CreatedOn.ToString()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+									&nbsp;&nbsp;Views: @vid.Views
+								</span>
+							</div>
+
 						</div>
 					</div>
 				</a>
