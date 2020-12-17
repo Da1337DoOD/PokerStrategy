@@ -1,0 +1,9 @@
+D:\Users\Kolio\Desktop\PokerStrategy\Services\PokerStrategy.Services.Mapping\bin\Release\netstandard2.1\PokerStrategy.Services.Mapping.deps.json
+D:\Users\Kolio\Desktop\PokerStrategy\Services\PokerStrategy.Services.Mapping\bin\Release\netstandard2.1\PokerStrategy.Services.Mapping.dll
+D:\Users\Kolio\Desktop\PokerStrategy\Services\PokerStrategy.Services.Mapping\bin\Release\netstandard2.1\PokerStrategy.Services.Mapping.pdb
+D:\Users\Kolio\Desktop\PokerStrategy\Services\PokerStrategy.Services.Mapping\obj\Release\netstandard2.1\PokerStrategy.Services.Mapping.csprojAssemblyReference.cache
+D:\Users\Kolio\Desktop\PokerStrategy\Services\PokerStrategy.Services.Mapping\obj\Release\netstandard2.1\PokerStrategy.Services.Mapping.AssemblyInfoInputs.cache
+D:\Users\Kolio\Desktop\PokerStrategy\Services\PokerStrategy.Services.Mapping\obj\Release\netstandard2.1\PokerStrategy.Services.Mapping.AssemblyInfo.cs
+D:\Users\Kolio\Desktop\PokerStrategy\Services\PokerStrategy.Services.Mapping\obj\Release\netstandard2.1\PokerStrategy.Services.Mapping.csproj.CoreCompileInputs.cache
+D:\Users\Kolio\Desktop\PokerStrategy\Services\PokerStrategy.Services.Mapping\obj\Release\netstandard2.1\PokerStrategy.Services.Mapping.dll
+D:\Users\Kolio\Desktop\PokerStrategy\Services\PokerStrategy.Services.Mapping\obj\Release\netstandard2.1\PokerStrategy.Services.Mapping.pdb
