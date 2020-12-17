@@ -93,28 +93,17 @@
             };
         }
 
-        //private CategoriesListingModel GetCategoryListingForThread(ForumThread t)
-        //{
-        //    var category = t.Category;
 
-        //    return new CategoriesListingModel
-        //    {
-        //        Id = category.Id,
-        //        Title = category.Title,
-        //        ImageUrl = category.ImageUrl,
-        //    };
+        //public IActionResult GetPrivacy()
+        //{
+        //    return this.View();
         //}
 
-        public IActionResult GetPrivacy()
-        {
-            return this.View();
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return this.View(
-                new ErrorViewModel { RequestId = Activity.Current?.Id ?? this.HttpContext.TraceIdentifier });
-        }
+        //[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        //public IActionResult Error()
+        //{
+        //    return this.View(
+        //        new ErrorViewModel { RequestId = Activity.Current?.Id ?? this.HttpContext.TraceIdentifier });
+        //}
     }
 }
