@@ -73,7 +73,7 @@
             if (!this.replyService.UserIsCreator(userId, id) 
                 && !this.User.IsInRole("Admin"))
             {
-                 return this.Redirect("https://localhost:44319/Identity/Account/AccessDenied");
+                 return this.Redirect("/Identity/Account/AccessDenied");
             }
 
             var model = new ReplyViewModel
