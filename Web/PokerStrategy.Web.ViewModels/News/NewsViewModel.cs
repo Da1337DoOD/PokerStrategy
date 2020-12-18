@@ -23,8 +23,8 @@
                 {
                     var content = WebUtility.HtmlDecode(Regex.Replace(this.Title, @"<[^>]+>", string.Empty));
                     content.Replace("\n", string.Empty).Replace("\r", string.Empty);
-                    return content.Length > 90
-                            ? content.Substring(0, 90) + ".."
+                    return content.Length > 50
+                            ? content.Substring(0, 50) + ".."
                             : content;
                 }
                 return "";
@@ -43,8 +43,8 @@
                 {
                     var content = WebUtility.HtmlDecode(Regex.Replace(this.Content, @"<[^>]+>", string.Empty));
                     content.Replace("\n", string.Empty).Replace("\r", string.Empty);
-                    return content.Length > 90
-                            ? content.Substring(0, 90) + ".."
+                    return content.Length > 80
+                            ? content.Substring(0, 80) + ".."
                             : content;
                 }
                 return "";

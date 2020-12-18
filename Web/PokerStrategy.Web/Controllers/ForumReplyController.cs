@@ -49,8 +49,13 @@
 
         [HttpPost]
         [Authorize]
-        public async Task<IActionResult> AddReply(ReplyInputModel model)
+        public async Task<IActionResult> Create(ReplyViewModel model)
         {
+            if (!this.ModelState.IsValid)
+            {
+                return this.View(model);
+            }
+
             var userId = this.userManager.GetUserId(this.User);
 
             await this.replyService.AddReply(userId, model.ThreadId, model.SanitizedContent);

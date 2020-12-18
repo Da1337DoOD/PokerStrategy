@@ -1,4 +1,5 @@
 ﻿@model PokerStrategy.Web.ViewModels.Forum.ReplyViewModel
+
 <head>
 	<link rel="stylesheet" type="text/css" href="~/css/site.css" />
 	@{ViewBag.Title = "Reply to " + "\"" + Model.ThreadTitle + "\""; }
@@ -38,15 +39,18 @@
 				<div class="authorBlock">
 					You are replying as: <span class="authorBlockName">@Model.PostedByName</span>
 				</div>
-				<form asp-action="AddReply" method="post" id="addPostForm">
-					@*<div asp-validation-summary="All" class="text-danger"></div>*@
-					<div class="form-group">
-						<label asp-for="Content">Post Content</label>
-						<textarea asp-for="Content" rows="20" class="form-control" placeholder="Write your reply here."></textarea>
-						<span asp-validation-for="Content" class="text-danger"></span>
+				<form method="post" asp-area="" asp-controller="ForumReply" asp-action="Create">
+					<input hidden asp-for="Id" />
+					<input hidden asp-for="ThreadId" />
+					<div>
+						<div class="col-lg-8 float-right">
+							<label asp-for="Content">Content</label>
+							<textarea asp-for="Content" class="form-control"></textarea>
+							<span asp-validation-for="Content" class="text-danger"></span>
+						</div>
+						<hr />
+						<input type="submit" class="btn btn-primary" style="margin-left: 145px; margin-top: 28px;" value="Submit" />
 					</div>
-					<button type="submit" id="registerBtn" class="btn btn-submitPost btn-newBack" style="background-color:royalblue">Submit</button>
-					<input asp-for="ThreadId" type="hidden" />
 				</form>
 			</div>
 		</div>
