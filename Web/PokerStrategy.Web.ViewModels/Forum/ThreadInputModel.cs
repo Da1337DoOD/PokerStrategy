@@ -5,17 +5,18 @@
 
     public class ThreadInputModel
     {
-        [MaxLength(50)]
-        [MinLength(5)]
         [Required]
+        [MaxLength(40)]
         public string Title { get; set; }
 
-        [MaxLength(5000)]
         [Required]
-        public string Content { get; set; }
+        [MaxLength(5000)]
+        public string InputContent { get; set; }
 
         public int CategoryId { get; set; }
 
-        public string SanitizedContent => new HtmlSanitizer().Sanitize(this.Content);
+        [Required]
+        [MaxLength(5000)]
+        public string Content => new HtmlSanitizer().Sanitize(this.InputContent);
     }
 }

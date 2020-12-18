@@ -79,6 +79,11 @@
 
         public string GetThumbnailLink(string videoUrl)
         {
+            if (string.IsNullOrEmpty(videoUrl))
+            {
+                return "https://i.ytimg.com/vi/1/0.jpg";
+            }
+
             string startLink = "https://i.ytimg.com/vi/";
             string midLink1 = videoUrl.Replace("https://www.youtube.com/watch?v=", "");
             midLink1 = midLink1.Replace("https://youtu.be/", "");
@@ -91,17 +96,32 @@
             string endLink = "/0.jpg";
             string thumbnailLink = string.Concat(startLink, midLink2, endLink);
 
+            if (string.IsNullOrEmpty(thumbnailLink))
+            {
+                return "https://i.ytimg.com/vi/1/0.jpg";
+            }
+
             return thumbnailLink;
         }
 
         public string GetEmbededVideoLink(string videoUrl)
         {
+            if (string.IsNullOrEmpty(videoUrl))
+            {
+                return "none";
+            }
+
             string embedVideoLink = videoUrl;
             embedVideoLink = embedVideoLink
                 .Replace("https://www.youtube.com/watch?v=", "");
 
             embedVideoLink = embedVideoLink
                 .Replace("https://youtu.be/", "");
+
+            if (string.IsNullOrEmpty(embedVideoLink))
+            {
+                return "none";
+            }
 
             if (embedVideoLink.Contains('&'))
             {

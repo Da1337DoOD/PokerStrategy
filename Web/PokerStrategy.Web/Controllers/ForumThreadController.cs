@@ -44,11 +44,16 @@
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddThread(ThreadInputModel model)
+        public async Task<IActionResult> Create(ThreadInputModel model)
         {
+            if (!this.ModelState.IsValid)
+            {
+                return this.View(model);
+            }
+
             var userId = this.userManager.GetUserId(this.User);
 
-            var thread = await this.threadService.CreateNewThread(userId, model.CategoryId, model.Title, model.SanitizedContent);
+            var thread = await this.threadService.CreateNewThread(userId, model.CategoryId, model.Title, model.Content);
 
             return this.RedirectToAction("Thread", "ForumThread", new { id = thread.Id });
         }
@@ -65,7 +70,7 @@
                 PostedByName = r.PostedBy.DisplayName,
                 PostedByAvatarUrl = r.PostedBy.ImageUrl,
                 RepliedOn = r.CreatedOn,
-                Content = r.Content,
+                InputContent = r.Content,
                 ThreadId = r.ThreadId,
                 CurrentUserIsCreator = this.replyService.UserIsCreator(currentUserId, r.Id),
             });
@@ -77,7 +82,7 @@
                 PostedByName = thread.PostedBy.UserName,
                 PostedByAvatarUrl = thread.PostedBy.ImageUrl,
                 CreatedOn = thread.CreatedOn,
-                Content = thread.Content,
+                InputContent = thread.Content,
                 Replies = replies.OrderByDescending(r => r.RepliedOn),
             };
 

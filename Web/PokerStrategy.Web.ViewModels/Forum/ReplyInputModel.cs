@@ -5,12 +5,14 @@ namespace PokerStrategy.Web.ViewModels.Forum
 {
     public class ReplyInputModel
     {
-        [MaxLength(5000)]
         [Required]
-        public string Content { get; set; }
+        [MaxLength(5000)]
+        public string InputContent { get; set; }
 
         public int ThreadId { get; set; }
 
-        public string SanitizedContent => new HtmlSanitizer().Sanitize(this.Content);
+        [Required]
+        [MaxLength(5000)]
+        public string Content => new HtmlSanitizer().Sanitize(this.InputContent);
     }
 }

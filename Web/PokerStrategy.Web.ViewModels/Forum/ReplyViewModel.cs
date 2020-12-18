@@ -16,15 +16,15 @@
 
         public int ThreadId { get; set; }
 
-        [MaxLength(50)]
-        [MinLength(5)]
         public string ThreadTitle { get; set; }
 
-        [MaxLength(5000)]
         [Required]
-        public string Content { get; set; }
+        [MaxLength(5000)]
+        public string InputContent { get; set; }
 
-        public string SanitizedContent => new HtmlSanitizer().Sanitize(this.Content);
+        [Required]
+        [MaxLength(5000)]
+        public string Content => new HtmlSanitizer().Sanitize(this.InputContent);
 
         public bool CurrentUserIsCreator { get; set; }
     }

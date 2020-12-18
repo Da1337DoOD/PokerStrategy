@@ -58,7 +58,7 @@
 
             var userId = this.userManager.GetUserId(this.User);
 
-            await this.replyService.AddReply(userId, model.ThreadId, model.SanitizedContent);
+            await this.replyService.AddReply(userId, model.ThreadId, model.Content);
 
             return this.RedirectToAction("Thread", "ForumThread", new { id = model.ThreadId });
         }
@@ -79,7 +79,7 @@
             var model = new ReplyViewModel
             {
                 Id = reply.Id,
-                Content = reply.Content,
+                InputContent = reply.Content,
                 ThreadId = reply.ThreadId,
                 ThreadTitle = reply.Thread.Title,
                 CurrentUserIsCreator = this.replyService.UserIsCreator(userId, id),
@@ -97,7 +97,7 @@
                 return this.View(input);
             }
 
-            await this.replyService.EditAsync(input.Id, input.Content);
+            await this.replyService.EditAsync(input.Id, input.InputContent);
 
             return this.RedirectToAction("Thread", "ForumThread", new { area = "", id = input.ThreadId });
         }

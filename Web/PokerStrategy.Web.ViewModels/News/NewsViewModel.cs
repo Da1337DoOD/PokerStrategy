@@ -12,7 +12,6 @@
         public int Id { get; set; }
 
         [Required]
-        [MinLength(20)]
         public string Title { get; set; }
 
         public string ShortTitle
@@ -32,7 +31,6 @@
         }
 
         [Required]
-        [MinLength(20)]
         public string Content { get; set; }
 
         public string ShortContentForAllNews
@@ -51,9 +49,9 @@
             }
         }
 
-        [Required]
         public string PictureUrl { get; set; }
 
+        [Required]
         public string ShortContentForLatestNews
         {
             get

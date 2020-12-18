@@ -58,7 +58,7 @@
             {
                 Id = t.Id,
                 Title = t.Title,
-                Content = t.Content,
+                InputContent = t.Content,
                 CreatedOn = t.CreatedOn,
                 PostedByAvatarUrl = t.PostedBy.ImageUrl,
                 PostedByName = t.PostedBy.DisplayName,
