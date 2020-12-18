@@ -4,7 +4,7 @@
     using System;
     using System.ComponentModel.DataAnnotations;
 
-    public class ReplyViewModel
+    public class ReplyModel
     {
         public int Id { get; set; }
 

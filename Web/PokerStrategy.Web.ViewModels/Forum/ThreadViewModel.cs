@@ -28,7 +28,7 @@
         [MaxLength(5000)]
         public string Content => new HtmlSanitizer().Sanitize(this.InputContent);
 
-        public IEnumerable<ReplyViewModel> Replies { get; set; }
+        public IEnumerable<ReplyModel> Replies { get; set; }
 
         public string GetReplyJumpPosition() => this.Replies.Any() ?
             ("#" + this.Replies.LastOrDefault().Id.ToString())

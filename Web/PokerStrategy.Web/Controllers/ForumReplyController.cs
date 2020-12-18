@@ -35,7 +35,7 @@
 
             var thread = this.threadService.GetById(id);
 
-            var model = new ReplyViewModel
+            var model = new ReplyModel
             {
                 PostedByName = currentUser.DisplayName,
                 PostedByAvatarUrl = currentUser.ImageUrl,
@@ -49,7 +49,7 @@
 
         [HttpPost]
         [Authorize]
-        public async Task<IActionResult> Create(ReplyViewModel model)
+        public async Task<IActionResult> Create(ReplyModel model)
         {
             if (!this.ModelState.IsValid)
             {
@@ -64,19 +64,19 @@
         }
 
         [HttpGet]
-        public ActionResult EditReplyById(int id)
+        public ActionResult EditReplyById(int id) // ViewResult type
         {
             var reply = this.replyService.GetById(id);
 
             var userId = this.userManager.GetUserId(this.User);
 
-            if (!this.replyService.UserIsCreator(userId, id) 
+            if (!this.replyService.UserIsCreator(userId, id)
                 && !this.User.IsInRole("Admin"))
             {
                  return this.Redirect("/Identity/Account/AccessDenied");
             }
 
-            var model = new ReplyViewModel
+            var model = new ReplyModel
             {
                 Id = reply.Id,
                 InputContent = reply.Content,
@@ -90,7 +90,7 @@
 
         [HttpPost]
         [Authorize]
-        public async Task<IActionResult> EditReplyById(ReplyViewModel input)
+        public async Task<IActionResult> EditReplyById(ReplyModel input)
         {
             if (!this.ModelState.IsValid)
             {

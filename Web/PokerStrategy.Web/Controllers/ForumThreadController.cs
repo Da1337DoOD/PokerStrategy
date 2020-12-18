@@ -64,7 +64,7 @@
 
             var currentUserId = this.userManager.GetUserId(this.User);
 
-            var replies = thread.Replies.Select(r => new ReplyViewModel
+            var replies = thread.Replies.Select(r => new ReplyModel
             {
                 Id = r.Id,
                 PostedByName = r.PostedBy.DisplayName,
