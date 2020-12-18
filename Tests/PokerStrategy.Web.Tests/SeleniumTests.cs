@@ -11,7 +11,6 @@
         private readonly SeleniumServerFactory<Startup> server;
         private readonly IWebDriver browser;
 
-        // Be sure that selenium-server-standalone-3.141.59.jar is running
         public SeleniumTests(SeleniumServerFactory<Startup> server)
         {
             this.server = server;

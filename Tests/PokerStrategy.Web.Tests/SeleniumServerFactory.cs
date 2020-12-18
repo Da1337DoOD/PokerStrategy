@@ -19,7 +19,7 @@
 
         public SeleniumServerFactory()
         {
-            this.ClientOptions.BaseAddress = new Uri("https://localhost"); // will follow redirects by default
+            this.ClientOptions.BaseAddress = new Uri("https://localhost");
             this.CreateServer(this.CreateWebHostBuilder());
 
             this.process = new Process
@@ -42,7 +42,7 @@
             this.host.Start();
             this.RootUri = this.host.ServerFeatures.Get<IServerAddressesFeature>().Addresses.LastOrDefault(); // Last is https://localhost:5001!
 
-            // Fake Server we won't use...this is lame. Should be cleaner, or a utility class
+
             return new TestServer(new WebHostBuilder().UseStartup<FakeStartup>());
         }
 

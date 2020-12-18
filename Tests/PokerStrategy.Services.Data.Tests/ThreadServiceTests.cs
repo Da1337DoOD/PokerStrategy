@@ -166,7 +166,7 @@ namespace PokerStrategy.Services.Data.Tests
             };
 
             Assert.True(resultList.Count() >= 0);
-            Assert.True(resultList.Count() <= 5); // .Count() doesnt work for some f reason... HAD TO WASTE ME AN HOUR
+            Assert.True(resultList.Count() <= 5);
         }
 
         [Fact]
