@@ -16,10 +16,11 @@
 
         public int ThreadId { get; set; }
 
+        [MaxLength(50)]
+        [MinLength(5)]
         public string ThreadTitle { get; set; }
 
-        [MaxLength(800)]
-        [MinLength(2)]
+        [MaxLength(5000)]
         [Required]
         public string Content { get; set; }
 

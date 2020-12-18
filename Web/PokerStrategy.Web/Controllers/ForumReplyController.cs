@@ -48,6 +48,7 @@
         }
 
         [HttpPost]
+        [Authorize]
         public async Task<IActionResult> AddReply(ReplyInputModel model)
         {
             var userId = this.userManager.GetUserId(this.User);

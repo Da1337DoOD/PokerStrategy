@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     using System.Globalization;
     using System.Net;
     using System.Text.RegularExpressions;
@@ -10,45 +11,62 @@
     {
         public int Id { get; set; }
 
+        [Required]
+        [MinLength(20)]
         public string Title { get; set; }
 
         public string ShortTitle
         {
             get
             {
-                var title = WebUtility.HtmlDecode(Regex.Replace(this.Title, @"<[^>]+>", string.Empty));
-                title.Replace("\n", string.Empty).Replace("\r", string.Empty);
-                return title.Length > 30
-                        ? title.Substring(0, 30) + ".."
-                        : title;
+                if (Title != null)
+                {
+                    var content = WebUtility.HtmlDecode(Regex.Replace(this.Title, @"<[^>]+>", string.Empty));
+                    content.Replace("\n", string.Empty).Replace("\r", string.Empty);
+                    return content.Length > 90
+                            ? content.Substring(0, 90) + ".."
+                            : content;
+                }
+                return "";
             }
         }
 
+        [Required]
+        [MinLength(20)]
         public string Content { get; set; }
-
-        public string PictureUrl { get; set; }
 
         public string ShortContentForAllNews
         {
             get
             {
-                var content = WebUtility.HtmlDecode(Regex.Replace(this.Content, @"<[^>]+>", string.Empty));
-                content.Replace("\n", string.Empty).Replace("\r", string.Empty);
-                return content.Length > 90
-                        ? content.Substring(0, 90) + ".."
-                        : content;
+                if (Content != null)
+                {
+                    var content = WebUtility.HtmlDecode(Regex.Replace(this.Content, @"<[^>]+>", string.Empty));
+                    content.Replace("\n", string.Empty).Replace("\r", string.Empty);
+                    return content.Length > 90
+                            ? content.Substring(0, 90) + ".."
+                            : content;
+                }
+                return "";
             }
         }
+
+        [Required]
+        public string PictureUrl { get; set; }
 
         public string ShortContentForLatestNews
         {
             get
             {
-                var content = WebUtility.HtmlDecode(Regex.Replace(this.Content, @"<[^>]+>", string.Empty));
-                content.Replace("\n", string.Empty).Replace("\r", string.Empty);
-                return content.Length > 330
-                        ? content.Substring(0, 330) + ".."
-                        : content;
+                if (Content != null)
+                {
+                    var content = WebUtility.HtmlDecode(Regex.Replace(this.Content, @"<[^>]+>", string.Empty));
+                    content.Replace("\n", string.Empty).Replace("\r", string.Empty);
+                    return content.Length > 330
+                            ? content.Substring(0, 330) + ".."
+                            : content;
+                }
+                return "";
             }
         }
 

@@ -67,79 +67,79 @@
 	{
 		var replyNumber = Model.Replies.Count() - counter;
 		counter++;
-		<div class="row replyContent replyStyle col-lg-12">
-			<div class="col-md-2 replyAuthorContainer" id="@reply.Id">
-				<b class="float-left number-logo">#@replyNumber</b>
-
-				<div class="bg-cover"
-					 style="background-image: url('@reply.PostedByAvatarUrl'); padding-top:25px; padding-bottom:5px;">
-				</div>
-
-				<a>
-					<strong class="float-left">@reply.PostedByName</strong>
-				</a>  <br />
-				<span class="float-left">@reply.RepliedOn</span>
-			</div>
-			<div class="col-md-9 replyContentContainer" style="padding:2%">
-				<div class="postContent">
-					<!--class="postContent"-->
-
-					@Html.Raw(reply.SanitizedContent)
-				</div>
+	<div class="row replyContent replyStyle col-lg-12">
+		
+		<div class="col-md-2 replyAuthorContainer" id="@reply.Id">
+			<b>#@replyNumber</b>
+			<div class="bg-cover"
+				 style="background-image: url('@reply.PostedByAvatarUrl'); ">
 			</div>
 
-			<div class="replyDeleteBtnContainer" style="margin:1%">
-				<!--EDIT AND DELETE-->
-				@if (this.User.IsInRole("Admin") || this.User.IsInRole("Moderator"))
-				{
-					<form method="post">
-						<!--Delete with Confirmation-->
-						<span id="confirmDeleteReplySpan_@reply.Id" style="display:none">
-							<span>Are you sure?</span>
-							<button type="submit" class="btn btn-danger"
-									asp-area="Administration"
-									asp-controller="Admin"
-									asp-action="DeleteReplyById"
-									asp-route-id="@reply.Id">
-								Yes
-							</button>
-							<a class="btn btn-primary"
-							   onclick="confirmDeleteReply('@reply.Id', false)">No</a>
-						</span>
-						<span id="deleteReplySpan_@reply.Id">
-							<a class="btn btn-danger"
-							   onclick="confirmDeleteReply('@reply.Id', true)">Delete</a>
-						</span>
-					</form>
-					<script>
-						function confirmDeleteReply(uniqueId, isDeleteClicked) {
-							var deleteReplySpan = 'deleteReplySpan_' + uniqueId;
-							var confirmDeleteReplySpan = 'confirmDeleteReplySpan_' + uniqueId;
+			<a>
+				<strong class="float-left">@reply.PostedByName</strong>
+			</a>  <br />
+			<span class="float-left">@reply.RepliedOn</span>
+		</div>
+		<div class="col-md-9 replyContentContainer" style="padding:2%">
+			<div class="postContent">
+				<!--class="postContent"-->
 
-							if (isDeleteClicked) {
-								$('#' + deleteReplySpan).hide();
-								$('#' + confirmDeleteReplySpan).show();
-							} else {
-								$('#' + deleteReplySpan).show();
-								$('#' + confirmDeleteReplySpan).hide();
-							}
-						}
-					</script>
-				}
-
-				<!--------Edit reply---------->
-				@if (reply.CurrentUserIsCreator || User.IsInRole("Admin"))
-				{
-
-					<!--Edit-->
-					<form method="post" style="margin-top:15%">
-						<a asp-controller="ForumReply" asp-action="EditReplyById"
-						   asp-route-id="@reply.Id" class="btn btn-primary">Edit</a>
-					</form>
-				}
-
+				@Html.Raw(reply.SanitizedContent)
 			</div>
 		</div>
+
+		<div class="replyDeleteBtnContainer" style="margin:1%">
+			<!--EDIT AND DELETE-->
+			@if (this.User.IsInRole("Admin") || this.User.IsInRole("Moderator"))
+			{
+				<form method="post">
+					<!--Delete with Confirmation-->
+					<span id="confirmDeleteReplySpan_@reply.Id" style="display:none">
+						<span>Are you sure?</span>
+						<button type="submit" class="btn btn-danger"
+								asp-area="Administration"
+								asp-controller="Admin"
+								asp-action="DeleteReplyById"
+								asp-route-id="@reply.Id">
+							Yes
+						</button>
+						<a class="btn btn-primary"
+						   onclick="confirmDeleteReply('@reply.Id', false)">No</a>
+					</span>
+					<span id="deleteReplySpan_@reply.Id">
+						<a class="btn btn-danger"
+						   onclick="confirmDeleteReply('@reply.Id', true)">Delete</a>
+					</span>
+				</form>
+				<script>
+					function confirmDeleteReply(uniqueId, isDeleteClicked) {
+						var deleteReplySpan = 'deleteReplySpan_' + uniqueId;
+						var confirmDeleteReplySpan = 'confirmDeleteReplySpan_' + uniqueId;
+
+						if (isDeleteClicked) {
+							$('#' + deleteReplySpan).hide();
+							$('#' + confirmDeleteReplySpan).show();
+						} else {
+							$('#' + deleteReplySpan).show();
+							$('#' + confirmDeleteReplySpan).hide();
+						}
+					}
+				</script>
+			}
+
+			<!--------Edit reply---------->
+			@if (reply.CurrentUserIsCreator || User.IsInRole("Admin"))
+			{
+
+				<!--Edit-->
+				<form method="post" style="margin-top:15%">
+					<a asp-controller="ForumReply" asp-action="EditReplyById"
+					   asp-route-id="@reply.Id" class="btn btn-primary">Edit</a>
+				</form>
+			}
+
+		</div>
+	</div>
 	}
 </div>
 <a href="#top" class="btn btn-newReply" style="float:left; background-color:gray; color: white;">Jump to Last</a>

@@ -10,8 +10,7 @@
         [Required]
         public string Title { get; set; }
 
-        [MaxLength(800)]
-        [MinLength(2)]
+        [MaxLength(5000)]
         [Required]
         public string Content { get; set; }
 

@@ -6,3 +6,4 @@ D:\Users\Kolio\Desktop\PokerStrategy\PokerStrategy.Common\obj\Release\netstandar
 D:\Users\Kolio\Desktop\PokerStrategy\PokerStrategy.Common\obj\Release\netstandard2.1\PokerStrategy.Common.csproj.CoreCompileInputs.cache
 D:\Users\Kolio\Desktop\PokerStrategy\PokerStrategy.Common\obj\Release\netstandard2.1\PokerStrategy.Common.dll
 D:\Users\Kolio\Desktop\PokerStrategy\PokerStrategy.Common\obj\Release\netstandard2.1\PokerStrategy.Common.pdb
+D:\Users\Kolio\Desktop\PokerStrategy\PokerStrategy.Common\obj\Release\netstandard2.1\PokerStrategy.Common.csprojAssemblyReference.cache

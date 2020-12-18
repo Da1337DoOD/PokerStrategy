@@ -11,7 +11,7 @@
         public IEnumerable<ThreadViewModel> LatestThreads { get; set; }
 
         public IEnumerable<NewsViewModel> LatestNews { get; set; }
-        //  VideoListingViewModel
-        public IEnumerable<VideoViewModel> LatestVideos { get; set; } // TODO
+
+        public IEnumerable<VideoViewModel> LatestVideos { get; set; }
     }
 }
