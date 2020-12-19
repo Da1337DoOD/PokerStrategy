@@ -2,7 +2,7 @@
 
 <head>
 	<link rel="stylesheet" type="text/css" href="~/css/site.css" />
-	@{ViewBag.Title = "Reply to " + "\"" + Model.ThreadTitle + "\""; }
+	@{ViewBag.Title = "Reply"; }
 	<script src='https://cdn.tiny.cloud/1/t8478o48f5812yo147q590mh37ekrq9u2t25fbhc0aletbq1/tinymce/5/tinymce.min.js' referrerpolicy="origin">
 	</script>
 	<script>
@@ -23,7 +23,7 @@
 		</div>
 	</div>
 
-	<div class="row">
+	@*<div class="row">
 		<div class="col-md-12">
 			<div class="replyOriginalPost">
 				<h2 class="text-align: center;">
@@ -31,14 +31,14 @@
 				</h2>
 			</div>
 		</div>
-	</div>
+	</div>*@
 
 	<div class="row">
 		<div class="col-md-12">
 			<div class="createPostSection">
-				<div class="authorBlock">
+				@*<div class="authorBlock">
 					You are replying as: <span class="authorBlockName">@Model.PostedByName</span>
-				</div>
+				</div>*@
 				<form method="post" asp-area="" asp-controller="ForumReply" asp-action="Create">
 					<input hidden asp-for="Id" />
 					<input hidden asp-for="ThreadId" />

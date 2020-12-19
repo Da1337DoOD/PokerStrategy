@@ -40,7 +40,9 @@
 			@if (this.User.IsInRole("Admin"))
 			{
 				<!--Edit-->
-				<form method="post" style="padding:2%">
+				<form method="post" style="		padding: 2%;
+		margin-bottom: 10%
+">
 					<a asp-area="Administration" asp-controller="Admin" asp-action="EditNewsById"
 					   asp-route-id="@news.Id" class="btn btn-primary">Edit</a>
 
